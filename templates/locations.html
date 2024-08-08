@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yatra Spiritual Tours</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2> Base Template extended </h2>
+
     {% for locations in locations %}
         {{ locations.site_name }}<br>
         {{ locations.deity }}<br>
@@ -13,5 +10,5 @@
         {{ locations.access }}<br>
         {{ locations.part }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
