@@ -1,15 +1,32 @@
+<!-- 
+    MILESTONE PROJECT 3 by Ashwinkarthik Selvaraj
+    "Yaatra - Spiritual Tour Guide"
+    - - - - - - - - - - - - - - - - - - - -
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site Metadata -->
+    <meta name="description" 
+        content="The primary purpose of this platform is to connect spiritual travellers, tour operators, and cultural enthusiasts, 
+            offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual 
+            and religious travel, the platform aims to stand out from other travel review websites.">
+    <meta name="keywords" 
+        content="spiritual, travel, religious sites, india, deity, tour, travel review, , The Full Guide To Spiritual Tourism In India, sacred">
+    <meta name="author" content="Ashwinkarthik Selvaraj">
+    <!-- Font-Awesome Cdn-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <!-- Materialize Cdn and Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
     <title>Yatra Spiritual Tours</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/chakra.png') }}">
 </head>
 <body>
 
@@ -26,7 +43,7 @@
                     <li><a href="#">Add Review</a></li>
                     <li><a href="#">Log Out</a></li>
                     <li><a href="#">Log In</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,7 +57,7 @@
             <li><a href="#">Add Review</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="#">Log In</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>        
     </header>
     
