@@ -5,3 +5,7 @@
 .main {
     background-image: url("../img/main-img.png");
 }
+
+.toast {
+    z-index: 9999 !important;
+}
