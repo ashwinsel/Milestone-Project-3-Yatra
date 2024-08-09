@@ -19,12 +19,12 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
                 <!-- Username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-user-plus prefix light-blue-text text-darken-4"></i>
+                        <i class="fa-solid fa-user prefix light-blue-text text-darken-4"></i>
                         <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z]{5,8}$" class="validate">
                         <label for="username">Username</label>
                     </div>
@@ -38,20 +38,11 @@
                         <label for="password">Password</label>
                     </div>
                 </div>
-
-                <!-- Confirm Password -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fa-solid fa-lock prefix light-blue-text text-darken-4"></i>
-                        <input id="confirm_password" name="confirm_password" type="password" class="validate">
-                        <label for="confirm_password">Confirm Password</label>
-                    </div>
-                </div>
-
-                <!-- Register Button -->
+                
+                <!-- login Button -->
                 <div class="row">
                     <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                        Register <i class="fas fa-sign-in-alt"></i>
+                        Sign in <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </button>
                 </div>
             </div>
@@ -61,8 +52,7 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Welcome Back! 
-                <a href="{{ url_for('login')}}" class="ligth-blue-text text-darken-4">Sign In to Your Account!</a>
+                Don't Have an Account? <a href="{{ url_for('register')}}" class="ligth-blue-text text-darken-4">Sign up and get started!</a>
             </p>
         </div>
     </div>
