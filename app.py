@@ -59,10 +59,7 @@ def register():
         flash("Registration Successful!", "success")
         return redirect(url_for("profile", username=session["user"]))
 
-    return redirect(url_for("register.html"))  # Redirect to the home page
-
-
-
+    return render_template("register.html")  # Redirect to the home page
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -92,7 +89,18 @@ def login():
 def profile(username):
     # pulls through session user's username value from database
     username = mongo.db.user.find_one({"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+    
+    return redirect(url_for("login"))
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been signed out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
