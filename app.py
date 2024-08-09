@@ -34,7 +34,7 @@ def register():
         confirm_password = request.form.get("confirm_password")
 
         # Check if username already exists
-        existing_user = mongo.db.users.find_one({"username": username.lower()})
+        existing_user = mongo.db.user.find_one({"username": username.lower()})
         if existing_user:
             flash("Username already exists", "error")
             return redirect(url_for("register"))
@@ -52,12 +52,12 @@ def register():
             "username": username.lower(),
             "password": password_hash
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.user.insert_one(register)
 
         # Put the new user into 'session' cookie
         session["user"] = username.lower()
         flash("Registration Successful!", "success")
-        return redirect(url_for("locations.html"))  # Redirect to the home page or wherever you'd like
+        return redirect(url_for("register"))  # Redirect to the home page or wherever you'd like
 
     return render_template("register.html")
 
