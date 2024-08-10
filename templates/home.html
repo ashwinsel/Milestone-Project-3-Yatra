@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block header %}
+    <section class="hslider">
+        <div class="slider">        
+            <ul class="slides transparent">
+                <li class="banner">
+                    <h1 style="font-family: 'Lord Spirit', sans-serif; font-size: 6rem;;">Yaatra</h1>
+                    <div class="center-align">
+                        <p class="banner-text">Guide for Spiritual Travellers</p>
+                        <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('login') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+                        <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('register') }}"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    </div>
+                </li>
+                <li class="banner">
+                    <h2 style="font-size: 2.2rem;">Just want to Browse?</h2>
+                    <div>
+                        <p class="banner-text">No Problem!</p>
+                        <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('browse_sites') }}"><i class="fa-brands fa-readme"></i> Browse Sites</a>
+                        <a class="waves-effect waves-light btn-small teal darken-1" href="#"><i class="fa-solid fa-book-open-reader"></i> Read Reviews</a>
+                    </div>
+                </li>
+            </ul>                        
+        </div>        
+    </section>
+{% endblock%}
+
+
+
+
+{% block body %}
+<section class="container">
+    <div class="row">
+        <div class="col s12 m4 l4">
+            <div class="card-panel">
+                <h6>Browse Sites</h6>
+                <span class="black-text">This section offers users a comprehensive directory of spiritual destinations, allowing them to explore various locations, learn about their significance, and discover new places to visit. This feature helps travelers plan their spiritual journeys by providing detailed information on a wide range of sacred sites.
+                </span>
+            </div>
+        </div>    
+        <div class="col s12 m4 l4">
+            <div class="card-panel">
+                <h6>About Us</h6>
+                <span class="black-text">Our platform connects a growing community of spiritual travelers, offering user-driven reviews and insights on sacred destinations. With India's 97% surge in spiritual travel searches, this site empowers travelers and guides to share, discover, and plan journeys to revered sites like Ayodhya, Ujjain, and Badrinath.
+                </span>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <div class="card-panel">
+                <h6>Reviews</h6>
+                <span class="black-text">This section allows users to share experiences of their visits to spiritual sites, including insights on tour operators and routes. This feature fosters a collaborative community where travelers can explore authentic, user-generated content, helping others make informed decisions on spiritual journey planning.
+                </span>
+            </div>
+        </div> 
+    </div>
+</section>
+
+{% endblock %}

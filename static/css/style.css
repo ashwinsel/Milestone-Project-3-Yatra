@@ -17,11 +17,6 @@ nav ul a {
     font-weight: 600;
 }
 
-.text-shadow {
-    font-family: 'Lumanosimo', sans-serif;                                                                                              
-    text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);
-}
-
 .banner-text{
     font-family: 'Lumanosimo', sans-serif;
     font-weight: bold;
@@ -48,12 +43,9 @@ h1{
 
 /* Slider Styles */
 .banner {
-    background-image: url("../img/main-img-2.png");
-    opacity: 0.5;
-    height: 40vh;
-    width: 100vw;
+    background-color: rgba(234, 194, 134, 0.479);    
     text-align: center;
-    margin: 10px 0; /* Adjusted margin to avoid unnecessary side space */
+    margin: 2px 2px 2px 2px; /* Adjusted margin to add a bit of border */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,4 +65,10 @@ body {
 
   main {
     flex: 1 0 auto;
+  }
+
+  .card-panel{
+    border-radius: 5%;
+    background-color: rgba(234, 194, 134, 0.579);
+    text-align: center;
   }

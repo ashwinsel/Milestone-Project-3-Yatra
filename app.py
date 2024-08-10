@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/get_locations")
 def get_locations():
     locations = mongo.db.locations.find()
-    return render_template("locations.html", locations=locations)
+    return render_template("home.html", locations=locations)
 
 
 @app.route("/register", methods=["GET", "POST"])
