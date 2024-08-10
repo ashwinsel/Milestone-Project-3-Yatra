@@ -28,6 +28,10 @@ nav ul a {
     color: #031929;
 }
 
+h1{    
+    line-height: 25%;
+}
+
 .main {
     background-image: url("../img/main-img-2.png");
     background-position: center center;
