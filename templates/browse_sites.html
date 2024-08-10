@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block header %}
     <section class="main">
-        
+        {% if session.user %}
+            <div class="center-align">   
+                <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}"><i class="fa-solid fa-plus"></i> Add Site</a>       
+            </div>
+        {% endif %}
     </section>
 {% endblock%}
 
@@ -14,13 +18,14 @@
                 <li>
                 <div class="collapsible-header orange lighten-2 black-text">
                     <i class="fa-solid fa-gopuram prefix"></i>
-                    <h6>{{ locations.site_name }} <p>Part of India: {{ locations.part }}</p></h6>
+                    <h6>{{ locations.site_name }}</h6>
                     {% if locations.access %}
                     <i class="fa-solid fa-wheelchair"></i>
                     {% endif %}
                 </div>
                 <div class="collapsible-body">
-                    <h6>{{ locations.deity }}</h6>                    
+                    <h6>Deity: {{ locations.deity }}</h6>
+                    <p>Part of India: {{ locations.part }}</p>                    
                     <p>{{ locations.description }}</p>
                 </div>
                 </li>

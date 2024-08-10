@@ -110,6 +110,11 @@ def browse_sites():
     return render_template("browse_sites.html")
 
 
+@app.route("/add_site")
+def add_site():
+    return render_template("add_site.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
