@@ -6,13 +6,25 @@
 {% endblock%}
 
 {% block body %}
-
-    {% for locations in locations %}
-        {{ locations.site_name }}<br>
-        {{ locations.deity }}<br>
-        {{ locations.description }}<br>
-        {{ locations.access }}<br>
-        {{ locations.part }}<br>
-    {% endfor %}
-
+    <section class="container">        
+        <!-- Inspired by Code Institute Task Manager walkthrough project -->
+        <!-- Collapsible to display Spiritual Sites -->
+        <ul class="collapsible popout">
+            {% for locations in locations %}
+                <li>
+                <div class="collapsible-header orange lighten-2 black-text">
+                    <i class="fa-solid fa-gopuram prefix"></i>
+                    <h6>{{ locations.site_name }} <p>Part of India: {{ locations.part }}</p></h6>
+                    {% if locations.access %}
+                    <i class="fa-solid fa-wheelchair"></i>
+                    {% endif %}
+                </div>
+                <div class="collapsible-body">
+                    <h6>{{ locations.deity }}</h6>                    
+                    <p>{{ locations.description }}</p>
+                </div>
+                </li>
+            {% endfor %}          
+        </ul>
+    </section>
 {% endblock %}

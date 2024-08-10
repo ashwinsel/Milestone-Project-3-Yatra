@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_locations")
 def get_locations():
-    locations = mongo.db.locations.find()
+    locations = list (mongo.db.locations.find())
     return render_template("home.html", locations=locations)
 
 

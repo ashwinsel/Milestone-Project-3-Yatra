@@ -5,8 +5,8 @@ $(document).ready(function() {
     // Initialize modals
     $('.modal').modal();
 
-    // Initialize parallax effect
-    $('.parallax').parallax();
+    // Initialize collapsible effect
+    $('.collapsible').collapsible();
 
     // Initialize the slider only if it exists
     if ($('.slider').length) {

@@ -72,3 +72,17 @@ body {
     background-color: rgba(234, 194, 134, 0.579);
     text-align: center;
   }
+
+  .collapsible-header{
+    border: 1px solid black;
+    margin-bottom: 5px;
+    
+  }
+
+  .collapsible-header h6 {
+    line-height: 18%;
+  }
+
+  .collapsible-body{
+    background-color: rgba(234, 194, 134, 0.8);
+  }
