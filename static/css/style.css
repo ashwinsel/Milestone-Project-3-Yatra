@@ -22,6 +22,12 @@ nav ul a {
     text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);
 }
 
+.banner-text{
+    font-family: 'Lumanosimo', sans-serif;
+    font-weight: bold;
+    color: #031929;
+}
+
 .main {
     background-image: url("../img/main-img-2.png");
     background-position: center center;
@@ -34,4 +40,20 @@ nav ul a {
 .card-panel{
     background-color: #CD8D47;
     opacity: 0.9;
+}
+
+/* Slider Styles */
+.banner {
+    background-image: url("../img/main-img-2.png");
+    opacity: 0.5;
+    height: 40vh;
+    width: 100vw;
+    text-align: center;
+    margin: 10px 0; /* Adjusted margin to avoid unnecessary side space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative to manage content stacking */
+    z-index: 3; /* Ensure banner content is on top of the overlay */
 }
