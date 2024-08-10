@@ -3,13 +3,12 @@
 {% block header %}
 <!-- ** PAGE BANNER ** -->
 <section>    
-    <div class="heading-text-block white-text main">
-        <br>
-        <h1 class="flow-text fw-bold">Register</h1>
-        <div class="container">
-            <p class="flow-text lead mb-4">Create an Account</p>
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Don't Have an Account? <a href="{{ url_for('register') }}" class="ligth-blue-text text-darken-4">Sign up and get started!</a>
+            </p>
         </div>
-        <br>
     </div>
 </section>
 {% endblock %}
@@ -55,16 +54,6 @@
             </div>
         </form>
     </div>
-
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                Welcome Back! 
-                <a href="{{ url_for('login')}}" class="ligth-blue-text text-darken-4">Sign In to Your Account!</a>
-            </p>
-        </div>
-    </div>
-
 </div>
 
 {% endblock %}

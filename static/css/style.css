@@ -38,8 +38,8 @@ nav ul a {
 }
 
 .card-panel{
-    background-color: #CD8D47;
-    opacity: 0.9;
+    background-color: #EAC286;
+    opacity: 6.9;
 }
 
 /* Slider Styles */
@@ -57,3 +57,16 @@ nav ul a {
     position: relative; /* Position relative to manage content stacking */
     z-index: 3; /* Ensure banner content is on top of the overlay */
 }
+
+/* footer styles */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Lumanosimo', sans-serif;                                                                                              
+    text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

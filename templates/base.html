@@ -30,48 +30,51 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/chakra.png') }}">
 </head>
 <body class="main">
-    <!-- Logo and Navbar -->
-    <!-- Inspired by Code Institute Task Manager walkthrough project -->
-    <header>
-        <!-- top navbar -->
-        <nav class="nav-extended text-shadow">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('get_locations')}}" class="brand-logo">Yaatra</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_locations')}}">Home</a></li>                    
-                    {% if session.user %}          
-                        <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
-                        <li><a href="#">Add Review</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Sign In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
+    
+        <!-- Logo and Navbar -->
+        <!-- Inspired by Code Institute Task Manager walkthrough project -->
+        <header>
+            <!-- top navbar -->
+            <nav class="nav-extended text-shadow">
+                <div class="nav-wrapper">
+                    <a href="{{ url_for('get_locations')}}" class="brand-logo">Yaatra</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('get_locations')}}">Home</a></li>                    
+                        {% if session.user %}          
+                            <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
+                            <li><a href="#">Add Review</a></li>
+                            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                            <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- mobile sidenav -->
+            <ul class="sidenav" id="mobile-demo">
+                <li><h4 class="center-align light-blue-text text-darken 4">Yaatra</h4></li>
+                <li><a href="{{ url_for('get_locations')}}">Home</a></li>
+                {% if session.user %}          
+                    <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
+                    <li><a href="#">Add Review</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
         
-        <!-- mobile sidenav -->
-        <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">Yaatra</h4></li>
-            <li><a href="{{ url_for('get_locations')}}">Home</a></li>
-            {% if session.user %}          
-                <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
-                <li><a href="#">Add Review</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}">Sign In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-        </ul>
-
-        {% block header %}
-        {% endblock %}     
-        
-    </header>
+            {% block header %}
+            {% endblock %}
+            
+            
+        </header>
+    
 
     <!-- Modal to display flash messages-->
     <section>
@@ -94,10 +97,18 @@
         {% endwith %}
     </section>
     
-    
+    <main>
     {% block body %}
     {% endblock %}
+    </main>
     
+    <!-- Footer -->
+    <footer class="page-footer">        
+        <div class="container">
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>        
+      </footer>
     
     <!-- ** SCRIPTS ** -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
