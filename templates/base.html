@@ -22,6 +22,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
     <!-- Materialize Cdn and Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
@@ -35,12 +36,12 @@
         <!-- top navbar -->
         <nav class="nav-extended text-shadow amber darken-2">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_locations')}}" class="brand-logo">Yaatra</a>
+                <a href="{{ url_for('get_locations')}}" class="brand-logo logo">Yaatra</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_locations')}}">Home</a></li>                    
                     {% if session.user %}          
-                        <li><a href="#">Browse Sites</a></li>
+                        <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
                         <li><a href="#">Add Review</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
@@ -57,7 +58,7 @@
             <li><h4 class="center-align light-blue-text text-darken 4">Yaatra</h4></li>
             <li><a href="{{ url_for('get_locations')}}">Home</a></li>
             {% if session.user %}          
-                <li><a href="#">Browse Sites</a></li>
+                <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
                 <li><a href="#">Add Review</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
@@ -74,17 +75,25 @@
 
 
     <section>
-        <!-- flash messages -->
+        <!-- Modal Trigger -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                <div id="flash-modal-trigger" style="display: none;"></div>
+                <!-- Modal Structure -->
+                <div id="flash-modal" class="modal">
+                    <div class="modal-content">                        
+                        {% for message in messages %}
+                            <h4>{{ message }}</h4>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
             {% endif %}
         {% endwith %}
     </section>
+    
     
     {% block body %}
     {% endblock %}

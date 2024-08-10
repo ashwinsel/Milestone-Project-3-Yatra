@@ -59,7 +59,7 @@ def register():
         flash("Registration Successful!", "success")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("register.html")  # Redirect to the home page
+    return render_template("register.html")  # Redirect to the register page
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -101,6 +101,13 @@ def logout():
     flash("You have been signed out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/browse_sites")
+def browse_sites():
+    locations = mongo.db.locations.find()
+    return render_template("browse_sites.html", locations=locations)
+    return render_template("browse_sites.html")
 
 
 if __name__ == "__main__":
