@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Welcome Back! 
-                <a href="{{ url_for('login')}}" class="ligth-blue-text text-darken-4">Sign In to Your Account!</a>
+                <b>Welcome Back!</b>
+                <a href="{{ url_for('login')}}" class="ligth-blue-text text-darken-4"><b>Sign In to Your Account!</b></a>
             </p>
             <p class="center-align">
-                Don't Have an Account? <a href="{{ url_for('register') }}" class="ligth-blue-text text-darken-4">Sign up and get started!</a>
+                <b>Don't Have an Account?</b> <a href="{{ url_for('register') }}" class="ligth-blue-text text-darken-4"><b>Sign up and get started!</b></a>
             </p>
         </div>
     </div>
@@ -25,24 +25,24 @@
                 <!-- Username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-user prefix light-blue-text text-darken-4"></i>
+                        <i class="fa-solid fa-user prefix black-text"></i>
                         <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z]{5,8}$" class="validate">
-                        <label for="username">Username</label>
+                        <label for="username" class="black-text">Username</label>
                     </div>
                 </div>
 
                 <!-- Password -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-lock prefix light-blue-text text-darken-4"></i>
+                        <i class="fa-solid fa-lock prefix black-text"></i>
                         <input id="password" name="password" type="password" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
-                        <label for="password">Password</label>
+                        <label for="password" class="black-text">Password</label>
                     </div>
                 </div>
                 
                 <!-- login Button -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                    <button type="submit" class="col s12 btn-large white-text black">
                         Sign in <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </button>
                 </div>
