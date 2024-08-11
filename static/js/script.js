@@ -26,6 +26,11 @@ $(document).ready(function() {
         $('#flash-modal').modal('open');
     }
 
+    // Function to defensive program to confirm deletion
+    $('.delete-btn').on('click', function() {
+        return confirm("Are you sure you want to delete this site? This action cannot be undone.");
+    });
+
     // Function to validate Materialize select
     // Adapted from code by Tim Nelson of Code Institute
     validateMaterializeSelect();

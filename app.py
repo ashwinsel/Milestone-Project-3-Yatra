@@ -19,12 +19,6 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_locations")
-def get_locations():
-    locations = list (mongo.db.locations.find())
-    return render_template("home.html", locations=locations)
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -103,6 +97,12 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/get_locations")
+def get_locations():
+    locations = list (mongo.db.locations.find())
+    return render_template("home.html", locations=locations)
+
+
 @app.route("/browse_sites")
 def browse_sites():
     locations = mongo.db.locations.find()
@@ -152,16 +152,50 @@ def add_site():
 
 @app.route("/edit_site/<locations_id>", methods=["GET", "POST"])
 def edit_site(locations_id):
-    locations = mongo.db.locations.find_one({"_id": ObjectId(locations_id)})        
-    direction = mongo.db.part.find().sort("part_name", 1)
+    if request.method == "POST":
+        try:
+            # Retrieve form data
+            site_name = request.form.get("site_name")
+            deity = request.form.get("deity")
+            part_name = request.form.get("part_name")
+            description = request.form.get("description")
 
-    # Convert ObjectId to string
-    if locations:
-        locations['_id'] = str(locations['_id'])
-    
+            # Check if the 'access' checkbox is ticked
+            disabled_access = request.form.get("access") is not None        
+
+            # Prepare the site data for update
+            site_data = {
+                "site_name": site_name,
+                "deity": deity,
+                "part_name": part_name,
+                "description": description,
+                "access": disabled_access,
+                "created_by": session["user"]
+            }
+
+            # Update the site data in the MongoDB collection
+            mongo.db.locations.update_one({"_id": ObjectId(locations_id)}, {"$set": site_data})
+            flash("Site Information Sucessfully Updated!", "success")
+
+            # Redirect to the browse sites page or another relevant page
+            return redirect(url_for("browse_sites"))
+
+        except Exception as e:
+            # Handle any exceptions that occur
+            flash(f"An error occurred while updating the site: {str(e)}", "error")
+            return redirect(url_for("edit_site", locations_id=locations_id))
+
+    # If GET request, render the edit site form with existing data
+    locations = mongo.db.locations.find_one({"_id": ObjectId(locations_id)})
+    direction = mongo.db.part.find().sort("part_name", 1)
     return render_template("edit_site.html", locations=locations, part=direction)
 
 
+@app.route("/delete_site/<locations_id>")
+def delete_site(locations_id):
+    mongo.db.locations.remove({"_id": ObjectId(locations_id)})
+    flash("Site Data and Information Sucessfully Deleted!", "success")
+    return redirect(url_for("browse_sites"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
