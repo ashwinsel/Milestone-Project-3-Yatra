@@ -2,8 +2,9 @@
 
 {% block header %}
     <section class="main">
+        <h2 class="center-align">Reviews</h2>
         {% if session.user %}
-        <div class="container">
+        <div class="container">            
             <div class="row">
                 <div class="col s12 center-align">
                     <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
@@ -17,29 +18,18 @@
 {% endblock%}
 
 {% block body %}
-    <section class="container">
-        <h2>Vertical Tabs</h2>
-        <p>Click on the buttons inside the tabbed menu:</p>
-
-        <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-            <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-        </div>
-
-        <div id="London" class="tabcontent">
-            <h3>London</h3>
-            <p>London is the capital city of England.</p>
-        </div>
-
-        <div id="Paris" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
-
-        <div id="Tokyo" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
+    <section class="container">        
+        <div class="grid-container">
+            {% for review in reviews %}
+                <div class="grid-item">
+                    <h5>{{ review.where }}</h5>
+                    <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
+                    <p><strong>Rating:</strong> {{ review.rating }}</p>
+                    <p><strong>Purpose:</strong> {{ review.purpose }}</p>
+                    <p><strong>Review:</strong> {{ review.review_des }}</p>
+                    <p class="created-by">Created By: {{ review.created_by }}</p>
+                </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
