@@ -45,8 +45,9 @@ h1{
 .banner {
     background-color: rgba(234, 194, 134, 0.479);    
     text-align: center;
-    margin: 2px 2px 2px 2px; /* Adjusted margin to add a bit of border */
+    margin: 2px 2px 2px -1px; /* Adjusted margin to add a bit of border */
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -70,7 +71,7 @@ body {
   .card-panel{
     border-radius: 5%;
     background-color: rgba(234, 194, 134, 0.579);
-    text-align: center;
+    
   }
 
   .collapsible-header{

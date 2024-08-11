@@ -110,8 +110,42 @@ def browse_sites():
     return render_template("browse_sites.html")
 
 
-@app.route("/add_site")
+@app.route("/add_site", methods=["GET", "POST"])
 def add_site():
+    if request.method == "POST":
+        try:
+            # Retrieve form data
+            site_name = request.form.get("site_name")
+            deity = request.form.get("deity")
+            part_name = request.form.get("part_name")
+            description = request.form.get("description")
+
+            # Check if the 'access' checkbox is ticked
+            disabled_access = request.form.get("access") is not None        
+
+            # Prepare the site data for insertion
+            site_data = {
+                "site_name": site_name,
+                "deity": deity,
+                "part_name": part_name,
+                "description": description,
+                "access": disabled_access,
+                "created_by": session["user"]
+            }
+
+            # Insert the site data into the MongoDB collection
+            mongo.db.locations.insert_one(site_data)
+            flash("Site Sucessfully Added", "success")
+
+            # Redirect to the browse sites page
+            return redirect(url_for("browse_sites"))
+        
+        except Exception as e:
+            # Handle any exceptions that occur
+            flash(f"An error occurred while adding the site: {str(e)}", "error")
+            return redirect(url_for("add_site"))
+
+    # If GET request, render the add site form
     direction = mongo.db.part.find().sort("part_name", 1)
     return render_template("add_site.html", part=direction)
 

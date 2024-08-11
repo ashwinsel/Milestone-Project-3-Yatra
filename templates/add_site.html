@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block header %}
 <!-- ** PAGE BANNER ** -->
-<section>    
+<section class="container">    
     <div class="row">
         <div class="col s12">
             <p class=" banner center-align">
@@ -16,12 +16,12 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_site') }}">
             <div class="card-panel">
                 <!-- Site Name Input Field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-gopuram prefix light-blue-text text-darken-4"></i>
+                        <i class="fas fa-gopuram prefix black-text"></i>
                         <input id="site_name" name="site_name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-Z]{5,8}$" class="validate">
                         <label for="site_name" class="black-text">Site Name</label>
                     </div>
@@ -30,7 +30,7 @@
                 <!-- Deity field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-hands-praying prefix light-blue-text text-darken-4"></i>
+                        <i class="fas fa-hands-praying prefix black-text"></i>
                         <input id="deity" name="deity" type="text" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
                         <label for="deity" class="black-text">Name of the main deity</label>
                     </div>
@@ -39,39 +39,37 @@
                 <!-- Part of India Location Selection List -->
                 <div class="row">
                     <div class="input-field col s12">                        
-                        
-                        <select id="part_name" name="part_name" class="validate" required>
-                            <option value="" disabled selected>          Which Part of India is this Site</option>
-                            {% for parts in part %}
-                            <option value="{{ parts.part_name }}">{{ parts.part_name }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="part_name"><i class="fa-regular fa-compass prefix light-blue-text text-darken-4"></i></label>                      
+                        <i class="fa-regular fa-compass prefix black-text"></i>
+                            <select id="part_name" name="part_name" class="validate" required>
+                                <option value="" disabled selected>Which Part of India is this Site</option>
+                                {% for parts in part %}
+                                <option value="{{ parts.part_name }}">{{ parts.part_name }}</option>
+                                {% endfor %}
+                            </select>                        
+                            <label for="part_name"></label>                      
                     </div>
                 </div>
 
                 <!-- Description field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-regular fa-rectangle-list prefix light-blue-text text-darken-4"></i>
+                        <i class="fa-regular fa-rectangle-list prefix black-text"></i>
                         <label for="description" class="black-text">Tell Us More About the Site</label>
-                        <textarea id="description" name="description" class="materialize-textarea"  minlength="5" maxlength="200" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required></textarea>                                                
+                        <textarea id="description" name="description" class="materialize-textarea"  minlength="5" maxlength="800" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required></textarea>                                                
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="input-field col s12">                       
-                        <label for="access" class="black-text">
-                        <input id="access" name="access" type="checkbox" class="filled-in" checked="checked" />
-                        <span>Mark Tick if the Site has Disabled Access  <i class="fa-solid fa-wheelchair"></i></span>
-                        </label>                        
-                    </div>
+                <div class="row center-align">                                           
+                    <label for="access" class="black-text">
+                    <input id="access" name="access" type="checkbox" class="filled-in" checked="checked" />
+                    <span> Disabled Access  <i class="fa-solid fa-wheelchair prefix black-text"></i></span>
+                    </label>                   
                 </div>
 
-                <!-- Register Button -->
+                <!-- Share Button -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                        Register <i class="fas fa-sign-in-alt"></i>
+                    <button type="submit" class="col s5 offset-s3 btn-med black-text text-darken-4 orange">
+                        Share <i class="fa-solid fa-share prefix black-text"></i>
                     </button>
                 </div>
             </div>
