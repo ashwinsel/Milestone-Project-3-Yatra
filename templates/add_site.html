@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block header %}
+<!-- ** PAGE BANNER ** -->
+<section>    
+    <div class="row">
+        <div class="col s12">
+            <p class=" banner center-align">
+                <b style="text-decoration: underline;">Recently Visited a Site Not on the List?</b><br>
+                We're always looking to expand our community's knowledge and experiences. If you've recently visited a spiritual site that's not yet listed, we'd love to hear about it! Please share details about the site and your experience—your insights could guide and inspire fellow travelers on their spiritual journeys. 
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="">
+            <div class="card-panel">
+                <!-- Site Name Input Field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-gopuram prefix light-blue-text text-darken-4"></i>
+                        <input id="site_name" name="site_name" type="text" minlength="2" maxlength="50" pattern="^[a-zA-Z]{5,8}$" class="validate">
+                        <label for="site_name" class="black-text">Site Name</label>
+                    </div>
+                </div>
+
+                <!-- Deity field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-hands-praying prefix light-blue-text text-darken-4"></i>
+                        <input id="deity" name="deity" type="text" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
+                        <label for="deity" class="black-text">Name of the main deity</label>
+                    </div>
+                </div>
+
+                <!-- Part of India Location Selection List -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <label for="part"><i class="fa-regular fa-compass prefix light-blue-text text-darken-4"></i></label>
+                        <select>
+                            <option value="" disabled selected>           Which Part of India is this Site</option>
+                            <option value="East">East</option>
+                            <option value="West">West</option>
+                            <option value="North">North</option>
+                            <option value="South">South</option>
+                            <option value="North-East">North East</option>
+                            <option value="North-West">North West</option>
+                            <option value="South-East">South East</option>
+                            <option value="South-West">South West</option>
+                          </select>                        
+                    </div>
+                </div>
+
+                <!-- Description field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-regular fa-rectangle-list prefix light-blue-text text-darken-4"></i>
+                        <label for="description" class="black-text">Tell Us More About the Site</label>
+                        <textarea id="description" name="description" class="materialize-textarea"  minlength="5" maxlength="200" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required></textarea>                                                
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">                       
+                        <label for="access" class="black-text">
+                        <input id="access" name="access" type="checkbox" class="filled-in" checked="checked" />
+                        <span>Mark Tick if the Site has Disabled Access  <i class="fa-solid fa-wheelchair"></i></span>
+                        </label>                        
+                    </div>
+                </div>
+
+                <!-- Register Button -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        Register <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

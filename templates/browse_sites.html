@@ -2,9 +2,15 @@
 {% block header %}
     <section class="main">
         {% if session.user %}
-            <div class="center-align">   
-                <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}"><i class="fa-solid fa-plus"></i> Add Site</a>       
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
+                        <i class="fa-solid fa-plus"></i> Add Site
+                    </a>
+                </div>
             </div>
+        </div>
         {% endif %}
     </section>
 {% endblock%}

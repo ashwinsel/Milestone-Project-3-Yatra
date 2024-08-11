@@ -8,6 +8,9 @@ $(document).ready(function() {
     // Initialize collapsible effect
     $('.collapsible').collapsible();
 
+    // Initialize form select effect
+    $('select').formSelect();
+
     // Initialize the slider only if it exists
     if ($('.slider').length) {
         $('.slider').slider({
