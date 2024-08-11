@@ -86,7 +86,7 @@ def profile(username):
     username = mongo.db.user.find_one({"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("home.html", username=username)
     
     return redirect(url_for("login"))
 
@@ -205,7 +205,22 @@ def read_insights():
     return render_template("read_insights.html", reviews=reviews)
     
 
-
+@app.route("/add_insights", methods=["GET", "POST"])
+def add_insights():
+    if request.method == "POST":
+        created_by = session.get("user")  # Get the current user's username
+        review_data = {
+            "where": request.form.get("where"),
+            "rating": request.form.get("rating"),
+            "visit_date": datetime.strptime(request.form.get("visit_date"), '%d.%m.%Y'),
+            "purpose": request.form.get("purpose"),
+            "review_des": request.form.get("review_des"),
+            "created_by": created_by
+        }
+        mongo.db.reviews.insert_one(review_data)
+        flash("Review added successfully!", "success")
+        return redirect(url_for("read_insights"))
+    return render_template("add_insights.html")
 
 
 

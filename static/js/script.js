@@ -81,5 +81,13 @@ $(document).ready(function() {
                 });
             }
         });
-    }    
+    }
+    $(document).ready(function(){
+        $('.datepicker').datepicker({
+            format: 'dd.mm.yyyy',  // Set your desired date format
+            defaultDate: new Date(),
+            setDefaultDate: true,
+            autoClose: true
+        });
+    });    
 });
