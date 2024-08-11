@@ -150,6 +150,19 @@ def add_site():
     return render_template("add_site.html", part=direction)
 
 
+@app.route("/edit_site/<locations_id>", methods=["GET", "POST"])
+def edit_site(locations_id):
+    locations = mongo.db.locations.find_one({"_id": ObjectId(locations_id)})        
+    direction = mongo.db.part.find().sort("part_name", 1)
+
+    # Convert ObjectId to string
+    if locations:
+        locations['_id'] = str(locations['_id'])
+    
+    return render_template("edit_site.html", locations=locations, part=direction)
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

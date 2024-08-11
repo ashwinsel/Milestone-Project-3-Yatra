@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block header %}
+<!-- ** PAGE BANNER ** -->
+<section class="container">    
+    <div class="row">
+        <div class="col s12">
+            <p class=" banner center-align">
+                <b style="text-decoration: underline;">Want to Edit a Site Entry?</b><br>
+                We're always want to keep our community's knowledge and experiences up-to date. 
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_site', locations_id=locations._id) }}">
+            <div class="card-panel">
+                <!-- Site Name Input Field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-gopuram prefix black-text"></i>
+                        <input id="site_name" name="site_name" type="text" minlength="2" maxlength="100" pattern="([^\s][A-z0-9À-ž\s]+)" class="validate" required>
+                        <label for="site_name" class="black-text">Site Name</label>
+                    </div>
+                </div>
+
+                <!-- Deity field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-hands-praying prefix black-text"></i>
+                        <input id="deity" name="deity" type="text" pattern="^[a-zA-Z0-9]{2,20}$" class="validate" required>
+                        <label for="deity" class="black-text">Name of the main deity</label>
+                    </div>
+                </div>
+
+                <!-- Part of India Location Selection List -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <i class="fa-regular fa-compass prefix black-text"></i>
+                        <select id="part_name" name="part_name" class="validate" required>
+                            <option value="" disabled selected>Which Part of India is this Site</option>
+                            {% for parts in part %}
+                            <option value="{{ parts.part_name }}">{{ parts.part_name }}</option>
+                            {% endfor %}
+                        </select>                        
+                        <label for="part_name"></label>                      
+                    </div>
+                </div>
+
+                <!-- Description field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-regular fa-rectangle-list prefix black-text"></i>
+                        <label for="description" class="black-text">Tell Us More About the Site</label>
+                        <textarea id="description" name="description" class="materialize-textarea"  minlength="5" maxlength="800" class="validate" required></textarea>                                                
+                    </div>
+                </div>
+
+                <div class="row center-align">                                           
+                    <label for="access" class="black-text">
+                    <input id="access" name="access" type="checkbox" class="filled-in" checked="checked" />
+                    <span> Disabled Access  <i class="fa-solid fa-wheelchair prefix black-text"></i></span>
+                    </label>                   
+                </div>
+
+                <!-- Share Button -->
+                <div class="row">
+                    <button type="submit" class="col s5 offset-s3 btn-med black-text text-darken-4 orange">
+                        Edit <i class="fa-regular fa-pen-to-square prefix black-text"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

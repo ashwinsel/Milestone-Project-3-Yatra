@@ -24,14 +24,18 @@
                 <li>
                 <div class="collapsible-header orange lighten-2 black-text">
                     <div class="col 3">
-                        <i class="fa-solid fa-gopuram prefix"></i>
-                        <a href="" class="btn-small yellow lighten-2 black-text">Done</a>
-                        <a href="" class="btn-small yellow darken-2 black-text">Edit</a>
-                    </div>                    
-                    <h6>{{ locations.site_name }}</h6>
+                        <i class="fa-solid fa-gopuram prefix"></i>                        
+                    </div>
+                    <div>                  
+                    <b>{{ locations.site_name }}</b>
                     {% if locations.access %}
                     <i class="fa-solid fa-wheelchair"></i>
                     {% endif %}
+                    </div>
+                    <div class="col 3">
+                        <a href="" class="btn-small yellow lighten-2 black-text">Done</a>
+                        <a href="{{ url_for('edit_site', locations_id=locations._id) }}" class="btn-small yellow darken-2 black-text">Edit</a>
+                    </div>
                 </div>
                 <div class="collapsible-body">
                     <h6>Deity: {{ locations.deity }}</h6>
