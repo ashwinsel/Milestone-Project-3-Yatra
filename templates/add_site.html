@@ -39,18 +39,14 @@
                 <!-- Part of India Location Selection List -->
                 <div class="row">
                     <div class="input-field col s12">                        
-                        <label for="part"><i class="fa-regular fa-compass prefix light-blue-text text-darken-4"></i></label>
-                        <select>
-                            <option value="" disabled selected>           Which Part of India is this Site</option>
-                            <option value="East">East</option>
-                            <option value="West">West</option>
-                            <option value="North">North</option>
-                            <option value="South">South</option>
-                            <option value="North-East">North East</option>
-                            <option value="North-West">North West</option>
-                            <option value="South-East">South East</option>
-                            <option value="South-West">South West</option>
-                          </select>                        
+                        
+                        <select id="part_name" name="part_name" class="validate" required>
+                            <option value="" disabled selected>          Which Part of India is this Site</option>
+                            {% for parts in part %}
+                            <option value="{{ parts.part_name }}">{{ parts.part_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="part_name"><i class="fa-regular fa-compass prefix light-blue-text text-darken-4"></i></label>                      
                     </div>
                 </div>
 

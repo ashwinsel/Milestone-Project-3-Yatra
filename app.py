@@ -112,7 +112,8 @@ def browse_sites():
 
 @app.route("/add_site")
 def add_site():
-    return render_template("add_site.html")
+    direction = mongo.db.part.find().sort("part_name", 1)
+    return render_template("add_site.html", part=direction)
 
 
 if __name__ == "__main__":
