@@ -15,7 +15,7 @@
             offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual 
             and religious travel, the platform aims to stand out from other travel review websites.">
     <meta name="keywords" 
-        content="spiritual, travel, religious sites, india, deity, tour, travel review, , The Full Guide To Spiritual Tourism In India, sacred">
+        content="spiritual, travel, religious sites, india, deity, tour, travel review, Journey Insights, The Full Guide To Spiritual Tourism In India, sacred">
     <meta name="author" content="Ashwinkarthik Selvaraj">
     <!-- Font-Awesome Cdn-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -40,10 +40,11 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_locations')}}">Home</a></li> 
-                    <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>                   
+                    <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
+                    <li><a href="{{ url_for('read_insights') }}">Read Journey Insights</a></li>
                     {% if session.user %}          
                         <li><a href="{{ url_for('add_site') }}">Add Site</a></li>
-                        <li><a href="#">Add Review</a></li>
+                        <li><a href="#">Add Journey Insights</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
                     {% else %}
@@ -59,9 +60,10 @@
             <li><h4 class="center-align light-blue-text text-darken 4">Yaatra</h4></li>
             <li><a href="{{ url_for('get_locations')}}">Home</a></li>
             <li><a href="{{ url_for('browse_sites') }}">Browse Sites</a></li>
+            <li><a href="{{ url_for('read_insights') }}">Read Journey Insights</a></li>
             {% if session.user %}               
                 <li><a href="{{ url_for('add_site') }}">Add Site</a></li>
-                <li><a href="#">Add Review</a></li>
+                <li><a href="#">Add Journey Insights</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('logout') }}">Sign Out</a></li>
             {% else %}

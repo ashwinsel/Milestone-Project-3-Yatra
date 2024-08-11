@@ -82,4 +82,21 @@ $(document).ready(function() {
             }
         });
     }
+    // Function to open a city tab
+    function openCity(evt, cityName) {
+        // Hide all elements with class="tabcontent"
+        $(".tabcontent").hide();
+
+        // Remove the class "active" from all elements with class="tablinks"
+        $(".tablinks").removeClass("active");
+
+        // Show the current tab
+        $("#" + cityName).show();
+
+        // Add an "active" class to the link that opened the tab
+        $(evt.currentTarget).addClass("active");
+    }
+
+    // Automatically open the default tab on page load
+    $("#defaultOpen").click();
 });

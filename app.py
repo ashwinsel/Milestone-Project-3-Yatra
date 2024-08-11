@@ -197,6 +197,13 @@ def delete_site(locations_id):
     flash("Site Data and Information Sucessfully Deleted!", "success")
     return redirect(url_for("browse_sites"))
 
+
+@app.route("/read_insights")
+def read_insights():
+    reviews = mongo.db.reviews.find()
+    return render_template("read_insights.html", reviews=reviews)
+    return render_template("read_insights.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
