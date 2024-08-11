@@ -10,7 +10,10 @@
                 <a href="{{ url_for('login')}}" class="ligth-blue-text text-darken-4"><b>Sign In to Your Account!</b></a>
             </p>
             <p class="center-align">
-                <b>Don't Have an Account?</b> <a href="{{ url_for('register') }}" class="ligth-blue-text text-darken-4"><b>Sign up and get started!</b></a>
+                <b>Don't Have an Account?</b>
+                <a href="{{ url_for('register') }}" class="ligth-blue-text text-darken-4">
+                    <b>Sign up and get started!</b>
+                </a>
             </p>
         </div>
     </div>
@@ -26,7 +29,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-user prefix black-text"></i>
-                        <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z]{5,8}$" class="validate">
+                        <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate">
                         <label for="username" class="black-text">Username</label>
                     </div>
                 </div>

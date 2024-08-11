@@ -23,7 +23,11 @@
             {% for locations in locations %}
                 <li>
                 <div class="collapsible-header orange lighten-2 black-text">
-                    <i class="fa-solid fa-gopuram prefix"></i>
+                    <div class="col 3">
+                        <i class="fa-solid fa-gopuram prefix"></i>
+                        <a href="" class="btn-small yellow lighten-2 black-text">Done</a>
+                        <a href="" class="btn-small yellow darken-2 black-text">Edit</a>
+                    </div>                    
                     <h6>{{ locations.site_name }}</h6>
                     {% if locations.access %}
                     <i class="fa-solid fa-wheelchair"></i>
