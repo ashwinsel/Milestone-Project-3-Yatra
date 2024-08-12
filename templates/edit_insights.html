@@ -75,18 +75,3 @@
     </div>
 </div>
 {% endblock %}
-
-<!-- script for date picker adapted from 'Code with Harry' tutor -->
-{% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, {
-            format: 'dd.mm.yyyy',
-            defaultDate: new Date("{{ review.visit_date.strftime('%Y-%m-%d') }}"),  // Set the default date based on review data
-            setDefaultDate: true,
-            autoClose: true,
-        });
-    });
-</script>
-{% endblock %}

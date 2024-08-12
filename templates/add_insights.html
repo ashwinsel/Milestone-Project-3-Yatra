@@ -75,17 +75,3 @@
     </div>
 </div>
 {% endblock %}
-
-{% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, {
-            format: 'dd.mm.yyyy',
-            defaultDate: new Date(),
-            setDefaultDate: true,
-            autoClose: true,
-        });
-    });
-</script>
-{% endblock %}
