@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
+<!-- Displays the title and Add button if user in session -->
     <section class="main">
         <h2 class="center-align">Journey Insights</h2>
         {% if session.user %}
@@ -18,6 +19,7 @@
 {% endblock%}
 
 {% block body %}
+<!-- Displays a grid of insights -->
     <section class="container">        
         <div class="grid-container">
             {% for review in reviews %}

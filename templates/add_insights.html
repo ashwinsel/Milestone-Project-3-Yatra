@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block header %}
 <section class="container">    
     <div class="row">
@@ -21,7 +22,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-gopuram prefix black-text"></i>
-                        <input id="where" name="where" type="text" minlength="2" maxlength="100" pattern="([^\s][A-z0-9À-ž\s]+)" class="validate" required>
+                        <input id="where" name="where" type="text" minlength="2" maxlength="100" pattern="[^\s][A-Za-z0-9À-ž\s]+" class="validate" required>
                         <label for="where" class="black-text">Where did you go?</label>
                     </div>
                 </div>
@@ -29,8 +30,8 @@
                 <!-- Rating field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-hands-praying prefix black-text"></i>
-                        <input id="rating" name="rating" type="text" pattern="^[0-10]{1,2}$" class="validate" required>
+                        <i class="fas fa-star prefix black-text"></i>
+                        <input id="rating" name="rating" type="number" min="0" max="10" step="1" class="validate" required>
                         <label for="rating" class="black-text">How would you rate your experience?</label>
                         <p>Pick a number 0-10 (0=worst, 10=best)</p>
                     </div>
@@ -49,12 +50,11 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-regular fa-rectangle-list prefix black-text"></i>
-                        <input id="purpose" name="purpose" type="text" pattern="^[a-zA-Z0-9\s]{2,20}$" class="validate" required>
+                        <input id="purpose" name="purpose" type="text" pattern="[A-Za-z0-9\s]{2,20}" class="validate" required>
                         <label for="purpose" class="black-text">What was the purpose of your visit?</label>                                                
                     </div>
                 </div>
 
-                
                 <!-- Description field -->
                 <div class="row center-align">                    
                     <div class="input-field col s12">
@@ -62,7 +62,6 @@
                         <textarea id="review_des" name="review_des" class="materialize-textarea validate" minlength="5" maxlength="800" required></textarea>
                     </div>
                 </div>
-
 
                 <!-- Submit Button -->
                 <div class="row">

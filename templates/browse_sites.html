@@ -1,80 +1,79 @@
 {% extends "base.html" %}
+
 {% block header %}
-    <section class="main container">
-        {% if session.user %}
-        <div class="container">
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
-                        <i class="fa-solid fa-plus"></i> Add Site
-                    </a>
-                    <p><b>Click on Filter once to activate drop down</b></p>
-                </div>
+<section class="main container">
+    {% if session.user %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
+                    <i class="fa-solid fa-plus"></i> Add Site
+                </a>
+                <p><b>Click on Filter once to activate drop down</b></p>
             </div>
         </div>
-        {% endif %}
-            <div class="row">
-                
-                <form method="GET" action="{{ url_for('filter_sites') }}">
-                    <div class="input-field col s12 m4">
-                        <select name="part_name">
-                            <option value="" disabled selected>Filter by Part of India</option>
-                            {% for part in part_names %}
-                                <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>{{ part }}</option>
-                            {% endfor %}
-                        </select>
-                        <label>Part of India</label>
-                    </div>
-                    
-                    <div class="input-field col s12 m4">
-                        <select name="deity">
-                            <option value="" disabled selected>Filter by Deity</option>
-                            {% for deity in deities %}
-                                <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>{{ deity }}</option>
-                            {% endfor %}
-                        </select>
-                        <label>Deity</label>
-                    </div>
-                    
-                    <div class="input-field col s12 m4">
-                        <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">Filter</button>                        
-                    </div>
-                </form>
+    </div>
+    {% endif %}
+    <div class="row">
+        <form method="GET" action="{{ url_for('filter_sites') }}">
+            <div class="input-field col s12 m4">
+                <select name="part_name">
+                    <option value="" disabled selected>Filter by Part of India</option>
+                    {% for part in part_names %}
+                        <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>{{ part }}</option>
+                    {% endfor %}
+                </select>
+                <label>Part of India</label>
             </div>
-        </section>
-{% endblock%}
+            
+            <div class="input-field col s12 m4">
+                <select name="deity">
+                    <option value="" disabled selected>Filter by Deity</option>
+                    {% for deity in deities %}
+                        <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>{{ deity }}</option>
+                    {% endfor %}
+                </select>
+                <label>Deity</label>
+            </div>
+            
+            <div class="input-field col s12 m4">
+                <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">Filter</button>                        
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
 
 {% block body %}
-    <section class="container">        
-        <!-- Inspired by Code Institute Task Manager walkthrough project -->
-        <!-- Collapsible to display Spiritual Sites -->
-        <ul class="collapsible popout">
-            {% for locations in locations %}
-                <li>
-                <div class="collapsible-header orange lighten-2 black-text">
-                    <div class="col 3">
-                        <i class="fa-solid fa-gopuram prefix"></i>                        
-                    </div>
-                    <div>                  
-                    <b>{{ locations.site_name }}</b>
-                    {% if locations.access %}
+<section class="container">
+    <!-- Collapsible to display Spiritual Sites -->
+    <ul class="collapsible popout">
+        {% for location in locations %}
+        <li>
+            <div class="collapsible-header orange lighten-2 black-text">
+                <div class="col 3">
+                    <i class="fa-solid fa-gopuram prefix"></i>
+                </div>
+                <div>
+                    <b>{{ location.site_name }}</b>
+                    {% if location.access %}
                     <i class="fa-solid fa-wheelchair"></i>
                     {% endif %}
-                    </div>
-                    {% if session.user|lower == locations.created_by|lower %}
-                    <div class="col 3">
-                        <a href="{{ url_for('edit_site', locations_id=locations._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
-                        <a href="{{ url_for('delete_site', locations_id=locations._id) }}" class="btn-xsmall red darken-4 black-text delete-btn" style="text-shadow: 2px 2px 2px rgba(8, 8, 8, 0.2);">Delete</a>                        
-                    </div>
-                    {% endif %}
                 </div>
-                <div class="collapsible-body">
-                    <h6>Deity: {{ locations.deity }}</h6>
-                    <p>Part of India: {{ locations.part_name }}</p>                    
-                    <p>{{ locations.description }}</p>
+                {% if session.user|lower == location.created_by|lower %}
+                <div class="col 3">
+                    <a href="{{ url_for('edit_site', locations_id=location._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
+                    <a href="{{ url_for('delete_site', locations_id=location._id) }}" class="btn-xsmall red darken-4 black-text delete-btn" style="text-shadow: 2px 2px 2px rgba(8, 8, 8, 0.2);">Delete</a>
                 </div>
-                </li>
-            {% endfor %}          
-        </ul>
-    </section>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <h6>Deity: {{ location.deity }}</h6>
+                <p>Part of India: {{ location.part_name }}</p>
+                <p>{{ location.description }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}
