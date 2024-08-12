@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_locations")
 def get_locations():
-    locations = list (mongo.db.locations.find())
+    locations = list(mongo.db.locations.find())
     return render_template("home.html", locations=locations)
 
 
@@ -67,13 +67,12 @@ def register():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # pulls through session user's username value from database
-    username = mongo.db.user.find_one({"username": session["user"]})["username"]
+    username = mongo.db.user.find_one
+    ({"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("home.html", username=username)
-    
+        return render_template("home.html", username=username)    
     return redirect(url_for("login"))
-
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -84,10 +83,11 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash(f"You are successfully logged in as, {request.form.get('username')}")
-                    return redirect(url_for("profile", username=session["user"]))
+            existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash
+                (f"You are successfully logged in as,{request.form.get('username')}")
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -295,4 +295,4 @@ def delete_insights(review_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
