@@ -8,13 +8,13 @@
             <div class="col s12 center-align">
                 <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
                     <i class="fa-solid fa-plus"></i> Add Site
-                </a>
-                <p><b>Click on Filter once to activate drop down</b></p>
+                </a>                
             </div>
         </div>
     </div>
     {% endif %}
     <div class="row">
+        <p class="center-align"><b>Click on Filter once to activate drop down</b></p>
         <form method="GET" action="{{ url_for('filter_sites') }}">
             <div class="input-field col s12 m4">
                 <select name="part_name">
