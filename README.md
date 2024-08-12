@@ -29,17 +29,15 @@ The primary purpose of this platform is to connect spiritual travellers, tour op
         - [Typography](#typography)
         - [Imagery](#imagery)
 + [Features](#features)
-    * [Quiz Landing Page](#quiz-landing-page)
-        - [F1.1 Guide](#f11-guide)
-        - [F1.2 Music Toggle Button](#f12-music-toggle-button)
-        - [F1.3 Reset Button](#f13-reset-button)
-        - [F1.4 Question Box](#f14-question-box)
-        - [F1.5 Answer option buttons x 4](#f15-answer-option-buttons-x-4)    
-        - [F1.6 Next Button](#f21-next-button)
-        - [F1.7 Score Display Box](#f17-score-display-box)
-        - [F1.8 Instructions MOdal](#f18-instructions-modal)       
+    * [Home Page](#home-page)
+    * [Browse Site Page](#browse-site-page)
+    * [Read Insights Page](#read-insights-page)
+    * [Edit Sites page](#edit-sites-page)
+    * [Edit Insights page](#edit-insights-page)
+    * [Register Page](#register-page)           
 + [Traceability Matrix](#traceability-matrix)
 + [Logic](#logic)
++ [Database Structure](#database-structure)
 + [Technologies Used](#technologies-used)
     * [Languages Used](#languages-used)
     * [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
@@ -47,11 +45,9 @@ The primary purpose of this platform is to connect spiritual travellers, tour op
     * [Validator Testing Results](#validator-testing-results)
         
     * [Lighthouse Testing](#lighthouse-testing)
-        - [First Results](#first-results)
-        - [Final Results](#final-results)
-+ [Test Cases and Results](#test-cases-and-results)
+        
 + [Responsiveness Testing Results](#responsiveness-testing-results)
-+ [BUgs and Fixes](#bugs-and-fixes)
++ [Bugs and Fixes](#bugs-and-fixes)
 + [Browser Compatibility](#browser-compatibility)
 + [Deployment and Cloning](#deployment-and-cloning)
 + [Credits](#credits)
@@ -399,8 +395,36 @@ The "Register" page is designed to provide a seamless and user-friendly experien
     ![Table][def74]
 ------------
 - ## **Logic**
-    * The initial flowchart designed to the basic quiz interactivity is as follows:
+    * The initial flowchart designed to base the app routes is as follows:
     ![Flowchart][def25]
+------------ 
+- ## **Database Structure**
+    * Database Structure and Collections
+Collections:
+locations: Stores information about various sites. The documents in this collection include fields like site_name, deity, part_name, description, access, and created_by.
+user: Contains user credentials for authentication. Documents in this collection have fields such as username and password.
+part: Likely used to store distinct part names for dropdowns in forms. It includes at least the field part_name.
+reviews: Stores user-generated reviews for sites. Documents include fields such as where, rating, visit_date, purpose, review_des, and created_by.
+Database Operations
+User Authentication and Management:
+
+Registration: Users can register with a unique username and password. Passwords are hashed before being stored.
+Login: Users can log in using their username and password. Passwords are verified against stored hashes.
+Logout: Logs out the current user by removing the username from the session.
+Site Management:
+
+Adding Sites: New sites can be added to the locations collection with details like site_name, deity, part_name, description, and access. The site is also tagged with the username of the creator.
+Editing Sites: Existing site information can be updated. The document in the locations collection is modified based on its _id.
+Deleting Sites: Sites can be removed from the locations collection based on their _id.
+Insights/Reviews Management:
+
+Adding Reviews: Users can submit reviews, which are stored in the reviews collection. Reviews include fields for the review's location, rating, visit date, purpose, and description.
+Editing Reviews: Reviews can be edited by updating the corresponding document in the reviews collection.
+Deleting Reviews: Reviews can be deleted based on their _id.
+Filtering and Browsing:
+
+Filter Sites: Allows users to filter sites based on part_name and deity.
+Browse Sites: Displays all sites or those filtered by user criteria.
 ------------    
 - ## **Technologies Used**
 ------------
@@ -411,7 +435,7 @@ The "Register" page is designed to provide a seamless and user-friendly experien
     * #### Python
 + ### Frameworks, Libraries and Programs Used
     * #### [Cdnfonts][Cdnfonts] : was used to import Samarkan fonts into style.css file which has been used in the Main Logo title.
-    * #### [Font Awesome][def9] : was used to add icons for aesthetic and UX purposes. Icons have been used to for guide and music toggle button which can be easily identified by users regarless of their English language level. Icon has also been used for prefix to questions to make the quiz look more playfull.
+    * #### [Font Awesome][def9] : was used to add icons for aesthetic and UX purposes.
     * #### [Git][def10]: was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
     * #### [GitHub][def11] : It is used as the repository for the project's code after being pushed from Git.
     * #### [Balsamiq][def13] : was used to create the wireframes during the design process.
@@ -432,6 +456,9 @@ The "Register" page is designed to provide a seamless and user-friendly experien
 
     * Css was validated using https://jigsaw.w3.org/css-validator/#validate_by_input+with_options
     No issues found
+
+    * My code did not pass the Code Institute Linter for Python.
+    I was unable to fix some errors such as line length as it was interfering with my code. I will read up more regarding Pep8 compliance and how to code accordingly. In future projects I intend to validate as i go along. Or perhaps even install one of the formatter packages.
     
 + ### Lighthouse Testing
 Results
@@ -452,11 +479,16 @@ Results
     ![Results][def30]
     ![Results][def31]
     ![Results][def32]
+    ![Results][def45]
 
             
 - ## Bugs and Fixes
 ------------
-* 
+* Could not connect to MongoDB in the begining this took some time to fix as the string provided by MOngoDB website lacked database name and it was not very obvious at first. With Help from Code Institute tutors Rebecca and Alan thi was then resolved.
+[Error Screen Shot]![def34]
+* Another error came up on debug ERR_TOO_MANY_REDIRECTS
+This was resolved by checking which line on debug in app.py and removed un-necessary retun statement.
+*
 
 - ## Browser Compatibility
 ------------
@@ -500,26 +532,30 @@ Results
 - ## Credits
 ------------
 - ### Content
-    * Most of the question and answers are adapted from jagranJosh website [JagranJosh][def75]
+    * Some inputs regarding sites has been adapted from https://www.visa-indian-online.org/the-full-guide-to-spiritual-tourism-in-india 
+    ![def33]
     * All other content has been drafted by the developer.
 
 - ### Code
     * Code on how to present a modal and close was created with the help of a tutorial on [WebDevSimplified][def76].
     * Code for the hover effect on info cards on Home page was an play around with some examples from  [Codepen]
-    * I have used Bootstrap grid classes to implement structure for the quiz.
-    * The basic logic for the quiz has been based on a tutorial by Avinash Kr from ![GreatStack][def21]
+    * I have used Materialize code to implement various aspects of the website.
+    * The basic logic has been based on a tutorial by Tim Nelson, Task Manager Walkthrough.
     * Hover effects on throughout has been created by using tutorials on [W3schools](https://www.w3schools.com/cssref/sel_hover.php)
+    * Datepicker aspect and some other code adapted from Task Manager Walkthourgh on Code Institute by Tim Nelson
+    * Slider code was inspired by Hitesh Choudhary
 
 - ### Media
-    * ![Favicon][def1] a vector art by ([Scigola](https://pixabay.com/vectors/symbol-om-religion-1537054/))
-    * ![Background Image][def0]   
+    * ![Favicon]![def4] a vector art by https://www.shutterstock.com/g/iostephy
+    * [Background Image]![def46]
 
 - ## Gratitude
     * I would like to thank my mentor Dick Vlaanderen for all the coaching and helping me with their insight and experience.
-    * Thanks to tutor Roo, who helped me fix my deployment.
-    * Thank you to Md—Fahim Kabir Hamim for the lessons on Tech2 etc.
-    * Thanks to tutors from Great Stck.
+    * Thanks to tutor Rebecca and Alan, who helped me fix my connection to MOngoDB.
+    * Thank you to Hitesh Chaudhary for the lessons on ChaiCode.com.
+    * Thanks to various contributors on StackOverflow.
     * Thanks to Amy our facilitator for running our regular Stand-ups which gave me confidence.
+    * Thanks to Code with Harry on tutorial videos re Python and PyMongo
 
 
 
@@ -527,12 +563,11 @@ Results
 
 
 [Cdnfonts]: https://www.cdnfonts.com/samarkan.font
-[def0]: ./documentation/backgroundimage.png
+[def0]: https://travelmoves.in/india-news/indias-travel-trends-surge-in-spiritual-destination-searches
 [def1]: ./documentation/favicon.png
 [def2]: #c-frequent-user-goals
 [def3]: #future-implementations
-[def4]: ./documentation/wireframe1.png
-[def5]: ./documentation/wireframe2.png
+[def4]: https://www.shutterstock.com/g/iostephy
 [def6]: ./documentation/validatorresults.png
 [def7]: ./documentation/firstlighthouseresult.png
 [def8]: ./documentation/lighthousetesting2.png
@@ -560,14 +595,10 @@ Results
 [def30]: ./documentation/ss-register.png
 [def31]: ./documentation/ss-signin.png
 [def32]: ./documentation/ss-readinsight.png
-[def33]: ./documentation/ipadair.png
-[def34]: ./documentation/1024px.png
-[def35]: ./documentation/ipadpro.png
-[def36]: ./documentation/desktopmore1200px.jpg
-[def42]: https://yatra1-4cc0076860db.herokuapp.com/
-[def43]: ./documentation/samarkanfont.png
-[def44]: ./documentation/spacemonofont.png
-[def45]: ./documentation/lugrasimofont.png
+[def33]: https://www.visa-indian-online.org/the-full-guide-to-spiritual-tourism-in-india
+[def34]: ./documentation/error1.png 
+[def42]: https://yatra1-4cc0076860db.herokuapp.com/ 
+[def45]: ./documentation/lt-addsite.png
 [def46]: ./documentation/main-img.png
 [def47]: ./documentation/lt-addsite.png
 [def49]: ./static/img/chakra.png
@@ -577,9 +608,6 @@ Results
 [def66]: ./documentation/lt-register.png
 [def67]: ./documentation/lt-signin.png
 [def68]: ./documentation/lt-addinsight.png
-[def69]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fashwinsel.github.io%2FMilestone-1%2F#textarea
-[def70]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fashwinsel.github.io%2FMilestone-1%2F#textarea
 [def74]: ./documentation/traceability-matrix.png
 [def75]: https://www.jagranjosh.com/general-knowledge/gk-quiz-on-hindu-mythology-1706194424-1
 [def76]: https://courses.webdevsimplified.com/
-[def78]: ./documentation/menubar.png
