@@ -400,29 +400,29 @@ The "Register" page is designed to provide a seamless and user-friendly experien
 ------------
 - ## **Logic**
     * The initial flowchart designed to the basic quiz interactivity is as follows:
-    ![Flowchart] [def25]
+    ![Flowchart][def25]
 ------------    
 - ## **Technologies Used**
 ------------
 + ### Languages Used
     * #### HTML5
     * #### CSS3
-    * #### Javascript
+    * #### Javascript (Jquery)
+    * #### Python
 + ### Frameworks, Libraries and Programs Used
     * #### [Cdnfonts][Cdnfonts] : was used to import Samarkan fonts into style.css file which has been used in the Main Logo title.
     * #### [Font Awesome][def9] : was used to add icons for aesthetic and UX purposes. Icons have been used to for guide and music toggle button which can be easily identified by users regarless of their English language level. Icon has also been used for prefix to questions to make the quiz look more playfull.
     * #### [Git][def10]: was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
     * #### [GitHub][def11] : It is used as the repository for the project's code after being pushed from Git.
-    * #### [Powerpoint][def12] : was used for resizing images and editing photos and screenshots for Readme. It is also used for designing flyers for event pages.
     * #### [Balsamiq][def13] : was used to create the wireframes during the design process.
     * #### [Coolors][def14] : was used to find complimenting colors to the backgorund image for the website color palette.
-    * #### [TinyPng][def15] : was used to compress the images that are used in the website, especially on the gallery page.     
-    * #### [Bootstrap][def17] : codes from Bootsrap grid html and Css library has been used to design the Question and answers section to have a responsive quiz layout in columns and rows.
+    * #### [Materialize][def17] : codes from Materilaize has been used to create various aspects, especially, call out buttons, card panels, slider etc..
     * #### [Autoprefixer CSS online][def18] : has been used to parse the CSS in style.css to add different browser prefixes to ensure the CSS works on all browsers.
     * #### [favicon.io][def19] : was used to generate the favicon for the website.
     * #### [W3C Markup Validation Service][def20] : has been used to validate the code on all pages and style.css.
     * #### [UI.Dev][def22] : was used to generate Mockup Screenshots.
     * #### [Free Formatter][def23] : was used to ensure proper indentation in the HTML and CSS codes.
+    * #### MOngoDB has been used to create database
     
 - ## **Testing**
 ------------
@@ -434,6 +434,15 @@ The "Register" page is designed to provide a seamless and user-friendly experien
     No issues found
     
 + ### Lighthouse Testing
+Results
+![HomePage][def50]
+![BrowseSites][def64]
+![ReadInsight][def65]
+![Register][def66]
+![SignIn][def67]
+![AddInsight][def68]
+![AddSite][def47]
+
     
 
 + ### Responsiveness Testing Results
@@ -535,7 +544,7 @@ The "Register" page is designed to provide a seamless and user-friendly experien
 [def14]: https://coolors.co/
 [def15]: https://tinypng.com/
 [def16]: ./documentation/testcasesandresults.png
-[def17]: https://getbootstrap.com/
+[def17]: https://materializecss.com/about.html
 [def18]: https://autoprefixer.github.io/
 [def19]: https://favicon.io/
 [def20]: https://validator.w3.org/
@@ -560,14 +569,14 @@ The "Register" page is designed to provide a seamless and user-friendly experien
 [def44]: ./documentation/spacemonofont.png
 [def45]: ./documentation/lugrasimofont.png
 [def46]: ./documentation/main-img.png
-[def47]: ./documentation/musiconoff.png
+[def47]: ./documentation/lt-addsite.png
 [def49]: ./static/img/chakra.png
-[def50]: ./documentation/reset.png
-[def64]: ./documentation/rightans.png
-[def65]: ./documentation/wrongans.png
-[def66]: ./documentation/nextbutton.png
-[def67]: ./documentation/scorebox.png
-[def68]: ./documentation/guidemodal.png
+[def50]: ./documentation/lt-home.png
+[def64]: ./documentation/lt-browsesites.png
+[def65]: ./documentation/lt-readinsight.png
+[def66]: ./documentation/lt-register.png
+[def67]: ./documentation/lt-signin.png
+[def68]: ./documentation/lt-addinsight.png
 [def69]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fashwinsel.github.io%2FMilestone-1%2F#textarea
 [def70]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Fashwinsel.github.io%2FMilestone-1%2F#textarea
 [def74]: ./documentation/traceability-matrix.png
