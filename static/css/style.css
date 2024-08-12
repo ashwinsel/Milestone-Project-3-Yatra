@@ -1,15 +1,41 @@
 @import url('https://fonts.cdnfonts.com/css/lord-spirit');
 @import url('https://fonts.cdnfonts.com/css/lumanosimo');
 
-nav .brand-logo {
-  font-family: 'Lord Spirit', sans-serif;
-  color: #031929;
-  font-size: 3em;                                                                                                                                            
+/* Global Styles */
+body, button {
+    font-family: 'Lumanosimo', sans-serif;
+    text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.nav-wrapper{
+main {
+    flex: 1 0 auto;
+}
+
+h1 {
+    line-height: 25%;
+}
+
+button {
+    margin: 2px 2px 1px 5px;
+    padding: 2px 2px 2px;
+    border-radius: 5px;
+    border: black solid 1px;
+    line-height: 25px;
+}
+
+/* Navigation Styles */
+.nav-wrapper, .page-footer {
     background-color: #CD8D47;
     padding: 5px 20px 5px 25px;
+}
+
+nav .brand-logo {
+    font-family: 'Lord Spirit', sans-serif;
+    color: #031929;
+    font-size: 3em;
 }
 
 nav ul a {
@@ -17,16 +43,27 @@ nav ul a {
     font-weight: 600;
 }
 
-.banner-text{
+/* Banner Styles */
+.banner {
+    background-color: rgba(234, 194, 134, 0.579);
+    text-align: center;
+    margin: 2px 2px 2px -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.banner-text {
     font-family: 'Lumanosimo', sans-serif;
     font-weight: bold;
     color: #031929;
 }
 
-h1{    
-    line-height: 25%;
-}
-
+/* Main Section Styles */
 .main {
     background-image: url("../img/main-img-2.png");
     background-position: center center;
@@ -36,84 +73,74 @@ h1{
     background-color: #CD8D47;
 }
 
-.card-panel{
-    background-color: #EAC286;    
-}
-
-/* Slider Styles */
-.banner {
-    background-color: rgba(234, 194, 134, 0.579);    
-    text-align: center;
-    margin: 2px 2px 2px -1px; /* Adjusted margin to add a bit of border */
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Position relative to manage content stacking */
-    z-index: 3; /* Ensure banner content is on top of the overlay */
-}
-
-/* footer styles */
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Lumanosimo', sans-serif;                                                                                              
-    text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  .card-panel{
-    border-radius: 5%;
+/* Card and Collapsible Styles */
+.card-panel, .collapsible-body, .grid-item {
     background-color: rgba(234, 194, 134, 0.779);
-    
-  }
+    border-radius: 5%;
+}
 
-  .collapsible-header{
+.collapsible-header {
     border: 1px solid black;
     margin-bottom: 5px;
-    
-  }
-
-  .collapsible-header h6 {
-    line-height: 18%;
-  }
-
-  .collapsible-body{
-    background-color: rgba(234, 194, 134, 0.8);
-  }
-
-  .page-footer{
-    background-color: #CD8D47;
-    padding: 5px 20px 5px 25px;
-  }
-
-  button {
-    font-family: 'Lumanosimo', sans-serif;                                                                                              
-    text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);    
-  }
-
-  .btn-xsmall, .btn, .btn-small {
-    margin: 2px 2px 1px 5px;
-    padding: 2px 2px 2px;
-    border-radius: 5px;
-    border: black solid 1px;
-    line-height: 25px;
-  }
-
-/* Insights page styles for grid */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 10px;
 }
-.grid-item {  
-  border: 1px solid #ddd;  
-  padding: 15px;
-  border-radius: 5%;
-  background-color: rgba(234, 194, 134, 0.779);
+
+.collapsible-header h6 {
+    line-height: 18%;
+}
+
+/* Footer Styles */
+.page-footer {
+    background-color: #CD8D47;
+}
+
+/* Insights Page Grid Styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.grid-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav .brand-logo {
+        font-size: 2em;
+    }
+
+    .banner {
+        margin: 1px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .brand-logo {
+        font-size: 1.5em;
+    }
+
+    .banner-text {
+        font-size: 1.2em;
+    }
+
+    .card-panel, .grid-item {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.8em;
+        padding: 0.5px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
