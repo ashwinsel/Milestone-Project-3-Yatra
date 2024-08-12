@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block header %}
+<!-- ** PAGE BANNER ** -->
+<section class="container">    
+    <div class="row">
+        <div class="col s12">
+            <p class=" banner center-align">
+                <b style="text-decoration: underline;">Want to Edit a Journey Insight?</b><br>
+                We're always want to keep our community's knowledge and experiences up-to date. 
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_insights', review_id=review._id) }}">
+            <div class="card-panel">
+                <!-- Where did you go field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-gopuram prefix black-text"></i>
+                        <input id="where" name="where" type="text" minlength="2" maxlength="100" pattern="([^\s][A-z0-9À-ž\s]+)" class="validate" required value="{{ review.where }}">
+                        <label for="where" class="black-text active">Where did you go?</label>
+                    </div>
+                </div>
+
+                <!-- Rating field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-hands-praying prefix black-text"></i>
+                        <input id="rating" name="rating" type="text" pattern="^[a-zA-Z0-9]{2,20}$" class="validate" required value="{{ review.rating }}">
+                        <label for="rating" class="black-text active">How would you rate your experience?</label>
+                    </div>
+                </div>
+
+                <!-- When did you go field -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <i class="fas fa-calendar-alt prefix black-text"></i>
+                        <input id="visit_date" name="visit_date" type="text" class="datepicker validate" required value="{{ review.visit_date.strftime('%d.%m.%Y') }}">
+                        <label for="visit_date" class="active">When did you go?</label>                      
+                    </div>
+                </div>
+
+                <!-- Purpose field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fa-regular fa-rectangle-list prefix black-text"></i>
+                        <input id="purpose" name="purpose" type="text" pattern="^[a-zA-Z0-9\s]{2,20}$" class="validate" required value="{{ review.purpose }}">
+                        <label for="purpose" class="black-text active">What was the purpose of your visit?</label>                                                
+                    </div>
+                </div>
+
+                
+                <!-- Description field -->
+                <div class="row center-align">                    
+                    <div class="input-field col s12">
+                        <label for="review_des" class="black-text" style="font-size: 1.2rem;">Tell Us More About Your Experience!</label>
+                        <textarea id="review_des" name="review_des" class="materialize-textarea validate" minlength="5" maxlength="800" required>{{ review.review_des }}</textarea>
+                    </div>
+                </div>
+
+
+                <!-- Submit Button -->
+                <div class="row">
+                    <button type="submit" class="col s5 offset-s3 btn-med black-text text-darken-4 orange">
+                        Update <i class="fas fa-computer-mouse prefix black-text"></i>                        
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+<!-- script for date picker adapted from 'Code with Harry' tutor -->
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {
+            format: 'dd.mm.yyyy',
+            defaultDate: new Date("{{ review.visit_date.strftime('%Y-%m-%d') }}"),  // Set the default date based on review data
+            setDefaultDate: true,
+            autoClose: true,
+        });
+    });
+</script>
+{% endblock %}

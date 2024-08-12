@@ -136,7 +136,7 @@ def add_site():
 
             # Insert the site data into the MongoDB collection
             mongo.db.locations.insert_one(site_data)
-            flash("Site Sucessfully Added", "success")
+            flash("Site Successfully Added", "success")
 
             # Redirect to the browse sites page
             return redirect(url_for("browse_sites"))
@@ -146,9 +146,9 @@ def add_site():
             flash(f"An error occurred while adding the site: {str(e)}", "error")
             return redirect(url_for("add_site"))
 
-    # If GET request, render the add site form
-    direction = mongo.db.part.find().sort("part_name", 1)
-    return render_template("add_site.html", part=direction)
+    # Fetch unique part names for the dropdown in the add_site form
+    part_names = mongo.db.locations.distinct('part_name')
+    return render_template("add_site.html", part_names=part_names)
 
 
 @app.route("/edit_site/<locations_id>", methods=["GET", "POST"])
@@ -199,6 +199,29 @@ def delete_site(locations_id):
     return redirect(url_for("browse_sites"))
 
 
+@app.route('/filter_sites', methods=['GET', 'POST'])
+def filter_sites():
+    # Get filter parameters from request
+    part_name = request.args.get('part_name')
+    deity = request.args.get('deity')
+    
+    # Build the query dictionary based on filters
+    query = {}
+    if part_name:
+        query['part_name'] = part_name
+    if deity:
+        query['deity'] = deity
+
+    # Fetch filtered locations from the database
+    locations = list(mongo.db.locations.find(query))
+    
+    # Fetch unique part names and deities for the filter form
+    part_names = mongo.db.locations.distinct('part_name')
+    deities = mongo.db.locations.distinct('deity')
+
+    return render_template('browse_sites.html', locations=locations, part_names=part_names, deities=deities)
+
+
 @app.route("/read_insights")
 def read_insights():
     reviews = mongo.db.reviews.find()
@@ -222,6 +245,49 @@ def add_insights():
         return redirect(url_for("read_insights"))
     return render_template("add_insights.html")
 
+@app.route("/edit_insights/<review_id>", methods=["GET", "POST"])
+def edit_insights(review_id):
+    if request.method == "POST":
+        try:
+            # Retrieve form data
+            where = request.form.get("where")
+            rating = request.form.get("rating")
+            visit_date = datetime.strptime(request.form.get("visit_date"), '%d.%m.%Y')
+            purpose = request.form.get("purpose")
+            review_des = request.form.get("review_des")
+
+            # Prepare the review data for update
+            review_data = {
+                "where": where,
+                "rating": rating,
+                "visit_date": visit_date,
+                "purpose": purpose,
+                "review_des": review_des,
+                "created_by": session["user"]
+            }
+
+            # Update the review data in the MongoDB collection
+            mongo.db.reviews.update_one({"_id": ObjectId(review_id)}, {"$set": review_data})
+            flash("Review successfully updated!", "success")
+
+            # Redirect to the insights page or another relevant page
+            return redirect(url_for("read_insights"))
+
+        except Exception as e:
+            # Handle any exceptions that occur
+            flash(f"An error occurred while updating the review: {str(e)}", "error")
+            return redirect(url_for("edit_insights", review_id=review_id))
+
+    # If GET request, render the edit insights form with existing data
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    return render_template("edit_insights.html", review=review)
+
+
+@app.route("/delete_insights/<review_id>")
+def delete_insights(review_id):
+    mongo.db.locations.remove({"_id": ObjectId(review_id)})
+    flash("Site Data and Information Sucessfully Deleted!", "success")
+    return redirect(url_for("read_insights"))
 
 
 if __name__ == "__main__":

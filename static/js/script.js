@@ -11,6 +11,10 @@ $(document).ready(function() {
     // Initialize form select effect
     $('select').formSelect();
 
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+
     // Initialize the slider only if it exists
     if ($('.slider').length) {
         $('.slider').slider({

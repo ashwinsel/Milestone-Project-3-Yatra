@@ -12,7 +12,33 @@
             </div>
         </div>
         {% endif %}
-    </section>
+        <div class="row">
+            <form method="GET" action="{{ url_for('filter_sites') }}">
+                <div class="input-field col s12 m4">
+                    <select name="part_name">
+                        <option value="" disabled selected>Filter by Part of India</option>
+                        {% for part in part_names %}
+                            <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>{{ part }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Part of India</label>
+                </div>
+                
+                <div class="input-field col s12 m4">
+                    <select name="deity">
+                        <option value="" disabled selected>Filter by Deity</option>
+                        {% for deity in deities %}
+                            <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>{{ deity }}</option>
+                        {% endfor %}
+                    </select>
+                    <label>Deity</label>
+                </div>
+                
+                <div class="input-field col s12 m4">
+                    <button type="submit" class="btn orange lighten-2 black-text">Filter</button>
+                </div>
+            </form>
+        </div>
 {% endblock%}
 
 {% block body %}

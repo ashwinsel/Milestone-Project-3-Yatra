@@ -21,15 +21,22 @@
     <section class="container">        
         <div class="grid-container">
             {% for review in reviews %}
-                <div class="grid-item">
-                    <h5>{{ review.where }}</h5>
-                    <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
-                    <p><strong>Rating:</strong> {{ review.rating }}</p>
-                    <p><strong>Purpose:</strong> {{ review.purpose }}</p>
-                    <p><strong>Review:</strong> {{ review.review_des }}</p>
-                    <p class="created-by">Created By: {{ review.created_by }}</p>
-                </div>
-            {% endfor %}
+            <div class="grid-item">
+                <h5>{{ review.where }}</h5>
+                <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
+                <p><strong>Rating:</strong> {{ review.rating }}</p>
+                <p><strong>Purpose:</strong> {{ review.purpose }}</p>
+                <p><strong>Review:</strong> {{ review.review_des }}</p>
+                <p class="created-by">Created By: {{ review.created_by }}</p>
+
+                {% if session.user|lower == review.created_by|lower %}
+                    <div class="actions">
+                        <a href="{{ url_for('edit_insights', review_id=review._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
+                        <a href="{{ url_for('delete_insights', review_id=review._id) }}" class="btn-xsmall red darken-4 black-text delete-btn" style="text-shadow: 2px 2px 2px rgba(8, 8, 8, 0.2);">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
         </div>
     </section>
 {% endblock %}
