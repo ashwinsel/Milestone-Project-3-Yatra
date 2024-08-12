@@ -107,8 +107,7 @@ def logout():
 @app.route("/browse_sites")
 def browse_sites():
     locations = mongo.db.locations.find()
-    return render_template("browse_sites.html", locations=locations)
-    return render_template("browse_sites.html")
+    return render_template("browse_sites.html", locations=locations)    
 
 
 @app.route("/add_site", methods=["GET", "POST"])
@@ -146,7 +145,7 @@ def add_site():
             flash(f"An error occurred while adding the site: {str(e)}", "error")
             return redirect(url_for("add_site"))
 
-    # Fetch unique part names for the dropdown in the add_site form
+    # Fetch unique part names from the collection named 'part' for the dropdown in the add_site form
     part_names = mongo.db.part.distinct('part_name')
     return render_template("add_site.html", part_names=part_names)
 
