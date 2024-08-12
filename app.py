@@ -86,16 +86,6 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # pulls through session user's username value from database
-    username = mongo.db.user.find_one({"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("home.html", username=username)
-    
-    return redirect(url_for("login"))
-
 @app.route("/logout")
 def logout():
     # remove user from session cookies

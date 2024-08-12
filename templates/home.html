@@ -2,18 +2,20 @@
 
 {% block header %}
 <section class="hslider">
-    <div class="slider">
+    <div class="slider">        
         <ul class="slides transparent">
             <li class="banner">
                 <h1 style="font-family: 'Lord Spirit', sans-serif; font-size: 6rem;">Yaatra</h1>
                 <div class="center-align">
                     <p class="banner-text">Guide for Spiritual Travellers</p>
+                    {% if not session.user %}
                     <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('login') }}">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
                     </a>
                     <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('register') }}">
                         <i class="fa-solid fa-user-plus"></i> Register
                     </a>
+                    {% endif %}
                 </div>
             </li>
             <li class="banner">
@@ -28,8 +30,8 @@
                     </a>
                 </div>
             </li>
-        </ul>
-    </div>
+        </ul>                        
+    </div>        
 </section>
 {% endblock %}
 
@@ -39,27 +41,21 @@
         <div class="col s12 m4 l4">
             <div class="card-panel">
                 <h5>About Us</h5>
-                <p class="black-text">
-                    Our platform connects a growing community of spiritual travelers, offering user-driven journey insights and information on sacred destinations. With India's 97% surge in spiritual travel searches, this website empowers travelers and guides to share, discover, and plan journeys to revered sites like Ayodhya, Ujjain, and Badrinath.
-                </p>
+                <span class="black-text">Our platform connects a growing community of spiritual travelers, offering user-driven journey insights and information on sacred destinations. With India's 97% surge in spiritual travel searches, this website empowers travelers and guides to share, discover, and plan journeys to revered sites like Ayodhya, Ujjain, and Badrinath.</span>
             </div>
         </div>
         <div class="col s12 m4 l4">
             <div class="card-panel">
                 <h5>Browse Sites</h5>
-                <p class="black-text">
-                    This section offers users a comprehensive directory of spiritual destinations, allowing them to explore various locations, learn about their significance, and discover new places to visit. This feature helps travelers plan their spiritual journeys by providing detailed information on a wide range of sacred sites.
-                </p>
+                <span class="black-text">This section offers users a comprehensive directory of spiritual destinations, allowing them to explore various locations, learn about their significance, and discover new places to visit. This feature helps travelers plan their spiritual journeys by providing detailed information on a wide range of sacred sites.</span>
             </div>
-        </div>
+        </div>        
         <div class="col s12 m4 l4">
             <div class="card-panel">
                 <h5>Journey Insights</h5>
-                <p class="black-text">
-                    This section allows users to share experiences of their visits to spiritual sites, including insights on tour operators and routes. This feature fosters a collaborative community where travelers can explore authentic, user-generated content, helping others make informed decisions on spiritual journey planning.
-                </p>
+                <span class="black-text">This section allows users to share experiences of their visits to spiritual sites, including insights on tour operators and routes. This feature fosters a collaborative community where travelers can explore authentic, user-generated content, helping others make informed decisions on spiritual journey planning.</span>
             </div>
-        </div>
+        </div> 
     </div>
 </section>
 {% endblock %}

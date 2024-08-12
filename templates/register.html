@@ -2,11 +2,12 @@
 
 {% block header %}
 <!-- ** PAGE BANNER ** -->
-<section>    
+<section>
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                <b>Already Have a Profile?</b> <a href="{{ url_for('login') }}" class="ligth-blue-text text-darken-4"><b>Sign In Here!</b></a>
+                <b>Already Have a Profile?</b> 
+                <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4"><b>Sign In Here!</b></a>
             </p>
         </div>
     </div>
@@ -23,10 +24,8 @@
                     <div class="input-field col s12">
                         <i class="fa-solid fa-user-plus prefix black-text"></i>
                         <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
-                        <label for="username" class="black-text">
-                            Username                            
-                        </label>
-                        <p>An Alphanumeric value of 5-8 chracters</p>
+                        <label for="username" class="black-text">Username</label>
+                        <p class="helper-text">An alphanumeric value of 5-8 characters</p>
                     </div>
                 </div>
 
@@ -35,10 +34,8 @@
                     <div class="input-field col s12">
                         <i class="fa-solid fa-lock prefix black-text"></i>
                         <input id="password" name="password" type="password" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
-                        <label for="password" class="black-text">
-                            Password                            
-                        </label>
-                        <p>An Alphanumeric value of 5-8 chracters</p>
+                        <label for="password" class="black-text">Password</label>
+                        <p class="helper-text">An alphanumeric value of 5-8 characters</p>
                     </div>
                 </div>
 
@@ -46,17 +43,15 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-lock prefix black-text"></i>
-                        <input id="confirm_password" name="confirm_password" type="password" class="validate">
-                        <label for="confirm_password" class="black-text">
-                            Confirm Password                            
-                        </label>
-                        <p>Ensure this matches the password above</p>
+                        <input id="confirm_password" name="confirm_password" type="password" class="validate" required>
+                        <label for="confirm_password" class="black-text">Confirm Password</label>
+                        <p class="helper-text">Ensure this matches the password above</p>
                     </div>
                 </div>
 
                 <!-- Register Button -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large white-text black">
+                    <button type="submit" class="col s12 btn-large black white-text">
                         Register <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
@@ -64,5 +59,4 @@
         </form>
     </div>
 </div>
-
 {% endblock %}
