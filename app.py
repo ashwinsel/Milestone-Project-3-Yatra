@@ -284,8 +284,8 @@ def edit_insights(review_id):
 
 @app.route("/delete_insights/<review_id>")
 def delete_insights(review_id):
-    mongo.db.locations.remove({"_id": ObjectId(review_id)})
-    flash("Site Data and Information Sucessfully Deleted!", "success")
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Sucessfully Deleted!", "success")
     return redirect(url_for("read_insights"))
 
 
