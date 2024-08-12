@@ -147,7 +147,7 @@ def add_site():
             return redirect(url_for("add_site"))
 
     # Fetch unique part names for the dropdown in the add_site form
-    part_names = mongo.db.locations.distinct('part_name')
+    part_names = mongo.db.part.distinct('part_name')
     return render_template("add_site.html", part_names=part_names)
 
 

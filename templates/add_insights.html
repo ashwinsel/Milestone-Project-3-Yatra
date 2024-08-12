@@ -30,8 +30,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-hands-praying prefix black-text"></i>
-                        <input id="rating" name="rating" type="text" pattern="^[a-zA-Z0-9]{2,20}$" class="validate" required>
+                        <input id="rating" name="rating" type="text" pattern="^[0-10]{1,2}$" class="validate" required>
                         <label for="rating" class="black-text">How would you rate your experience?</label>
+                        <p>Pick a number 0-10 (0=worst, 10=best)</p>
                     </div>
                 </div>
 
@@ -65,8 +66,8 @@
 
                 <!-- Submit Button -->
                 <div class="row">
-                    <button type="submit" class="col s5 offset-s3 btn-med black-text text-darken-4 orange">
-                        Submit <i class="fas fa-computer-mouse prefix black-text"></i>                        
+                    <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">
+                        Submit <i class="prefix black-text"></i>                        
                     </button>
                 </div>
             </div>

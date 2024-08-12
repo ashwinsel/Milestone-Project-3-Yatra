@@ -41,12 +41,14 @@
                     <div class="input-field col s12">                        
                         <i class="fa-regular fa-compass prefix black-text"></i>
                         <select id="part_name" name="part_name" class="validate" required>
-                            <option value="" disabled selected>Which Part of India is this Site</option>
-                            {% for parts in part %}
-                            <option value="{{ parts.part_name }}">{{ parts.part_name }}</option>
+                            <option value="" disabled>Which Part of India is this Site</option>
+                            {% for part_name in part_names %}
+                                <option value="{{ part_name }}">                               
+                                    {{ part_name }}
+                                </option>
                             {% endfor %}
                         </select>                        
-                        <label for="part_name"></label>                      
+                        <label for="part_name" class="active">Part of India</label>                      
                     </div>
                 </div>
 
@@ -68,8 +70,8 @@
 
                 <!-- Share Button -->
                 <div class="row">
-                    <button type="submit" class="col s5 offset-s3 btn-med black-text text-darken-4 orange">
-                        Share <i class="fa-solid fa-share prefix black-text"></i>
+                    <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">
+                        Submit <i class="prefix black-text"></i>
                     </button>
                 </div>
             </div>
