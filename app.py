@@ -20,6 +20,12 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/get_locations")
+def get_locations():
+    locations = list (mongo.db.locations.find())
+    return render_template("home.html", locations=locations)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -96,12 +102,6 @@ def logout():
     flash("You have been signed out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
-@app.route("/get_locations")
-def get_locations():
-    locations = list (mongo.db.locations.find())
-    return render_template("home.html", locations=locations)
 
 
 @app.route("/browse_sites")
@@ -198,7 +198,7 @@ def delete_site(locations_id):
     flash("Site Data and Information Sucessfully Deleted!", "success")
     return redirect(url_for("browse_sites"))
 
-
+# Logic developed, based on Functions module in 'Let us Python' by Y.Kanetkar and MongoDB Fundamentals by Amit Phaltankar.
 @app.route('/filter_sites', methods=['GET', 'POST'])
 def filter_sites():
     # Get filter parameters from request

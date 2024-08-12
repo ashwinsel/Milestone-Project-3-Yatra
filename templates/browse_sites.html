@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block header %}
-    <section class="main">
+    <section class="main container">
         {% if session.user %}
         <div class="container">
             <div class="row">
@@ -8,37 +8,40 @@
                     <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_site') }}">
                         <i class="fa-solid fa-plus"></i> Add Site
                     </a>
+                    <p><b>Click on Filter once to activate drop down</b></p>
                 </div>
             </div>
         </div>
         {% endif %}
-        <div class="row">
-            <form method="GET" action="{{ url_for('filter_sites') }}">
-                <div class="input-field col s12 m4">
-                    <select name="part_name">
-                        <option value="" disabled selected>Filter by Part of India</option>
-                        {% for part in part_names %}
-                            <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>{{ part }}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Part of India</label>
-                </div>
+            <div class="row">
                 
-                <div class="input-field col s12 m4">
-                    <select name="deity">
-                        <option value="" disabled selected>Filter by Deity</option>
-                        {% for deity in deities %}
-                            <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>{{ deity }}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Deity</label>
-                </div>
-                
-                <div class="input-field col s12 m4">
-                    <button type="submit" class="btn orange lighten-2 black-text">Filter</button>
-                </div>
-            </form>
-        </div>
+                <form method="GET" action="{{ url_for('filter_sites') }}">
+                    <div class="input-field col s12 m4">
+                        <select name="part_name">
+                            <option value="" disabled selected>Filter by Part of India</option>
+                            {% for part in part_names %}
+                                <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>{{ part }}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Part of India</label>
+                    </div>
+                    
+                    <div class="input-field col s12 m4">
+                        <select name="deity">
+                            <option value="" disabled selected>Filter by Deity</option>
+                            {% for deity in deities %}
+                                <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>{{ deity }}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Deity</label>
+                    </div>
+                    
+                    <div class="input-field col s12 m4">
+                        <button type="submit" class="btn orange lighten-2 black-text">Filter</button>                        
+                    </div>
+                </form>
+            </div>
+        </section>
 {% endblock%}
 
 {% block body %}
