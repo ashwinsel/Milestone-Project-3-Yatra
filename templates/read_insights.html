@@ -1,44 +1,65 @@
 {% extends "base.html" %}
 
 {% block header %}
-<!-- Displays the title and Add button if user in session -->
-    <section class="main">
-        <h2 class="center-align">Journey Insights</h2>
-        {% if session.user %}
-        <div class="container">            
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_insights') }}">
-                        <i class="fa-solid fa-plus"></i> Add Insight
-                    </a>
-                </div>
+<!-- Page Banner -->
+<section class="main">
+    <h2 class="center-align">Journey Insights</h2>
+    {% if session.user %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <a class="waves-effect waves-light btn-small orange lighten-2 black-text" href="{{ url_for('add_insights') }}">
+                    <i class="fa-solid fa-plus"></i> Add Insight
+                </a>
             </div>
         </div>
-        {% endif %}
-    </section>
-{% endblock%}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
 
 {% block body %}
-<!-- Displays a grid of insights -->
-    <section class="container">        
-        <div class="grid-container">
-            {% for review in reviews %}
-            <div class="grid-item">
-                <h5>{{ review.where }}</h5>
-                <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
-                <p><strong>Rating:</strong> {{ review.rating }}</p>
-                <p><strong>Purpose:</strong> {{ review.purpose }}</p>
-                <p><strong>Review:</strong> {{ review.review_des }}</p>
-                <p class="created-by">Created By: {{ review.created_by }}</p>
-
+<!-- Insights Grid -->
+<section class="container">
+    {% if reviews|length > 0 %}
+    <div class="row">
+        {% for review in reviews %}
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{ review.where }}</span>
+                    <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
+                    <p><strong>Rating:</strong> 
+                        {% for i in range(0, review.rating|int) %}
+                            <i class="fa-solid fa-star yellow-text text-darken-3"></i>
+                        {% endfor %}
+                    </p>
+                    <p><strong>Purpose:</strong> {{ review.purpose }}</p>
+                    <p><strong>Review:</strong> {{ review.review_des }}</p>
+                    <p class="created-by"><strong>Created By:</strong> {{ review.created_by }}</p>
+                </div>
                 {% if session.user|lower == review.created_by|lower %}
-                    <div class="actions">
-                        <a href="{{ url_for('edit_insights', review_id=review._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
-                        <a href="{{ url_for('delete_insights', review_id=review._id) }}" class="btn-xsmall red darken-4 black-text delete-btn" style="text-shadow: 2px 2px 2px rgba(8, 8, 8, 0.2);">Delete</a>
-                    </div>
+                <div class="card-action">
+                    <a href="{{ url_for('edit_insights', review_id=review._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
+                    <a href="{{ url_for('delete_insights', review_id=review._id) }}" class="btn-xsmall red darken-4 white-text delete-btn">
+                        Delete
+                    </a>
+                </div>
                 {% endif %}
             </div>
-        {% endfor %}
         </div>
-    </section>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="card-panel no-results center-align">
+        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        <p class="grey-text text-darken-1">No insights available yet. Share your journey and inspire others!</p>
+        {% if session.user %}
+        <a href="{{ url_for('add_insights') }}" class="btn orange lighten-2 black-text">
+            <i class="fa-solid fa-plus"></i> Add Insight
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</section>
 {% endblock %}

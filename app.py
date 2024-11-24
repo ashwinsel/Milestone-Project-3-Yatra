@@ -201,7 +201,7 @@ def filter_sites():
 
 @app.route("/read_insights")
 def read_insights():
-    reviews = mongo.db.reviews.find()
+    reviews = list(mongo.db.reviews.find())
     return render_template("read_insights.html", reviews=reviews)
 
 
