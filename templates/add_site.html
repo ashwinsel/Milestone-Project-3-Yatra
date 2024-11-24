@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block header %}
-<!-- ** PAGE BANNER ** -->
-<section class="container">    
+<!-- Page Banner -->
+<section class="container">
     <div class="row">
         <div class="col s12">
-            <p class=" banner center-align">
+            <p class="banner center-align">
                 <b style="text-decoration: underline;">Recently Visited a Site Not on the List?</b><br>
-                We're always looking to expand our community's knowledge and experiences. If you've recently visited a spiritual site that's not yet listed, we'd love to hear about it! Please share details about the site and your experience—your insights could guide and inspire fellow travelers on their spiritual journeys. 
+                Share your experience! Add details about the site to guide fellow travelers on their spiritual journeys. 
+                Your insights will help expand our community's knowledge and experiences.
             </p>
         </div>
     </div>
@@ -23,61 +24,64 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-gopuram prefix black-text"></i>
-                        <input id="site_name" name="site_name" type="text" minlength="2" maxlength="100" pattern="([^\s][A-z0-9À-ž\s]+)" class="validate" required>
+                        <input id="site_name" name="site_name" type="text" minlength="2" maxlength="100" 
+                               pattern="([^\s][A-z0-9À-ž\s]+)" class="validate" required>
                         <label for="site_name" class="black-text">Site Name</label>
+                        <span class="helper-text" data-error="Please enter a valid site name (2-100 characters)" data-success=""></span>
                     </div>
                 </div>
 
-                <!-- Deity field -->
+                <!-- Deity Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-hands-praying prefix black-text"></i>
-                        <input id="deity" name="deity" type="text" pattern="^[a-zA-Z0-9]{2,20}$" class="validate" required>
-                        <label for="deity" class="black-text">Name of the main deity</label>
+                        <input id="deity" name="deity" type="text" pattern="^[a-zA-Z0-9 ]{2,90}$" class="validate" required>
+                        <label for="deity" class="black-text">Name of the Main Deity</label>
+                        <span class="helper-text" data-error="Please enter a deity name (2-20 characters)" data-success=""></span>
                     </div>
                 </div>
 
                 <!-- Part of India Location Selection List -->
                 <div class="row">
-                    <div class="input-field col s12">                        
+                    <div class="input-field col s12">
                         <i class="fa-regular fa-compass prefix black-text"></i>
                         <select id="part_name" name="part_name" class="validate" required>
-                            <option value="" disabled>Which Part of India is this Site</option>
+                            <option value="" disabled selected>Select the Region of India</option>
                             {% for part_name in part_names %}
-                                <option value="{{ part_name }}">                               
-                                    {{ part_name }}
-                                </option>
+                                <option value="{{ part_name }}">{{ part_name }}</option>
                             {% endfor %}
-                        </select>                        
-                        <label for="part_name" class="active">Part of India</label>                      
+                        </select>
+                        <label for="part_name"> </label>
+                        <span class="helper-text" data-error="Please select a region" data-success=""></span>
                     </div>
                 </div>
 
-                <!-- Description field -->
+                <!-- Description Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-regular fa-rectangle-list prefix black-text"></i>
                         <label for="description" class="black-text">Tell Us More About the Site</label>
-                        <textarea id="description" name="description" class="materialize-textarea"  minlength="5" maxlength="800" class="validate" required></textarea>                                                
+                        <textarea id="description" name="description" class="materialize-textarea" minlength="5" maxlength="800" required></textarea>
+                        <span class="helper-text" data-error="Description must be between 5-800 characters" data-success=""></span>
                     </div>
                 </div>
 
-                <div class="row center-align">                                           
+                <!-- Disabled Access Checkbox -->
+                <div class="row center-align">
                     <label for="access" class="black-text">
-                    <input id="access" name="access" type="checkbox" class="filled-in" checked="checked" />
-                    <span> Disabled Access  <i class="fa-solid fa-wheelchair prefix black-text"></i></span>
-                    </label>                   
+                        <input id="access" name="access" type="checkbox" class="filled-in" />
+                        <span>Disabled Access <i class="fa-solid fa-wheelchair prefix black-text"></i></span>
+                    </label>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="row">
                     <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">
-                        Submit <i class="prefix black-text"></i>
+                        Submit <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
 {% endblock %}
