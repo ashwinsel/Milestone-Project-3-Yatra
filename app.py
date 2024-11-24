@@ -217,27 +217,23 @@ def add_insights():
             # Retrieve and validate form inputs
             where = request.form.get("where")
             rating = request.form.get("rating")
-            visit_date_raw = request.form.get("visit_date")
+            visit_date = request.form.get("visit_date")  # Expect 'YYYY-MM-DD' format from the date picker
             purpose = request.form.get("purpose")
             review_des = request.form.get("review_des")
 
             # Ensure all fields are provided
-            if not all([where, rating, visit_date_raw, purpose, review_des]):
+            if not all([where, rating, visit_date, purpose, review_des]):
                 flash("All fields are required.", "error")
                 return redirect(url_for("add_insights"))
 
-            # Validate the date format
-            try:
-                visit_date = datetime.strptime(visit_date_raw, '%d.%m.%Y')
-            except ValueError:
-                flash("Invalid date format. Please use DD.MM.YYYY.", "error")
-                return redirect(url_for("add_insights"))
+            # Convert visit_date to a datetime object for MongoDB
+            visit_date_obj = datetime.strptime(visit_date, "%Y-%m-%d")
 
             # Prepare review data for insertion
             review_data = {
                 "where": where,
                 "rating": rating,
-                "visit_date": visit_date,
+                "visit_date": visit_date_obj,
                 "purpose": purpose,
                 "review_des": review_des,
                 "created_by": session["user"]
@@ -263,7 +259,7 @@ def edit_insights(review_id):
         # Retrieve form data
         where = request.form.get("where")
         rating = request.form.get("rating")
-        visit_date = request.form.get("visit_date")  # Expect 'YYYY-MM-DD' format from date picker
+        visit_date = request.form.get("visit_date")  # Expect 'YYYY-MM-DD' format
         purpose = request.form.get("purpose")
         review_des = request.form.get("review_des")
 
@@ -274,23 +270,24 @@ def edit_insights(review_id):
 
         try:
             # Convert visit_date to datetime object for MongoDB
-            visit_date = datetime.strptime(visit_date, "%Y-%m-%d")
-        except ValueError:
-            flash("Invalid date format. Please use YYYY-MM-DD.", "error")
-            return redirect(url_for("edit_insights", review_id=review_id))
+            visit_date_obj = datetime.strptime(visit_date, "%Y-%m-%d")
 
-        # Update the review in MongoDB
-        review_data = {
-            "where": where,
-            "rating": rating,
-            "visit_date": visit_date,  # Store as a datetime object
-            "purpose": purpose,
-            "review_des": review_des,
-            "created_by": session["user"]
-        }
-        mongo.db.reviews.update_one({"_id": ObjectId(review_id)}, {"$set": review_data})
-        flash("Review successfully updated!", "success")
-        return redirect(url_for("read_insights"))
+            # Update the review in MongoDB
+            review_data = {
+                "where": where,
+                "rating": rating,
+                "visit_date": visit_date_obj,  # Store as a datetime object
+                "purpose": purpose,
+                "review_des": review_des,
+                "created_by": session["user"]
+            }
+            mongo.db.reviews.update_one({"_id": ObjectId(review_id)}, {"$set": review_data})
+            flash("Review successfully updated!", "success")
+            return redirect(url_for("read_insights"))
+
+        except Exception as e:
+            flash(f"An error occurred: {str(e)}", "error")
+            return redirect(url_for("edit_insights", review_id=review_id))
 
     # Handle GET request: Fetch existing review data
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
