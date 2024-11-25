@@ -26,7 +26,17 @@ $(document).ready(function () {
         $('#flash-modal').modal('open');
     }
 
-    
+     // Fetch Part of India options dynamically
+     $.getJSON('/get_part_names', function (data) {
+        let partNameSelect = $('#part_name');
+        partNameSelect.empty(); // Clear existing options
+        partNameSelect.append('<option value="" disabled selected>Select Part of India</option>');
+        data.forEach(function (partName) {
+            partNameSelect.append(`<option value="${partName}">${partName}</option>`);
+        });
+        partNameSelect.formSelect(); // Re-initialize Materialize dropdown
+    });
+
     $('.delete-btn').on('click', function () {
         return confirm("Are you sure you want to delete this site? This action cannot be undone.");
     });

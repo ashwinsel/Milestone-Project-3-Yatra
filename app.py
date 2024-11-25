@@ -1,7 +1,8 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, jsonify
+)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import datetime
@@ -170,32 +171,38 @@ def delete_site(locations_id):
     return redirect(url_for("browse_sites"))
 
 
+@app.route('/get_part_names', methods=['GET'])
+def get_part_names():
+    """Return a JSON list of distinct 'Part of India' values."""
+    part_names = mongo.db.locations.distinct('part_name')  # Fetch unique parts of India
+    return jsonify(part_names)
+
+
 @app.route('/filter_sites', methods=['GET', 'POST'])
 def filter_sites():
     # Get filter parameters from request
     part_name = request.args.get('part_name')  # Part name filter
-    deity = request.args.get('deity')  # Deity filter
+    deity = request.args.get('deity')  # Deity filter (free-text)
 
     # Build the query dictionary dynamically
     query = {}
     if part_name:
         query['part_name'] = part_name
     if deity:
-        query['deity'] = deity
+        # Perform case-insensitive partial match using regex
+        query['deity'] = {"$regex": deity, "$options": "i"}
 
     # Fetch filtered locations from the database
     locations = list(mongo.db.locations.find(query))
 
-    # Fetch unique part names and deities for the filter dropdowns
+    # Fetch unique part names for the dropdown
     part_names = mongo.db.locations.distinct('part_name')
-    deities = mongo.db.locations.distinct('deity')
 
     # Render the browse_sites.html template with filtered data
     return render_template(
         'browse_sites.html',
         locations=locations,
-        part_names=part_names,
-        deities=deities
+        part_names=part_names
     )
 
 

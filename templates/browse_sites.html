@@ -15,8 +15,7 @@
     {% endif %}
     <div class="row">
         <p class="center-align">
-            <b>Filter Spiritual Sites</b> <br>
-            <span class="red-text flashing-text"><b>(Click on "Apply Filters" Once To Enable Dropdown List in Filters)</b></span>
+            <b>Filter Spiritual Sites</b>            
         </p>
         
         <form method="GET" action="{{ url_for('filter_sites') }}">
@@ -24,38 +23,25 @@
             <div class="input-field col s12 m4">
                 <i class="fa-regular fa-compass prefix black-text"></i>
                 <select id="part_name" name="part_name">
-                    <option value="" disabled selected>Select Part of India (Optional)</option>
-                    {% for part in part_names %}
-                        <option value="{{ part }}" {% if request.args.get('part_name') == part %}selected{% endif %}>
-                            {{ part }}
-                        </option>
-                    {% endfor %}
+                    <option value="" disabled selected>Select Part of India</option>
+                    <label for="part_name" class="black-text">Select Part of India</label>
                 </select>
-                <label for="part_name" class="black-text">Select Part of India</label>
+                
             </div>
             
             <!-- Filter by Deity -->
             <div class="input-field col s12 m4">
                 <i class="fas fa-hands-praying prefix black-text"></i>
-                <select id="deity" name="deity">
-                    <option value="" disabled selected>Select Deity (Optional)</option>
-                    {% for deity in deities %}
-                        <option value="{{ deity }}" {% if request.args.get('deity') == deity %}selected{% endif %}>
-                            {{ deity }}
-                        </option>
-                    {% endfor %}
-                </select>
-                <label for="deity" class="black-text">Select Deity</label>
+                <input id="deity" name="deity" type="text" pattern="^[a-zA-Z0-9 ]{2,90}$" class="validate" aria="Type Deity Name (Optional)">
+                <label for="deity" class="black-text">Type Deity Name</label>
+                <span class="helper-text" data-error="Please enter a deity name (2-90 characters)" data-success=""></span>
             </div>
 
             <!-- Filter and Reset Buttons -->
             <div class="col s12 m4 center-align">
-                <button type="submit" class="btn orange lighten-2 black-text waves-effect waves-light">
+                <button type="submit" class="btn orange lighten-2 black-text waves-effect waves-light apply">
                     <i class="fa-solid fa-filter"></i> Apply Filters
-                </button>
-                <a href="{{ url_for('browse_sites') }}" class="btn grey lighten-3 black-text waves-effect waves-light">
-                    <i class="fa-solid fa-undo"></i> Reset
-                </a>
+                </button>                
             </div>
         </form>
     </div>
