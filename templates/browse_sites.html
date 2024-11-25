@@ -14,7 +14,11 @@
     </div>
     {% endif %}
     <div class="row">
-        <p class="center-align"><b>Filter Spiritual Sites</b> (Click on "Apply Filters" Once for Dropdown)</p>
+        <p class="center-align">
+            <b>Filter Spiritual Sites</b> <br>
+            <span class="black-text flashing-text">(Click on "Apply Filters" Once for Dropdown)</span>
+        </p>
+        
         <form method="GET" action="{{ url_for('filter_sites') }}">
             <!-- Filter by Part of India -->
             <div class="input-field col s12 m4">

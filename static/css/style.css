@@ -79,6 +79,17 @@ nav ul a {
     color: #031929;
 }
 
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.flashing-text {
+    animation: flash 1.5s infinite;
+}
+
+
 /* Main Section Styles */
 .main {
     background-image: url("../img/main-img.png");
