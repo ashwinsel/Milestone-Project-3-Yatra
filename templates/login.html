@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 
 {% block header %}
-<!-- ** PAGE BANNER ** -->
-<section>
+<section class="container">
     <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                <b>Welcome Back!</b>
-                <b>Sign In to Your Account!</b>
-            </p>
-            <p class="center-align">
-                <b>Don't Have an Account?</b>
-                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">
-                    <b>Sign up and get started!</b>
-                </a>
+        <div class="col s12 center-align">
+            <h4 class="banner-text">Welcome Back!</h4>
+            <p>Sign in to access your account and continue your spiritual journey.</p>
+            <p>
+                <span>Don't have an account?</span>
+                <a href="{{ url_for('register') }}" class="teal-text text-darken-2"><b>Sign up here!</b></a>
             </p>
         </div>
     </div>
@@ -25,28 +20,39 @@
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
-                <!-- Username -->
+                
+                <!-- Username Field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-user prefix black-text"></i>
-                        <input id="username" name="username" type="text" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
-                        <label for="username" class="black-text">Username</label>
+                        <i class="fa-solid fa-user prefix teal-text"></i>
+                        <input id="username" name="username" type="text" 
+                               minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" 
+                               class="validate" required aria-label="Enter your username (5-8 alphanumeric characters)">
+                        <label for="username" class="teal-text">Username</label>
+                        <span class="helper-text" data-error="Invalid username" data-success="Valid username">
+                            Must be 5-8 characters long and contain only letters or numbers.
+                        </span>
                     </div>
                 </div>
-
-                <!-- Password -->
+                
+                <!-- Password Field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-solid fa-lock prefix black-text"></i>
-                        <input id="password" name="password" type="password" minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" class="validate" required>
-                        <label for="password" class="black-text">Password</label>
+                        <i class="fa-solid fa-lock prefix teal-text"></i>
+                        <input id="password" name="password" type="password" 
+                               minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" 
+                               class="validate" required aria-label="Enter your password (5-8 alphanumeric characters)">
+                        <label for="password" class="teal-text">Password</label>
+                        <span class="helper-text" data-error="Invalid password" data-success="Valid password">
+                            Must be 5-8 characters long and contain only letters or numbers.
+                        </span>
                     </div>
                 </div>
                 
                 <!-- Login Button -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large black white-text">
-                        Sign in <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <button type="submit" class="col s12 btn-large teal darken-2 white-text">
+                        Sign In <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </button>
                 </div>
             </div>
