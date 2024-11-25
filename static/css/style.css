@@ -86,7 +86,7 @@ nav ul a {
 }
 
 .flashing-text {
-    animation: flash 1.5s infinite;
+    animation: flash 2s infinite;
 }
 
 
