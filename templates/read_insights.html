@@ -19,27 +19,29 @@
 {% endblock %}
 
 {% block body %}
-<!-- Insights Grid -->
+<!-- Collapsible Insights -->
 <section class="container">
     {% if reviews|length > 0 %}
-    <div class="row">
+    <ul class="collapsible popout">
         {% for review in reviews %}
-        <div class="col s12 m6 l4">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">{{ review.where }}</span>
+        <li>
+            <div class="collapsible-header">
+                <div>
+                    <span class="title"><b>{{ review.where }}</b></span>
                     <p><strong>Visit Date:</strong> {{ review.visit_date.strftime('%d.%m.%Y') }}</p>
                     <p><strong>Rating:</strong> 
                         {% for i in range(0, review.rating|int) %}
                             <i class="fa-solid fa-star yellow-text text-darken-3"></i>
                         {% endfor %}
                     </p>
-                    <p><strong>Purpose:</strong> {{ review.purpose }}</p>
-                    <p><strong>Review:</strong> {{ review.review_des }}</p>
-                    <p class="created-by"><strong>Created By:</strong> {{ review.created_by }}</p>
                 </div>
+            </div>
+            <div class="collapsible-body">
+                <p><strong>Purpose:</strong> {{ review.purpose }}</p>
+                <p><strong>Review:</strong> {{ review.review_des }}</p>
+                <p class="created-by"><strong>Created By:</strong> {{ review.created_by }}</p>
                 {% if session.user|lower == review.created_by|lower %}
-                <div class="card-action">
+                <div class="actions">
                     <a href="{{ url_for('edit_insights', review_id=review._id) }}" class="btn-xsmall yellow accent-3 black-text">Edit</a>
                     <a href="{{ url_for('delete_insights', review_id=review._id) }}" class="btn-xsmall red darken-4 white-text delete-btn">
                         Delete
@@ -47,9 +49,9 @@
                 </div>
                 {% endif %}
             </div>
-        </div>
+        </li>
         {% endfor %}
-    </div>
+    </ul>
     {% else %}
     <div class="card-panel no-results center-align">
         <i class="fa-solid fa-magnifying-glass fa-2x"></i>
@@ -62,4 +64,11 @@
     </div>
     {% endif %}
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const collapsibles = document.querySelectorAll('.collapsible');
+        M.Collapsible.init(collapsibles);
+    });
+</script>
 {% endblock %}
