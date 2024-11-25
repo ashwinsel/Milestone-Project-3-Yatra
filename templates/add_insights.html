@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block header %}
-<section class="container">    
+<section class="container">
     <div class="row">
         <div class="col s12">
             <p class="banner center-align">
-                <b style="text-decoration: underline;">Share Your Journey Insights with Us!</b><br>
-                Your experiences, whether they involve a spiritual journey, photography expedition, trekking adventure, lessons, retreat, or simply a visit to pray, are invaluable to our community. Each of these unique purposes offers a different perspective, and we'd love to hear about your experience. By sharing the details of your journey—be it a moment of connection, a beautiful landscape, or a quiet place of reflection—you can inspire and guide others on their paths. Please take a moment to share your story, and help enrich the experiences of fellow travelers in our community. 
+                <b style="text-decoration: underline;">Share Your Journey Insights!</b><br>
+                Every journey tells a story. Share yours with the Yaatra community and help guide others on their spiritual paths. 
             </p>
         </div>
     </div>
@@ -21,9 +21,12 @@
                 <!-- Where did you go field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-gopuram prefix black-text"></i>
-                        <input id="where" name="where" type="text" minlength="2" maxlength="100" pattern="[^\s][A-Za-z0-9À-ž\s]+" class="validate" required>
+                        <i class="fas fa-map-marker-alt prefix black-text"></i>
+                        <input id="where" name="where" type="text" minlength="2" maxlength="100" 
+                               pattern="[A-Za-z0-9À-ž\s]+" 
+                               class="validate" required>
                         <label for="where" class="black-text">Where did you go?</label>
+                        <span class="helper-text">Example: Rishikesh, Varanasi, etc.</span>
                     </div>
                 </div>
 
@@ -31,9 +34,10 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-star prefix black-text"></i>
-                        <input id="rating" name="rating" type="number" min="0" max="10" step="1" class="validate" required>
-                        <label for="rating" class="black-text">How would you rate your experience?</label>
-                        <p>Pick a number 0-10 (0=worst, 10=best)</p>
+                        <input id="rating" name="rating" type="number" min="0" max="5" step="1" 
+                               class="validate" required>
+                        <label for="rating" class="black-text">Rate your experience (0-5)</label>
+                        <span class="helper-text">0 = Worst, 5 = Best</span>
                     </div>
                 </div>
 
@@ -41,32 +45,39 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-calendar-alt prefix black-text"></i>
-                        <input id="visit_date" name="visit_date" type="date" value="{{ request.form.get('visit_date') }}" required>
-                        <label for="visit_date" class="black-text">When did you go?</label>                        
+                        <input id="visit_date" name="visit_date" type="date" value="{{ request.form.get('visit_date') }}" 
+                               class="validate" required>
+                        <label for="visit_date" class="black-text">When did you go?</label>
+                        <span class="helper-text">Select the date of your visit.</span>
                     </div>
                 </div>
 
                 <!-- Purpose field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fa-regular fa-rectangle-list prefix black-text"></i>
-                        <input id="purpose" name="purpose" type="text" pattern="[A-Za-z0-9\s]{2,20}" class="validate" required>
-                        <label for="purpose" class="black-text">What was the purpose of your visit?</label>                                                
+                        <i class="fas fa-hand-holding-heart prefix black-text"></i>
+                        <input id="purpose" name="purpose" type="text" pattern="[A-Za-z0-9\s]{2,20}" 
+                               class="validate" required>
+                        <label for="purpose" class="black-text">What was your purpose?</label>
+                        <span class="helper-text">Example: Retreat, Prayer, Photography, Trekking, etc.</span>
                     </div>
                 </div>
 
                 <!-- Description field -->
-                <div class="row center-align">                    
+                <div class="row">
                     <div class="input-field col s12">
-                        <label for="review_des" class="black-text" style="font-size: 1.2rem;">Tell Us More About Your Experience!</label>
-                        <textarea id="review_des" name="review_des" class="materialize-textarea validate" minlength="5" maxlength="800" required></textarea>
+                        <i class="fas fa-align-left prefix black-text"></i>
+                        <textarea id="review_des" name="review_des" class="materialize-textarea validate" 
+                                  minlength="5" maxlength="800" required></textarea>
+                        <label for="review_des" class="black-text">Tell us more about your experience!</label>
+                        <span class="helper-text">Write at least 5 characters and up to 800 characters.</span>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
-                <div class="row">
-                    <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">
-                        Submit <i class="prefix black-text"></i>                        
+                <div class="row center-align">
+                    <button type="submit" class="btn black-text text-darken-4 orange">
+                        Submit <i class="fas fa-paper-plane prefix black-text"></i>
                     </button>
                 </div>
             </div>
