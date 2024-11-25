@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+
 {% block header %}
 <!-- ** PAGE BANNER ** -->
-<section class="container">    
+<section class="container">
     <div class="row">
         <div class="col s12">
             <p class="banner center-align">
                 <b style="text-decoration: underline;">Want to Edit a Journey Insight?</b><br>
-                We're always keen to keep our community's experiences up-to-date.
+                Keep your shared experiences up-to-date and helpful for our community.
             </p>
         </div>
     </div>
@@ -22,16 +23,23 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-gopuram prefix black-text"></i>
-                        <input id="where" name="where" type="text" value="{{ review.where }}" required minlength="2" maxlength="100">
-                        <label for="where">Where</label>
+                        <input id="where" name="where" type="text" value="{{ review.where }}" 
+                               minlength="2" maxlength="100" pattern="[^\s][A-Za-z0-9À-ž\s]+" 
+                               class="validate" required>
+                        <label for="where">Where did you go?</label>
+                        <span class="helper-text" data-error="Invalid input" data-success="Looks good!">
+                            Enter the location name (2-100 characters).
+                        </span>
                     </div>
                 </div>
                 <!-- Rating Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-star prefix black-text"></i>
-                        <input id="rating" name="rating" type="number" value="{{ review.rating }}" required min="1" max="5">
-                        <label for="rating">Rating (1-5)</label>
+                        <input id="rating" name="rating" type="number" value="{{ review.rating }}" 
+                               min="0" max="10" step="1" class="validate" required>
+                        <label for="rating">Rate your experience (0-5)</label>
+                        <p class="helper-text">0 = Worst, 5 = Best</p>
                     </div>
                 </div>
                 <!-- Visit Date -->
@@ -39,29 +47,35 @@
                     <div class="input-field col s12">
                         <i class="fas fa-calendar-alt prefix black-text"></i>
                         <input id="visit_date" name="visit_date" type="date" value="{{ review.visit_date }}" required>
-                        <label for="visit_date" class="black-text">When did you go?</label>
+                        <label for="visit_date">When did you go?</label>
+                        <span class="helper-text">Select the date of your visit.</span>
                     </div>
                 </div>
                 <!-- Purpose -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-cross prefix black-text"></i>
-                        <input id="purpose" name="purpose" type="text" value="{{ review.purpose }}" required minlength="5" maxlength="100">
-                        <label for="purpose">Purpose</label>
+                        <input id="purpose" name="purpose" type="text" value="{{ review.purpose }}" 
+                               minlength="2" maxlength="50" pattern="[A-Za-z0-9\s]{2,50}" 
+                               class="validate" required>
+                            <label for="purpose" class="black-text">What was the purpose of your visit?</label>
+                            <span class="helper-text">Example: Retreat, Prayer, Photography, Trekking, etc.</span>
                     </div>
                 </div>
                 <!-- Description -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-align-left prefix black-text"></i>
-                        <textarea id="review_des" name="review_des" class="materialize-textarea" required minlength="10" maxlength="500">{{ review.review_des }}</textarea>
-                        <label for="review_des">Description</label>
+                        <textarea id="review_des" name="review_des" class="materialize-textarea validate" 
+                                  minlength="5" maxlength="800" required>{{ review.review_des }}</textarea>
+                            <label for="review_des" class="black-text">Tell us more about your experience!</label>
+                            <span class="helper-text">Write at least 5 characters and up to 800 characters.</span>
                     </div>
                 </div>
                 <!-- Submit Button -->
                 <div class="row center-align">
                     <button type="submit" class="col s5 offset-s3 btn black-text text-darken-4 orange">
-                        Update <i class="prefix black-text"></i>                        
+                        Update <i class="fas fa-arrow-up prefix black-text"></i>
                     </button>
                 </div>
             </div>

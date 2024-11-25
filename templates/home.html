@@ -2,60 +2,73 @@
 
 {% block header %}
 <section class="hslider">
-    <div class="slider">        
+    <div class="slider">
         <ul class="slides transparent">
+            <!-- Slider Slide 1 -->
             <li class="banner">
-                <h1 style="font-family: 'Lord Spirit', sans-serif; font-size: 6rem;">Yaatra</h1>
                 <div class="center-align">
-                    <p class="banner-text">Guide for Spiritual Travellers</p>
+                    <h1 style="font-family: 'Lord Spirit', sans-serif; font-size: 6rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+                        Yaatra
+                    </h1>
+                    <p class="banner-text">Your Guide for Spiritual Journeys</p>
                     {% if not session.user %}
-                    <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('login') }}">
+                    <a class="waves-effect waves-light btn-small teal darken-1 white-text" href="{{ url_for('login') }}">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
                     </a>
-                    <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('register') }}">
+                    <a class="waves-effect waves-light btn-small teal darken-1 white-text" href="{{ url_for('register') }}">
                         <i class="fa-solid fa-user-plus"></i> Register
                     </a>
                     {% endif %}
                 </div>
             </li>
+            <!-- Slider Slide 2 -->
             <li class="banner">
-                <h2 style="font-size: 2.2rem;">Just want to Browse?</h2>
-                <div>
-                    <p class="banner-text">No Problem!</p>
-                    <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('browse_sites') }}">
+                <div class="center-align">
+                    <h2 style="font-size: 2.5rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.3);">Explore Without Logging In</h2>
+                    <p class="banner-text">Browse Sacred Sites and Read Insights</p>
+                    <a class="waves-effect waves-light btn-small teal darken-1 white-text" href="{{ url_for('browse_sites') }}">
                         <i class="fa-brands fa-readme"></i> Browse Sites
                     </a>
-                    <a class="waves-effect waves-light btn-small teal darken-1" href="{{ url_for('read_insights') }}">
-                        <i class="fa-solid fa-book-open-reader"></i> Read Journey Insights
+                    <a class="waves-effect waves-light btn-small teal darken-1 white-text" href="{{ url_for('read_insights') }}">
+                        <i class="fa-solid fa-book-open-reader"></i> Read Insights
                     </a>
                 </div>
             </li>
-        </ul>                        
-    </div>        
+        </ul>
+    </div>
 </section>
 {% endblock %}
 
 {% block body %}
 <section class="container">
     <div class="row">
-        <div class="col s12 m4 l4">
-            <div class="card-panel">
-                <h5>About Us</h5>
-                <span class="black-text">Our platform connects a growing community of spiritual travelers, offering user-driven journey insights and information on sacred destinations. With India's 97% surge in spiritual travel searches, this website empowers travelers and guides to share, discover, and plan journeys to revered sites like Ayodhya, Ujjain, and Badrinath.</span>
+        <!-- About Us Section -->
+        <div class="col s12 m4">
+            <div class="card-panel hoverable">
+                <h5 class="center-align">About Us</h5>
+                <p>
+                    Join a growing community of spiritual travelers. Share and discover insights on sacred destinations like Ayodhya, Ujjain, and Badrinath. Whether you're seeking inspiration or practical tips, this is your one-stop guide for spiritual journeys.
+                </p>
             </div>
         </div>
-        <div class="col s12 m4 l4">
-            <div class="card-panel">
-                <h5>Browse Sites</h5>
-                <span class="black-text">This section offers users a comprehensive directory of spiritual destinations, allowing them to explore various locations, learn about their significance, and discover new places to visit. This feature helps travelers plan their spiritual journeys by providing detailed information on a wide range of sacred sites.</span>
+        <!-- Browse Sites Section -->
+        <div class="col s12 m4">
+            <div class="card-panel hoverable">
+                <h5 class="center-align">Browse Sites</h5>
+                <p>
+                    Discover a curated directory of spiritual destinations. Learn about their significance, explore sacred sites, and plan your spiritual journey with detailed information on popular and lesser-known locations.
+                </p>
             </div>
-        </div>        
-        <div class="col s12 m4 l4">
-            <div class="card-panel">
-                <h5>Journey Insights</h5>
-                <span class="black-text">This section allows users to share experiences of their visits to spiritual sites, including insights on tour operators and routes. This feature fosters a collaborative community where travelers can explore authentic, user-generated content, helping others make informed decisions on spiritual journey planning.</span>
+        </div>
+        <!-- Journey Insights Section -->
+        <div class="col s12 m4">
+            <div class="card-panel hoverable">
+                <h5 class="center-align">Journey Insights</h5>
+                <p>
+                    Share your travel experiences, rate tour operators, and guide others through your authentic insights. Be part of a collaborative community that helps travelers make informed decisions.
+                </p>
             </div>
-        </div> 
+        </div>
     </div>
 </section>
 {% endblock %}
