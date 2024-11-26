@@ -455,6 +455,58 @@ Browse Sites: Displays all sites or those filtered by user criteria.
     
 - ## **Testing**
 ------------
++ ### Manual Testing (Feature Testing)
+
+#### Authentication
+
+| Sr No | Page       | User Action                                    | Expected Result                                               | Pass/Fail |
+|-------|------------|-----------------------------------------------|--------------------------------------------------------------|-----------|
+| 1     | Register   | Enter valid username and password, click 'Register'. | User is redirected to the profile page.                      | Pass      |
+| 2     | Register   | Enter an existing username and click 'Register'.     | Error message displayed: "Username already exists."          | Pass      |
+| 3     | Register   | Enter mismatched passwords and click 'Register'.     | Error message displayed: "Passwords do not match."           | Pass      |
+| 4     | Login      | Enter valid username and password, click 'Login'.    | User is redirected to the profile page.                      | Pass      |
+| 5     | Login      | Enter invalid username or password, click 'Login'.   | Error message displayed: "Incorrect Username and/or Password." | Pass    |
+| 6     | Logout     | Click 'Logout'.                                    | User is redirected to the login page.                        | Pass      |
+
+---
+
+#### Visitor Features
+
+| Sr No | Page           | User Action                                   | Expected Result                                                | Pass/Fail |
+|-------|----------------|----------------------------------------------|---------------------------------------------------------------|-----------|
+| 7     | Navbar         | Click on the Yatra logo.                     | Redirected to the home page.                                  | Pass      |
+| 8     | Browse Sites   | Search with a valid site name.               | List of matching locations displayed.                         | Pass      |
+| 9     | Browse Sites   | Leave the search input blank and click 'Search'. | User is redirected to the browse-sites page.                  | Pass      |
+| 10    | Browse Sites   | Use 'Part of India' filter dropdown.          | Locations filtered based on selected region.                  | Pass      |
+| 11    | Browse Sites   | Search using deity name (case insensitive).   | List of locations matching the deity displayed.               | Pass      |
+
+---
+
+#### User Features
+
+| Sr No | Page            | User Action                                  | Expected Result                                                | Pass/Fail |
+|-------|-----------------|----------------------------------------------|----------------------------------------------------------------|-----------|
+| 12    | Add Site        | Add a site with all required fields filled.  | Site is added successfully, and user is redirected to browse-sites. | Pass  |
+| 13    | Add Site        | Add a site with missing fields.              | Error message displayed: "All fields are required."            | Pass      |
+| 14    | Edit Site       | Update all fields of an existing site.       | Updates are saved, and user is redirected to browse-sites.     | Pass      |
+| 15    | Delete Site     | Click 'Delete' button on a site.             | A confirmation dialog appears: "Are you sure you want to delete this site? This action cannot be undone." On confirmation, the site is deleted. | Pass |
+| 16    | Add Insight     | Add an insight with valid details.           | Insight is saved, and user is redirected to insights page.     | Pass      |
+| 17    | Add Insight     | Submit an insight form with missing fields.  | Error message displayed: "All fields are required."            | Pass      |
+| 18    | Edit Insight    | Update all fields of an existing insight.    | Changes are saved, and user is redirected to insights page.    | Pass      |
+| 19    | Delete Insight  | Click 'Delete' button on an insight.         | A confirmation dialog appears: "Are you sure you want to delete this insight? This action cannot be undone." On confirmation, the insight is deleted. | Pass |
+
+---
+
+#### Defensive Programming
+
+| Sr No | Feature         | Implementation                              | Expected Result                                                | Pass/Fail |
+|-------|-----------------|---------------------------------------------|----------------------------------------------------------------|-----------|
+| 20    | Delete Site     | Confirmation prompt before deletion.        | Dialog box prevents accidental deletion.                       | Pass      |
+| 21    | Delete Insight  | Confirmation prompt before deletion.        | Dialog box prevents accidental deletion.                       | Pass      |
+
+
+
+
 + ### Validator Testing Results
     * Javascript was tested using JSHint
     JSHint highlighted some undefined variables and unused functions. These were due to them being used/accessed from within the HTML pages rather than within the script itself.
