@@ -90,6 +90,7 @@ The primary purpose of this platform is to connect spiritual travelers, tour ope
 | **8. Visual Design and Accessibility** | Visitor                         | Experience a visually appealing and accessible design       | Have an enjoyable and inclusive browsing experience         |
 |                                      | Visitor                         | Use a consistent color scheme and typography               | Focus on content without distractions                       |
 
+[Back to Index - Table of Contents](#index---table-of-contents)
 ---
 ## **UX Planes**
 ------------
@@ -144,6 +145,7 @@ The skeleton ensures a cohesive layout with responsive design principles.
 
 #### **Wireframes**
 1. **Home Page Wireframe:** Features a prominent hero section, call-to-action buttons, and informational cards.
+![whomepage][def37]
 2. **Browse Sites Page Wireframe:** Showcases a collapsible list of spiritual sites with filtering options.
 3. **Read Insights Page Wireframe:** Displays user insights in a responsive grid layout.
 
@@ -227,7 +229,9 @@ The Yatra app has immense potential for growth. Here are some key goals for its 
 ### **Conclusion**
 The Yatra app is designed to empower spiritual travelers, providing an inclusive platform for sharing experiences, accessing resources, and fostering community engagement. With these future goals, Yatra aims to become a comprehensive tool for spiritual and cultural exploration, connecting travelers worldwide with India's spiritual heritage.
 
+[Back to Index - Table of Contents](#index---table-of-contents)
 
+---
 ## **Features**
 ---
 
@@ -377,6 +381,8 @@ The Yatra app is designed to empower spiritual travelers, providing an inclusive
      - Ensures matching passwords and username constraints are met.
    - **Register Button:** 
      - Submits the registration request.
+
+[Back to Index - Table of Contents](#index---table-of-contents)
 
 ------------
 - ## **Logic**
@@ -546,6 +552,8 @@ The Yatra app is designed to empower spiritual travelers, providing an inclusive
         - Sessions are used to manage user authentication.
         - Restricts features like adding, editing, or deleting entries to logged-in users.
 
+[Back to Index - Table of Contents](#index---table-of-contents)
+
 ------------ 
 ## **Database Structure**
 
@@ -616,27 +624,43 @@ Holds user-generated reviews or journey insights about the sites.
 ![erdiagram][def36]
 
 ------------    
-- ## **Technologies Used**
+## **Technologies Used**
 ------------
-+ ### Languages Used
-    * #### HTML5
-    * #### CSS3
-    * #### Javascript (Jquery)
-    * #### Python
-+ ### Frameworks, Libraries and Programs Used
-    * #### [Cdnfonts][Cdnfonts] : was used to import Samarkan fonts into style.css file which has been used in the Main Logo title.
-    * #### [Font Awesome][def9] : was used to add icons for aesthetic and UX purposes.
-    * #### [Git][def10]: was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
-    * #### [GitHub][def11] : It is used as the repository for the project's code after being pushed from Git.
-    * #### [Balsamiq][def13] : was used to create the wireframes during the design process.
-    * #### [Coolors][def14] : was used to find complimenting colors to the backgorund image for the website color palette.
-    * #### [Materialize][def17] : codes from Materilaize has been used to create various aspects, especially, call out buttons, card panels, slider etc..
-    * #### [Autoprefixer CSS online][def18] : has been used to parse the CSS in style.css to add different browser prefixes to ensure the CSS works on all browsers.
-    * #### [favicon.io][def19] : was used to generate the favicon for the website.
-    * #### [W3C Markup Validation Service][def20] : has been used to validate the code on all pages and style.css.
-    * #### [UI.Dev][def22] : was used to generate Mockup Screenshots.
-    * #### [Free Formatter][def23] : was used to ensure proper indentation in the HTML and CSS codes.
-    * #### MOngoDB has been used to create database
+
+### **Languages Used**
+- **HTML5**: Used for structuring the application's content with semantic and accessible markup.
+- **CSS3**: Provides styling and layout for the application's user interface, including responsive designs and animations.
+- **JavaScript (with JQuery)**: Enhances interactivity and dynamic functionality, enabling efficient DOM manipulation and AJAX calls.
+- **Python**: Powers the backend logic, enabling server-side processing, routing, and integration with the database.
+
+---
+
+### **Frameworks, Libraries, and Programs Used**
+
+- **[Cdnfonts](https://www.cdnfonts.com/)**: Used to import the 'Samarkan' font into the `style.css` file, which is applied to the main logo title for aesthetic appeal.
+- **[Font Awesome](https://fontawesome.com/)**: Integrated to provide icons for better user experience and visual enhancement throughout the website.
+- **[Git](https://git-scm.com/)**: Utilized for version control, allowing changes to be tracked and committed via the Gitpod terminal before being pushed to the repository.
+- **[GitHub](https://github.com/)**: Used as the hosting platform for the project's repository, enabling code sharing and collaboration.
+- **[Balsamiq](https://balsamiq.com/)**: Employed to create wireframes during the design phase, ensuring a clear layout and structure of the application before development.
+- **[Coolors](https://coolors.co/)**: Assisted in generating a complementary color palette that aligns with the background image, ensuring a visually harmonious design.
+- **[Materialize CSS](https://materializecss.com/)**: Utilized for responsive front-end design, including buttons, sliders, card panels, and navigation menus to enhance the user interface.
+- **[Autoprefixer CSS Online](https://autoprefixer.github.io/)**: Parsed the `style.css` file to add necessary browser prefixes, ensuring compatibility across different browsers.
+- **[favicon.io](https://favicon.io/)**: Used to create the favicon for the application, providing branding and recognition in browser tabs.
+- **[W3C Markup Validation Service](https://validator.w3.org/)**: Verified the validity of the HTML and CSS code for all pages, ensuring adherence to web standards and best practices.
+- **[UI.Dev](https://ui.dev/)**: Generated mockup screenshots to visualize and present the website’s layout and design in real-world scenarios.
+- **[Free Formatter](https://www.freeformatter.com/)**: Used to format and indent HTML and CSS code properly for improved readability and maintainability.
+- **[MongoDB](https://www.mongodb.com/)**: Implemented as the database to store and manage application data, such as user details, locations, and reviews.
+
+---
+
+### **Additional Tools**
+- **Tinypng**: Optimized images for better performance and faster page load times.
+- **Lighthouse Testing (Chrome DevTools)**: Evaluated performance, accessibility, best practices, and SEO, ensuring the application delivers a high-quality experience.
+- **Heroku**: Hosted and deployed the application, providing a robust and scalable environment for the project.
+- **Drawio**: Create flowchart and ER diagram
+
+This stack of technologies ensures a seamless development process and delivers a highly functional, accessible, and visually appealing web application for the "Yatra" platform.
+
     
 - ## **Testing**
 ------------
@@ -743,6 +767,8 @@ Holds user-generated reviews or journey insights about the sites.
 |-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
 | TC_DD_001         | Fetch Regions        | Verify that dropdown dynamically fetches distinct regions.       | Dropdown updates with only relevant options.               |
 
+[Back to Index - Table of Contents](#index---table-of-contents)
+
 ---
 
 ### Manual Testing (Feature Testing)
@@ -794,8 +820,9 @@ Holds user-generated reviews or journey insights about the sites.
 | 20    | Delete Site     | Confirmation prompt before deletion.        | Dialog box prevents accidental deletion.                       | Pass      |
 | 21    | Delete Insight  | Confirmation prompt before deletion.        | Dialog box prevents accidental deletion.                       | Pass      |
 
+[Back to Index - Table of Contents](#index---table-of-contents)
 
-
+---
 
 + ### Validator Testing Results
     * Javascript was tested using JSHint
@@ -806,8 +833,27 @@ Holds user-generated reviews or journey insights about the sites.
 
     * My code did not pass the Code Institute Linter for Python.
     I was unable to fix some errors such as line length as it was interfering with my code. I will read up more regarding Pep8 compliance and how to code accordingly. In future projects I intend to validate as i go along. Or perhaps even install one of the formatter packages.
-    
-+ ### Lighthouse Testing
+
+[Back to Index - Table of Contents](#index---table-of-contents)
+
++ ### Lighthouse Testing Results
+
+| Page           | Performance | Accessibility | Best Practices | SEO  | Observations                                                                                      |
+|-----------------|-------------|---------------|----------------|------|--------------------------------------------------------------------------------------------------|
+| Browse Sites   | 94          | 86            | 100            | 100  | Good performance and SEO. Accessibility could be improved to ensure a seamless user experience. |
+| Home Page      | 99          | 87            | 100            | 100  | Excellent performance and SEO. Accessibility can benefit from further adjustments.              |
+| Read Insights  | 95          | 92            | 100            | 100  | Strong performance and accessibility with minimal layout shifts ensuring a smooth experience.   |
+| Register Page  | 99          | 95            | 100            | 100  | Near-perfect metrics across all categories. Accessibility is well-optimized.                   |
+| Sign-In Page   | 99          | 95            | 100            | 100  | Excellent metrics with no significant improvements needed.                                      |
+| Add Insight    | 94          | 93            | 100            | 100  | Minor layout improvements could further enhance the user experience.                            |
+| Add Site       | 95          | 81            | 100            | 100  | Strong performance. Accessibility score highlights areas for enhancement, like form labels.     |
+
+### Findings
+1. **Performance**: All pages scored above 90, indicating optimized load times and minimal rendering delays.
+2. **Accessibility**: Scores vary between 81 and 95, suggesting improvements are needed, especially for form field labels and contrast issues.
+3. **Best Practices**: All pages scored a perfect 100, reflecting adherence to web standards and secure development practices.
+4. **SEO**: Scores were consistently at 100, demonstrating excellent optimization for search engines.
+
 Results
 ![HomePage][def50]
 ![BrowseSites][def64]
@@ -817,16 +863,21 @@ Results
 ![AddInsight][def68]
 ![AddSite][def47]
 
-    
+[Back to Index - Table of Contents](#index---table-of-contents)
 
 + ### Responsiveness Testing Results
+    #### HomePage Page
     ![Results][def26]
+    #### Browse Sites Page
     ![Results][def27]
-    ![Results][def28]
+    #### Registration Page
     ![Results][def30]
+    #### Login Page
     ![Results][def31]
+    #### Read Insights Page
     ![Results][def32]
-    ![Results][def45]
+
+[Back to Index - Table of Contents](#index---table-of-contents)
 
 ---
 
@@ -902,23 +953,9 @@ Root Cause: The reset button was not programmed to reinitialize the dropdowns or
 
 Resolution: The "Reset" button was configured to reload the page entirely, ensuring that all filters were cleared and dropdowns were reset to their default states.
 
----
-
-## **Database Structure**
-- **Collections:**
-    - `locations`: Stores site details like `site_name`, `deity`, and `part_name`.
-    - `reviews`: Stores user insights with fields like `rating`, `purpose`, and `description`.
+[Back to Index - Table of Contents](#index---table-of-contents)
 
 ---
-
-## **Technologies Used**
-### Languages:
-- Python, JavaScript (JQuery), HTML5, CSS3.
-### Frameworks and Tools:
-- Flask, MongoDB, Materialize CSS, Git, Heroku.
-
----
-
 - ## Browser Compatibility
 ------------
 * Testing has been carried out on the following browsers :
@@ -1015,9 +1052,9 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def21]: https://linktr.ee/iamavinashkr
 [def22]: https://ui.dev/amiresponsive?url=https://ashwinsel.github.io/Milestone-1/index.html
 [def23]: https://www.freeformatter.com/html-formatter.html
-[def24]: ./documentation/home-ss.png
+[def24]: ./documentation/ss-home.png
 [def25]: ./documentation/flowchart1.png
-[def26]: ./documentation/home-ss.png
+[def26]: ./documentation/ss-home.png
 [def27]: ./documentation/ss-browsesites.png
 [def28]: ./documentation/ss-addinsight.png
 [def29]: ./documentation/colour-pallete.png
@@ -1028,6 +1065,7 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def34]: ./documentation/error1.png 
 [def35]: ./documentation/flowchart.png
 [def36]: ./documentation/erdiagram.png
+[def37]: ./documentation/whomepage.png
 [def42]: https://yatra1-4cc0076860db.herokuapp.com/ 
 [def45]: ./documentation/lt-addsite.png
 [def46]: ./documentation/main-img.png
@@ -1039,6 +1077,5 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def66]: ./documentation/lt-register.png
 [def67]: ./documentation/lt-signin.png
 [def68]: ./documentation/lt-addinsight.png
-[def74]: ./documentation/traceability-matrix.png
 [def75]: https://www.jagranjosh.com/general-knowledge/gk-quiz-on-hindu-mythology-1706194424-1
 [def76]: https://courses.webdevsimplified.com/
