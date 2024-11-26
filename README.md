@@ -91,310 +91,293 @@ The primary purpose of this platform is to connect spiritual travelers, tour ope
 |                                      | Visitor                         | Use a consistent color scheme and typography               | Focus on content without distractions                       |
 
 ---
-
 ## **UX Planes**
 ------------
-- ### **Strategy**
-    * Make it easier for users planning a tour to spiritual destinations around India. Provide a platform for sharing reviews of tour operators and spiritual sites in India. Facilitate community engagement and knowledge sharing.
-    + #### Project Goals
-    * This includes User Authentication: Registration, login, profile management. Review Management: Create, edit, update and delete journey insights. Site Information: Create, edit, update and delete spiritual sites, browse existing sites. Filter spiritual sites based on certain attributes.
-    * Being able to access all devices.
-    + #### Customer Goals
-    * The focus is on meeting the needs of users, both first-time visitors and returning users. 
-    * Visitors: Access reviews, browse spiritual sites, and plan travel routes.
-    * Registered Users:** Create and manage profiles, submit and edit reviews, suggest new sites and routes.
-    + #### Future Implementations
-    * Additional Social Media Integrations: Integrating other platforms like Facebook and Twitter for broader user engagement. Expanded Database: Continuously updating the database with more spiritual sites and user-generated content. Advanced Features: Implementing features like user forums, travel itineraries, and recommendation algorithms to enhance user experience.
-- ### **Scope**
-    - The scope of the Yaatra website encompasses creating a user-friendly and accessible web interface that allows users to:
-        * Users can create and manage their profiles. Only the profile owner can edit or delete their reviews, ensuring authenticity and control.
-        * Users can write detailed reviews about their experiences with tour operators, routes taken, and spiritual sites visited.
-        * Users can contribute information about new spiritual sites that are not yet listed on the platform, enriching the database.
-        * Users can browse through an extensive list of potential spiritual sites to visit.
-        * Users can add and suggest possible routes that connect specific religious sites, helping others plan their journeys.
-- ### **Structure**
-    - The Structure Plane outlines how the information and functionalities are organized.
-        * Home Page: Introduction, Navigation to other parts, Option to Register or just Browse.
-        * Sites Section: List of sites, add new site, update or delete a site.
-        * Insights Page: Create review, browse reviews, review details.
-        * Navigation: Top navigation bar with links to Home, Reviews, Sites, Routes, Profile, and Admin (if applicable).
-        * Forms: Registration, login, review submission, site and route suggestion forms.
-        * Search and Filter: Search bar and filters for reviews, sites, and routes.
-- ### **Skeleton**
-    + #### Wireframes
-        ![Home Page Wireframe][def4]
-        ![Events Page Wireframe][def5]                    
-- ### **Surface**
-    + #### Colour Scheme
-        * I have used a rusted copper ztar color palette consistent with the backgorund image of a ethereal map image.
-        * #CD8D47 a shade of dark green, black, and a dark rusty font colors play a good contrast to the chosen colour palette.
 
-        ![Colour Scheme][def29]        
+### **Strategy**
+The strategy focuses on creating a seamless platform to assist spiritual travelers in India. The Yatra app connects users to an extensive database of spiritual sites, enabling users to share insights, manage profiles, and plan tours effectively. It emphasizes accessibility, interactivity, and a community-driven model.
 
-    + #### Typography
-        ### Typography Used in the CSS
+#### **Project Goals**
+- **User Authentication:** Allow users to register, log in, and manage profiles securely.
+- **Review Management:** Empower users to create, edit, and delete reviews of spiritual journeys.
+- **Site Information Management:** Provide a platform to browse, filter, add, edit, and delete spiritual sites.
+- **Inclusivity:** Ensure accessibility for users across all devices.
+- **Filtering Capabilities:** Offer options to filter spiritual sites based on regions or deities.
 
-1. **Fonts Imported:**
-   - **'Lord Spirit':** Imported from `https://fonts.cdnfonts.com/css/lord-spirit`.
-   - **'Lumanosimo':** Imported from `https://fonts.cdnfonts.com/css/lumanosimo`.
+#### **Customer Goals**
+- **Visitors:** Access reviews and site information effortlessly to plan spiritual journeys.
+- **Registered Users:** Create profiles, submit reviews, suggest sites, and manage content collaboratively.
 
-2. **Font Families Applied:**
-   - **'Lumanosimo', sans-serif:** Applied globally to the entire body, ensuring that the text throughout the website is primarily set in this font.
-   - **'Lord Spirit', sans-serif:** Specifically used for the `.brand-logo` in the navigation bar to give it a distinctive and visually striking appearance.
+#### **Future Implementations**
+- **Social Media Integration:** Enable login and sharing features via Facebook and Twitter.
+- **Expanding the Database:** Regularly update the platform with new spiritual sites and user-generated content.
+- **Advanced Features:** Add forums, personalized travel itineraries, and AI-powered recommendations.
 
-### Detailed Write-Up
+---
 
-#### 1. **'Lumanosimo' Font:**
-   - **Usage:** 
-     - This font is the primary typeface for the website and is applied globally across most of the text elements, such as the body text and `.banner-text`. It ensures consistency and coherence in the visual language of the site.
-   - **Styling:**
-     - The font is paired with a sans-serif fallback to maintain legibility in cases where the custom font fails to load.
-     - Additionally, text shadows are applied to the body text using `text-shadow: 2px 2px 2px rgba(234, 194, 134, 0.5);`. This effect adds depth and a subtle glow to the text, enhancing its readability against varied backgrounds.
+### **Scope**
+The scope of the Yatra app ensures a comprehensive user experience with these core functionalities:
 
-#### 2. **'Lord Spirit' Font:**
-   - **Usage:** 
-     - This font is exclusively used for the `.brand-logo` in the navigation bar. The large size (`font-size: 3em;`) and unique styling of 'Lord Spirit' create a distinct identity for the brand name, making it stand out on the page.
-   - **Styling:**
-     - The font is paired with a sans-serif fallback to maintain consistency in appearance and ensure that the brand logo remains visually appealing, even if the custom font is not available.
-     - The font color is set to `#031929`, a dark blue that contrasts well with the background, ensuring that the logo is easily recognizable.
+- **Profile Management:** Registered users can create, edit, and delete profiles securely.
+- **Review Insights:** Users can write, browse, and manage detailed journey reviews.
+- **Site Information:** A vast list of spiritual sites is available, along with features to add, update, or delete information.
+- **Filtering System:** Filters based on geographical regions and associated deities enhance navigation.
+- **Navigation Bar:** A well-structured navigation bar ensures easy access to all features, including home, reviews, sites, and user profiles.
+- **Interactive UI:** Features collapsible lists, modals, and sliders to present information in an engaging and accessible way.
 
-### Typography Implementation
+---
 
-The chosen typography reflects the spiritual and elegant nature of the "Yaatra Spiritual Tours Guide" website. 
+### **Structure**
+The structure organizes the app logically, focusing on intuitive navigation and efficient user interaction.
 
-- **'Lumanosimo'** provides a balance between readability and a touch of sophistication, suitable for the descriptive and narrative content of the website. The text-shadow effect enhances the spiritual and ethereal feel, which aligns with the theme of spiritual tours.
-  
-- **'Lord Spirit'** contributes to brand recognition by making the logo striking and memorable. Its decorative style is likely intended to evoke a sense of tradition and cultural richness, which resonates with the spiritual focus of the site.
+#### **Key Sections**
+- **Home Page:** Welcomes users with a hero slider, navigation links, and introductory information about the app's purpose.
+- **Browse Sites Page:** Lists spiritual sites with collapsible details, filters, and add/edit options (for logged-in users).
+- **Read Insights Page:** Displays user-generated journey reviews in a grid layout, with edit/delete options for contributors.
+- **Forms Section:** Includes forms for registration, login, site addition, and review submission.
+- **Search and Filter:** Provides a streamlined way to filter sites and reviews based on criteria like location and deity.
 
-* Responsive Design Considerations
+---
 
-- The font sizes are adjusted in the media queries to ensure readability across different screen sizes. For instance, the brand logo's font size decreases on smaller screens (`2em` for tablets and `1.5em` for mobile devices), maintaining visual hierarchy without overwhelming the smaller display areas.
-- Similarly, the `.banner-text` and button text sizes are reduced on smaller screens to ensure the layout remains clean and accessible, avoiding text overflow and maintaining a harmonious design.
-    + #### Imagery
-        ![backgroundimage][def46]
-        *   This image is ideal for use in the banner or hero section of your website, especially on the homepage. The vibrant and captivating visual of iconic Indian landmarks symbolizes spirituality, culture, and the essence of India's spiritual heritage, perfectly aligning with the theme of "Yaatra Spiritual Tours Guide."
-        * ![favicon][def49] The favicon was designed using an online favicon generator. This has been designed with an image that has a man sat inbetween coloured aura and chakra through. This makes it to able to spot amongst several tabs in the browser.
-        * All the images used are license free or been used with owners consent. The sources are listed in the Credits section.
-        * Images used were compressed using Tinypng.com for better performance and user experience.
+### **Skeleton**
+The skeleton ensures a cohesive layout with responsive design principles.
+
+#### **Wireframes**
+1. **Home Page Wireframe:** Features a prominent hero section, call-to-action buttons, and informational cards.
+2. **Browse Sites Page Wireframe:** Showcases a collapsible list of spiritual sites with filtering options.
+3. **Read Insights Page Wireframe:** Displays user insights in a responsive grid layout.
+
+---
+
+### **Surface**
+The surface design reflects the spiritual essence of the Yatra app with a carefully chosen color palette, typography, and imagery.
+
+#### **Color Scheme**
+The color palette is inspired by India's spiritual richness, with hues that complement the banner imagery.
+
+![Color Palette](./documentation/colour-pallete.png)
+
+---
+
+#### **Typography**
+Typography reflects the balance between spiritual elegance and readability.
+
+1. **'Lord Spirit':** 
+   - Used exclusively for the brand logo in the navigation bar.
+   - Styling: Font size of `3em`, paired with `#031929` (deep blue) for a visually striking contrast.
+
+2. **'Lumanosimo':**
+   - Applied globally for all body text and headings.
+   - Styling: Subtle text shadow (`rgba(234, 194, 134, 0.5)`) enhances readability.
+
+---
+
+#### **Imagery**
+1. **Banner Image:** An ethereal map of India featuring iconic spiritual landmarks. Represents the cultural and spiritual depth of the app's theme.
+2. **Favicon:** A chakra-inspired icon symbolizing spiritual energy and mindfulness. Helps with easy identification in browser tabs.
+3. **Other Images:** All images are compressed and optimized for performance, ensuring faster load times without compromising quality.
+
+---
+
+### **Future Goals**
+The Yatra app has immense potential for growth. Here are some key goals for its future development:
+
+#### **1. Gamification for Engagement**
+   - Introduce reward points for active contributions like submitting reviews, adding new sites, or providing corrections. 
+   - Create badges for milestones, such as "Top Reviewer" or "Explorer of the Month," to encourage consistent user engagement.
+
+#### **2. Advanced AI Features**
+   - Implement an **AI-based Recommendation System**:
+     - Suggest spiritual sites based on user preferences, past reviews, and browsing history.
+     - Provide personalized itineraries that combine multiple sites with travel routes, estimated travel times, and tips.
+   - Incorporate **Natural Language Processing (NLP):**
+     - Analyze user reviews to highlight commonly mentioned sentiments (e.g., “peaceful,” “crowded,” “beautiful architecture”).
+
+#### **3. Mobile Application Development**
+   - Expand the platform with a dedicated mobile app for iOS and Android users. This app can feature offline access to saved itineraries and reviews, ensuring usability in areas with limited internet connectivity.
+
+#### **4. Community Forums and Discussions**
+   - Introduce user forums where travelers can discuss topics like best travel times, local accommodations, and nearby restaurants.
+   - Enable Q&A functionality, allowing users to seek advice from experienced travelers or moderators.
+
+#### **5. Accessibility Enhancements**
+   - Add support for more languages, catering to both domestic and international audiences.
+   - Provide voice navigation and text-to-speech functionality for users with visual impairments.
+
+#### **6. Enhanced Mapping Features**
+   - Integrate with **Google Maps** or **Mapbox** for interactive mapping of spiritual sites.
+   - Allow users to pin and save their favorite locations for future reference.
+
+#### **7. Social Media Integration**
+   - Enable users to share reviews, itineraries, and badges directly on platforms like Instagram, Twitter, and Facebook.
+   - Allow registration and login using social media accounts for faster onboarding.
+
+#### **8. API Development**
+   - Develop APIs to allow third-party travel apps or tourism boards to integrate Yatra’s database of spiritual sites and reviews.
+
+#### **9. Volunteer Moderation System**
+   - Empower trusted users or moderators to review submitted content, ensuring that the platform remains reliable and user-driven.
+
+#### **10. Donation and Sponsorship Model**
+   - Introduce a donation system for users to support the platform's development.
+   - Allow sponsorship opportunities for tour operators or religious organizations to highlight their services on the platform responsibly.
+
+---
+
+### **Conclusion**
+The Yatra app is designed to empower spiritual travelers, providing an inclusive platform for sharing experiences, accessing resources, and fostering community engagement. With these future goals, Yatra aims to become a comprehensive tool for spiritual and cultural exploration, connecting travelers worldwide with India's spiritual heritage.
+
 
 ## **Features**
-------------
-- ### Home page
+---
+
+### **Home Page**
 #### 1. **Header Section with Slider**
-   - **Hero Slider (`.hslider`):**
-     - The homepage opens with a dynamic slider, featuring two distinct slides that introduce users to the core offerings of "Yaatra" – a guide for spiritual travelers.
-     - **Slide 1:** 
-       - *Title*: "Yaatra" - The site title is displayed in an elegant and grand font, 'Lord Spirit,' emphasizing the spiritual essence of the platform. The large font size (6rem) ensures the title is the focal point, grabbing the user's attention immediately.
-       - *Tagline*: "Guide for Spiritual Travellers" - This succinct tagline conveys the purpose of the platform, helping visitors understand what the website is about at a glance.
-       - *Call to Action*: 
-         - If the user is not logged in, they see options to either "Sign In" or "Register," each button styled with a teal darken-1 background, ensuring they stand out against the banner's background. Icons like the sign-in and user-plus symbols enhance usability and visual appeal.
+   - **Dynamic Hero Slider (`.hslider`):**
+     - The homepage features a dynamic slider with two slides designed to welcome users and highlight the purpose of "Yaatra."
+     - **Slide 1:**
+       - *Title*: "Yaatra" is prominently displayed with the tagline "Guide for Spiritual Travellers," reflecting the spiritual and community-oriented essence of the platform.
+       - *Call-to-Actions*: For unauthenticated users, buttons for "Sign In" and "Register" are displayed prominently.
      - **Slide 2:**
-       - *Title*: "Just want to Browse?" - This slide addresses users who may not want to sign up immediately, offering an inviting alternative to explore the site.
-       - *Tagline*: "No Problem!" - Reinforces the inclusive approach of the platform, making all users feel welcome.
-       - *Call to Action*: Buttons are provided to "Browse Sites" and "Read Journey Insights," ensuring easy navigation to key sections of the website. Each button is clearly labeled with an accompanying icon (e.g., book and read icons), making it visually intuitive.
+       - *Title*: Encourages browsing by offering options to explore the site without logging in.
+       - *Call-to-Actions*: "Browse Sites" and "Read Journey Insights" buttons facilitate navigation to key areas of the website.
 
-#### 2. **Main Content Section (`.container`)**
-   - **Information Cards (`.card-panel`):**
-     - This section uses a three-column grid layout to present key features in a visually balanced and accessible manner. Each column contains a card with a header and a brief description, making the information digestible and easy to scan.
+#### 2. **Information Cards**
+   - **Feature Highlights:**
+     - A three-column grid displays cards explaining the core functionalities of the platform:
+       - **About Us:** Introduces Yaatra's purpose and role in guiding spiritual travelers.
+       - **Journey Insights:** Explains how users can share and benefit from shared travel experiences.
+       - **Community Growth:** Emphasizes user participation in enriching the platform's offerings.
 
-   - **Feature 1: About Us**
-     - *Description*: 
-       - The "About Us" card introduces the platform, highlighting its role in connecting a community of spiritual travelers. It emphasizes the platform's user-driven nature, where insights and information are shared to aid in planning spiritual journeys.
-       - *Context*: 
-         - The text mentions the surge in spiritual travel searches in India, framing the platform as a timely and relevant resource for modern spiritual travelers.
-- ### Browse Site page
-### Detailed Features on the "Browse Sites" Page
+---
 
+### **Browse Sites Page**
 #### 1. **Header Section**
-   - **Interactive Filter Options:**
-     - The "Browse Sites" page begins with a highly interactive filtering system designed to help users easily navigate through the numerous spiritual sites available on the platform.
-     - **Filtering by Part of India:**
-       - Users can filter the sites based on different geographical regions of India. The filter dropdown allows the selection of specific parts, making it easier for users to explore sites relevant to their travel plans.
-     - **Filtering by Deity:**
-       - Another dropdown filter lets users narrow down the sites by the deity associated with them. This feature is particularly useful for those looking to visit temples or locations dedicated to a particular deity.
-     - **Filter Button:**
-       - Once the filters are set, users can apply them using the "Filter" button, which is prominently styled with a black-text-on-orange background, ensuring it's noticeable and easy to use.
+   - **Filter Options:**
+     - Dropdown menus allow users to filter sites by:
+       - **Region of India** (e.g., North, South, East, West).
+       - **Deity** associated with the site.
+     - A "Filter" button applies the chosen filters to display relevant results.
+   - **Add Site Button:**
+     - Visible to logged-in users, encouraging them to add new spiritual sites to the platform's growing database.
 
-   - **Add Site Option (Visible to Logged-In Users Only):**
-     - Logged-in users are presented with an option to "Add Site," empowering the community to contribute by adding new spiritual sites to the directory. The button is styled with an orange lighten-2 background, making it visually distinct. It includes an icon (fa-plus) to emphasize its purpose clearly.
-     - This feature fosters a collaborative environment, encouraging user-generated content that can benefit others in the community.
+#### 2. **Collapsible List of Sites**
+   - **Site Entries:**
+     - Each site is displayed as a collapsible list item with:
+       - *Site Name*: Bold text with an icon for temples.
+       - *Accessibility*: A wheelchair icon indicates if the site is accessible for individuals with disabilities.
+     - **Edit/Delete Options:**
+       - Available only to the original creator of the site, providing secure content management.
+   - **Detailed View:**
+     - Upon expanding a site entry, users can view:
+       - *Deity Name*, *Location*, and *Description* of the site.
 
-   - **Instructional Text:**
-     - A small, clear instruction is provided at the top, advising users on how to activate the dropdown filters. This ensures a smooth user experience, particularly for those unfamiliar with the interface.
+---
 
-#### 2. **Body Section**
-   - **Collapsible List of Spiritual Sites:**
-     - The main body of the page features a collapsible list that dynamically displays the spiritual sites based on the applied filters. The collapsible structure is user-friendly, allowing for a clean and organized presentation of information.
-     - **Collapsible Headers:**
-       - Each site is introduced with a collapsible header that includes:
-         - *Site Name*: Displayed in bold, ensuring that the name of each site stands out.
-         - *Icon*: A gopuram icon (fa-gopuram) is used to symbolize temples and spiritual sites, adding a culturally relevant visual cue.
-         - *Accessibility Indicator*: If a site is wheelchair accessible, a wheelchair icon is displayed alongside the site name, providing crucial information for users with mobility needs.
-       - **Edit and Delete Options (Conditional Display):**
-         - If the logged-in user is the creator of a particular site, additional buttons for editing and deleting the site appear within the header. These buttons are styled distinctly (yellow for edit, red for delete) to differentiate their functions, with text-shadow effects to enhance visibility against different backgrounds.
-   
-   - **Collapsible Body:**
-     - When a user clicks on a site's header, the collapsible body expands to reveal detailed information about the site:
-       - *Deity*: The specific deity associated with the site is clearly mentioned, aiding users in understanding the religious significance of the location.
-       - *Part of India*: This detail situates the site geographically, helping users in their travel planning.
-       - *Description*: A comprehensive description of the site is provided, offering users insight into its historical, cultural, and spiritual importance.
-- ### Read Insights page
-### Detailed Features on the "Read Insights" Page
-
+### **Read Insights Page**
 #### 1. **Header Section**
-   - **Page Title:**
-     - The "Read Insights" page opens with a clear and centered title, "Journey Insights," setting the stage for users to delve into personal stories, reviews, and insights shared by other spiritual travelers. The title's positioning at the center enhances its visibility and immediately informs users about the page's content.
-   
-   - **Add Insight Button (Conditional Display):**
-     - For logged-in users, the page offers an "Add Insight" button prominently displayed beneath the title. 
-     - **Button Styling and Iconography:**
-       - The button is styled with an orange lighten-2 background and black text, maintaining a consistent design with other interactive elements across the site. The inclusion of a "fa-plus" icon makes the button's purpose clear at a glance—inviting users to contribute their own travel experiences to the platform.
-     - **User Empowerment:**
-       - This feature not only encourages user-generated content but also empowers the community to share valuable information and personal experiences, enriching the collective knowledge available on the platform.
+   - **Page Title:** 
+     - "Journey Insights" is prominently displayed to set the page's theme.
+   - **Add Insight Button:**
+     - Logged-in users can click the "Add Insight" button to share their travel experiences.
 
-#### 2. **Body Section**
-   - **Grid Display of Insights:**
-     - The main body of the page is designed as a grid layout, effectively organizing multiple user insights into a visually appealing and easily navigable structure. This layout allows for the simultaneous display of numerous insights without overwhelming the user, facilitating easy browsing and comparison of different experiences.
-     - **Grid Item Composition:**
-       - Each grid item represents an individual user insight and is thoughtfully composed to highlight key aspects of the travel experience:
-         - **Location Name:** The name of the location is prominently displayed as the heading of each grid item, immediately informing users about the specific spiritual site or journey being discussed.
-         - **Visit Date:** The exact date of the visit is formatted as "dd.mm.yyyy," providing a clear reference to when the experience took place. This is crucial for contextualizing the insight, as experiences may vary depending on the time of year or recent developments at the site.
-         - **Rating:** Users can see how the experience was rated, offering a quick indication of the overall satisfaction with the journey.
-         - **Purpose of Visit:** This field explains the intent behind the visit, such as pilgrimage, meditation, or cultural exploration, helping others with similar motivations to gauge the relevance of the insight.
-         - **Review Description:** A detailed review is provided, where users share their personal experiences, thoughts, and any advice they may have for future visitors. This rich content forms the core value of the page, offering authentic, firsthand accounts of spiritual journeys.
-         - **Created By:** The review's author is credited at the bottom of each grid item, fostering a sense of community and accountability. Knowing the author can also help users reach out or connect with others who have similar interests.
+#### 2. **Grid Layout of Insights**
+   - **Insight Cards:**
+     - Each card includes:
+       - *Location Name*: The site being reviewed.
+       - *Visit Date*: Clearly displayed for context.
+       - *Purpose*: Explains the intent of the journey.
+       - *Rating*: A user-provided score (0-5).
+       - *Description*: A detailed review of the experience.
+       - *Created By*: The author's username.
+   - **Edit/Delete Buttons:**
+     - Authors can edit or delete their reviews, ensuring up-to-date content.
 
-   - **Edit and Delete Options (Conditional Display):**
-     - If the logged-in user is the creator of a particular review, they are given additional options to edit or delete their insight:
-       - **Edit Button:** Allows users to make changes to their original insight, ensuring that information remains accurate and up-to-date. The button is styled in yellow accent-3 with black text, making it distinct but complementary to the overall design.
-       - **Delete Button:** Users can also choose to delete their insight if it is no longer relevant or if they wish to remove it for any other reason. The delete button is styled with a red darken-4 background and black text, with a subtle text-shadow effect for emphasis. This styling alerts users to the button's significance, reducing accidental deletions.
-     - **Conditional Logic:** The edit and delete buttons are only visible to the author of the insight, ensuring that users have control over their contributions while preventing unauthorized changes.
-- ### Edit Sites page
-### Detailed Features on the "Edit Site" Page
+---
 
+### **Add Site Page**
 #### 1. **Header Section**
-   - **Page Banner:**
-     - The header section opens with a banner that communicates the page’s purpose: allowing users to update and refine existing site entries.
-     - **Message Content:**
-       - The banner text, “Want to Edit a Site Entry? We're always want to keep our community's knowledge and experiences up-to-date,” is designed to encourage users to contribute to the platform's accuracy and relevance. It highlights the importance of maintaining up-to-date information, fostering a collaborative spirit.
-     - **Text Styling:**
-       - The text is centrally aligned, with the primary call to action ("Want to Edit a Site Entry?") underlined for emphasis, drawing attention to the page's functionality.
+   - Encourages users to contribute to the site database by sharing details about unlisted spiritual locations.
 
-#### 2. **Body Section**
-   - **Form Structure:**
-     - The main body contains a well-organized form that allows users to update information about a specific spiritual site. The form is centrally placed and neatly presented within a card panel, ensuring a clean, user-friendly experience.
-
-   - **Input Fields:**
-     - **Site Name Input Field:**
-       - **Icon and Field:** The site name is prefixed by a "fa-gopuram" icon, visually associating the field with the cultural or spiritual significance of the site. The field enforces a text pattern validation and limits input to between 2 and 100 characters, ensuring that names are correctly formatted and of appropriate length.
-       - **Pre-filled Value:** The input field is pre-filled with the existing site name, making it easy for users to identify and edit as needed.
-       - **Label Styling:** The label for the site name is styled in black text, maintaining a consistent theme, and is set as active to indicate that the field is pre-populated.
-
-     - **Deity Field:**
-       - **Icon and Field:** The deity associated with the site is represented by a "fa-hands-praying" icon. The input field requires text input with a pattern allowing between 2 and 20 characters, reflecting the deity's name. This field is marked as required, emphasizing its importance in describing the site.
-       - **Validation:** The validation ensures that users input a proper name, avoiding any formatting errors.
-       - **Pre-filled Value:** The field is pre-filled with the current deity name, simplifying the editing process.
-
-     - **Part of India Location Selection:**
-       - **Icon and Dropdown:** The dropdown is prefixed with a "fa-compass" icon, symbolizing direction or location. Users can select the part of India where the site is located from a predefined list.
-       - **Dynamic Selection:** The dropdown automatically highlights the part of India currently associated with the site, thanks to the conditional selection logic, making the editing process straightforward.
-       - **Label:** The label is actively displayed, and the field is required to ensure this essential information is captured.
-
-     - **Description Field:**
-       - **Icon and Textarea:** The description field, preceded by a "fa-rectangle-list" icon, allows users to provide detailed information about the site. The textarea enforces a character count between 5 and 800, giving enough room for detailed descriptions while preventing overly lengthy entries.
-       - **Pre-filled Text:** The textarea is pre-filled with the site's existing description, making it easy for users to revise or update the content.
-       - **Label:** The label remains active and styled in black text, ensuring clarity in what the field is asking for.
-
-     - **Disabled Access Checkbox:**
-       - **Checkbox and Icon:** The disabled access feature is represented by a checkbox with an adjacent "fa-wheelchair" icon, making the feature easily recognizable. The checkbox is pre-checked if the site currently has disabled access, reflecting the existing data.
-       - **Label and Tooltip:** The label encourages inclusivity by highlighting the importance of noting whether the site is accessible to those with disabilities.
-
+#### 2. **Form Features**
+   - **Site Name Field:** 
+     - Requires a valid site name (2-100 characters).
+   - **Deity Field:**
+     - Captures the primary deity's name (2-90 characters).
+   - **Region Selector:**
+     - Dropdown menu for selecting the geographical region.
+   - **Description Field:**
+     - A textarea for detailed site descriptions (5-800 characters).
+   - **Disabled Access Checkbox:**
+     - Allows users to indicate if the site is accessible for individuals with disabilities.
    - **Submit Button:**
-     - **Button Placement and Styling:**
-       - The submit button is centrally placed within the form, with the text "Update" indicating the action's purpose. The button is styled with an orange background and black text, consistent with the site's design palette, ensuring it stands out as the primary call to action on the page.
-       - **Iconography:** Although no additional icon is present with the button text, the straightforward design and color contrast make the button highly visible and inviting.
-- ### Edit Insights page
-### Detailed Features on the "Edit Insights" Page
+     - Styled with an orange theme and icon for submission.
 
+---
+
+### **Add Insights Page**
 #### 1. **Header Section**
-   - **Page Banner:**
-     - The header section features a prominent banner that outlines the purpose of the page: enabling users to edit their previously shared journey insights.
-     - **Message Content:**
-       - The banner text reads, “Want to Edit a Journey Insight? We're always want to keep our community's knowledge and experiences up-to-date,” which serves as a prompt for users to refine and update their insights, reinforcing the collaborative nature of the platform.
-     - **Text Styling:**
-       - The primary call to action, “Want to Edit a Journey Insight?” is underlined for emphasis, ensuring it grabs the user’s attention. The text is center-aligned, making it easily readable and visually appealing.
+   - Invites users to share their journey experiences for the benefit of the community.
 
-#### 2. **Body Section**
-   - **Form Structure:**
-     - The main body contains a structured form that allows users to update their journey insights. This form is centrally located within a card panel, providing a clean and organized layout that is easy to navigate.
-
-   - **Input Fields:**
-     - **Where Did You Go Field:**
-       - **Icon and Field:** This field is designed to capture the name of the location visited, prefixed with a "fa-gopuram" icon to symbolically represent the nature of the journey. The field accepts text input with a validation pattern, requiring the input to be between 2 and 100 characters, ensuring the entry is concise yet descriptive.
-       - **Pre-filled Value:** The field is pre-filled with the existing location name, making it simple for users to make adjustments if necessary.
-       - **Label Styling:** The label for this field is set to active with black text, maintaining consistency with the page's overall design.
-
-     - **Rating Field:**
-       - **Icon and Field:** This field is dedicated to capturing the user’s rating of their experience, represented by a "fa-hands-praying" icon. The field requires text input, ensuring that the rating is formatted correctly within a 2 to 20 character limit.
-       - **Pre-filled Value:** The field is pre-filled with the current rating, allowing users to easily update their experience rating.
-       - **Label Styling:** The label is active, providing clarity on what information the field is requesting.
-
-     - **When Did You Go Field:**
-       - **Icon and Datepicker:** The visit date field is marked with a "fa-calendar-alt" icon, linking it to the idea of time or scheduling. It includes a date picker for ease of use, allowing users to select the date they visited the site. This date is formatted as "dd.mm.yyyy" and is pre-filled based on the existing data.
-       - **Label:** The label is actively displayed above the date picker, ensuring users understand the field's purpose.
-
-     - **Purpose Field:**
-       - **Icon and Field:** The purpose of the visit is captured in this field, marked with a "fa-rectangle-list" icon, symbolizing a list or explanation. This text input requires the purpose to be concise, falling between 2 and 20 characters.
-       - **Pre-filled Value:** The field comes pre-filled with the user's previously stated purpose, streamlining the editing process.
-       - **Label:** The label remains active, clearly communicating the field’s intent.
-
-     - **Description Field:**
-       - **Textarea and Label:** This textarea is where users can elaborate on their experience. The field is styled to be center-aligned with a clear, prominent label reading, “Tell Us More About Your Experience!” This encourages detailed and thoughtful input, with the field requiring between 5 and 800 characters.
-       - **Pre-filled Text:** The textarea is pre-filled with the existing review description, allowing for easy updates and revisions.
-       - **Label Styling:** The label is styled in black text to remain consistent with the other fields, ensuring the page maintains a cohesive look.
-
+#### 2. **Form Features**
+   - **Location Field:**
+     - Captures the name of the visited location (2-100 characters).
+   - **Rating Field:**
+     - Allows users to rate their experience (0-5 scale).
+   - **Visit Date Field:**
+     - A date picker for specifying the visit date.
+   - **Purpose Field:**
+     - Specifies the reason for the visit (e.g., retreat, prayer).
+   - **Description Field:**
+     - A textarea for a detailed review (5-800 characters).
    - **Submit Button:**
-     - **Button Placement and Styling:**
-       - The submit button is prominently placed at the bottom of the form, with the text "Update" clearly indicating its function. The button is styled with an orange background and black text, matching the site’s design scheme. This ensures the button stands out as the primary call to action on the page.
-       - **Iconography:** The button does not include an additional icon, but the color contrast and central placement make it immediately noticeable and easy to interact with.
-- ### Register page
-### Detailed Features on the "Register" Page
+     - Prominent orange button styled for easy submission.
 
-The "Register" page is designed to provide a seamless and user-friendly experience for new users to create an account on the platform. Below is a breakdown of the key features and elements of the page:
+---
 
+### **Edit Site Page**
 #### 1. **Header Section**
-   - **Page Banner:**
-     - The banner at the top of the page serves as a prompt for users who might already have an account.
-     - **Text Content:**
-       - The banner text reads, “Already Have a Profile?” followed by a link, “Sign In Here!” which directs users to the login page if they are existing members.
-     - **Link Styling:**
-       - The "Sign In Here!" link is styled with a light-blue text color (`text-darken-4`), making it stand out against the rest of the banner text. This provides a clear call-to-action for existing users while maintaining the page's overall aesthetic.
+   - Prompts users to refine or update information about an existing site entry.
 
-#### 2. **Body Section**
-   - **Form Layout:**
-     - The registration form is centrally located within a card panel, ensuring that it is the focal point of the page. The form uses a simple and clean layout that guides the user through the registration process step-by-step.
+#### 2. **Form Features**
+   - Pre-filled fields allow users to easily update:
+     - **Site Name**, **Deity**, **Region**, and **Description**.
+   - **Disabled Access Checkbox:** 
+     - Indicates whether the site is accessible for individuals with disabilities.
+   - **Submit Button:** 
+     - Styled for visibility and ease of use.
 
-   - **Input Fields:**
-     - **Username Field:**
-       - **Icon and Field:** The username field is accompanied by a "fa-user-plus" icon, which visually represents user creation. The input field is set up to accept an alphanumeric username between 5 and 8 characters in length.
-       - **Validation and Requirements:** The input field has validation rules enforcing the character length and type, ensuring that the username meets the platform’s criteria.
-       - **Label and Helper Text:** The label, “Username,” is styled in black text and is accompanied by helper text that clearly explains the required format: “An alphanumeric value of 5-8 characters.”
+---
 
-     - **Password Field:**
-       - **Icon and Field:** The password field is identified with a "fa-lock" icon, indicating security. Users are required to create a password with similar constraints to the username: an alphanumeric string between 5 and 8 characters.
-       - **Validation:** The password field includes validation to ensure that the input meets the required format.
-       - **Label and Helper Text:** The label, “Password,” is also in black text, with helper text explaining the requirements, “An alphanumeric value of 5-8 characters.”
+### **Edit Insights Page**
+#### 1. **Header Section**
+   - Encourages users to keep their insights up-to-date for the benefit of the community.
 
-     - **Confirm Password Field:**
-       - **Icon and Field:** This field is similar in appearance to the password field, also using the "fa-lock" icon, but its purpose is to confirm the user's password. It ensures that users correctly enter their intended password by requiring them to input it twice.
-       - **Validation:** The field includes validation to check that the confirm password matches the initial password input, reducing errors during registration.
-       - **Label and Helper Text:** The label is clear, and the helper text reminds users to “Ensure this matches the password above.”
+#### 2. **Form Features**
+   - Allows users to edit previously submitted:
+     - **Location Name**, **Rating**, **Visit Date**, **Purpose**, and **Description**.
+   - **Submit Button:** 
+     - Prominent orange button for submission.
 
-   - **Register Button:**
-     - **Button Styling and Placement:**
-       - The "Register" button is styled prominently with a large, full-width design in black with white text. This ensures it is the most noticeable element on the page and is placed at the bottom of the form to conclude the registration process.
-       - **Iconography:** The button includes a "fa-sign-in-alt" icon, reinforcing the idea of signing up or registering for the platform.
-       - **Action:** Clicking the button submits the form data for processing, initiating the registration of a new user account.
+---
+
+### **Authentication Pages**
+#### **Login Page**
+   - **Username and Password Fields:** 
+     - Collect login credentials with validation for security.
+   - **Submit Button:** 
+     - Initiates the login process.
+   - **Register Link:** 
+     - Redirects users to the registration page if they don’t have an account.
+
+#### **Register Page**
+   - **Form Fields:**
+     - Collects username, password, and password confirmation.
+   - **Validation:** 
+     - Ensures matching passwords and username constraints are met.
+   - **Register Button:** 
+     - Submits the registration request.
+
 ------------            
 - ### Traceability Matrix
     ![Table][def74]
