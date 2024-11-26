@@ -1,14 +1,15 @@
 # Yaatra - Spiritual Tours Guide
-###### Code Institute / Back end for a web application using Python and a micro-framework. / Milestone Project 3
-------------
+###### Code Institute / Backend for a web application using Python and a micro-framework / Milestone Project 3
 [View Live Project Here][def42]
 
-As a part of Milestone Project 3 to demonstrate an understanding of on non-relational databases using Flask and Python. I have developed a website that serves as a platform where visitors can create and manage reviews about spiritual sites in India. This platform aims to foster a community of spiritual travellers, providing valuable insights and recommendations for future visitors.
+As a part of Milestone Project 3, this project demonstrates the use of non-relational databases with Flask and Python. The website serves as a platform where visitors can create and manage reviews about spiritual sites in India. It aims to foster a community of spiritual travelers, providing valuable insights and recommendations for future visitors.
 
-Purpose and Target Audience
-The primary purpose of this platform is to connect spiritual travellers, tour operators, and cultural enthusiasts, offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual and religious travel, the platform aims to stand out from other travel review websites.
+### Purpose and Target Audience
+The primary purpose of this platform is to connect spiritual travelers, tour operators, and cultural enthusiasts, offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual and religious travel, the platform aims to stand out from other travel review websites.
 
 ![Screenshot][def24]
+
+---
 
 ## **Index - Table of Contents**
 ------------
@@ -56,37 +57,41 @@ The primary purpose of this platform is to connect spiritual travellers, tour op
     * [Media](#media)
 + [Gratitude](#gratitude)
 
-## **User Experience (UX)**
-------------
+---
 
-- ### User stories
-As a User from all different age groups and technical abilities I want the website not to be complicted and too busy.
-1. **User Registration**
-   - *As a new visitor, I want to create an account to access all the website features.*
-   - *As a registered user, I want to log in to my account to manage my site entries and journey insights.*
-2. **Creating Journey Insights**
-   - *As a registered user, I want to create a review of a journey so that I can share my experiences with others. *
-3. **Editing and Deleting Reviews**
-   - *As a registered user, I want to edit my reviews so that I can update my experiences or correct any mistakes.*
-   - *As a registered user, I want to delete my reviews so that I can remove any content I no longer wish to share.*
-4. **Adding New Spiritual Sites**
-   - *As a registered user, I want to add information about new spiritual sites that are not listed on the website so that I can contribute to the community’s knowledge base.*
-5. **Browsing Sites and Routes**
-   - *As a visitor, I want to browse a list of spiritual sites to explore potential places to visit.*
-   - *As a visitor, I want to browse a list of regular routes so that I can plan my journeys more effectively.*
-6. **Suggesting Journey Insights**
-   - *As a registered user, I want to share insights that connect specific religious sites so that I can help others with their travel planning.*
-7. **Reading Reviews**
-   - *As a visitor, I want to read experiences of other travelers so that I can make informed decisions about my travels.*
-8. **User Recommendations**
-   - *As a registered user, I want to recommend sites and insights based on my experiences so that I can help other users have better journeys.*
-9. **Responsive Design**
-    - *As a visitor, I want the website to be responsive so that I can access it on any device, including my mobile phone or tablet.*
-10. **Search Functionality**
-    - *As a visitor, I want to search for specific spiritual sites, tour operators, or routes so that I can quickly find the information I need.*
-11. **Sites Sorting and Filtering**
-    - *As a visitor, I want to sort and filter reviews based on criteria like date, rating, and popularity so that I can easily find the most relevant information.*
-    
+## **User Experience (UX)**
+
+### **User Stories**
+
+| **App Function**                    | **As a/an**                     | **I want to be able to...**                                 | **So that I can...**                                        |
+|-------------------------------------|----------------------------------|-------------------------------------------------------------|-------------------------------------------------------------|
+| **1. Viewing and Navigation**       | Visitor                         | Browse spiritual sites and journey insights                 | Explore potential destinations and learn from others' experiences |
+|                                      | Visitor                         | View detailed information about a site                      | Understand the significance and plan my visit               |
+|                                      | Visitor                         | Filter spiritual sites by region                   | Narrow down my search based on my specific interests        |
+|                                      | Visitor                         | Search for a specific site or insight                       | Quickly find information about a particular location or experience |
+|                                      | Visitor                         | Access the website on mobile or desktop devices             | Have a seamless browsing experience across devices          |
+|                                      | Visitor                         | Navigate easily between pages       | Find the content I’m looking for without confusion          |
+| **2. Registration and User Accounts** | Visitor                         | Register for an account                                      | Access features like adding, editing, or deleting entries   |
+|                                      | Registered User                 | Log in to my account                                         | Manage my spiritual site entries and journey insights       |
+|                                      | Registered User                 | Log out of my account                                        | Ensure my account information remains secure                |
+| **3. Sites Management**              | Registered User                 | Add new spiritual sites                                      | Contribute to the database and help the community grow      |
+|                                      | Registered User                 | Edit existing sites I created                               | Update or correct details for accuracy                      |
+|                                      | Registered User                 | Delete sites I created                                       | Remove outdated or incorrect entries                        |
+|                                      | Visitor                           | View all site submissions                                   | Learn about various sites and plan my travel             |
+| **4. Insights Management**          | Registered User                 | Add a journey insight                                       | Share my travel experience and help others                  |
+|                                      | Registered User                 | Edit insights I created                                     | Update or correct details of my reviews                     |
+|                                      | Registered User                 | Delete insights I created                                   | Remove content that is no longer relevant                   |
+|                                      | Visitor                         | View insights shared by others                              | Learn from the experiences of fellow travelers              |
+| **5. Searching and Filtering**      | Visitor                         | Filter sites dynamically based on region and deity          | Easily find relevant sites that match my criteria           |
+|                                      | Visitor                         | Search for a site by typing a keyword (e.g., deity name)    | Easily find relevant sites that match my criteria      |
+| **6. Usability Enhancements**       | Visitor                         | View prominent links to "Browse Sites" and "Read Insights"  | Quickly access the main features of the site from the homepage |
+|                                      | Visitor                         | Understand filtering instructions with clear prompts        | Avoid confusion when using input fields        |
+| **7. Validation and Security**      | Registered User                 | Receive validation messages when filling forms              | Ensure I’m entering valid and complete information          |
+| **8. Visual Design and Accessibility** | Visitor                         | Experience a visually appealing and accessible design       | Have an enjoyable and inclusive browsing experience         |
+|                                      | Visitor                         | Use a consistent color scheme and typography               | Focus on content without distractions                       |
+
+---
+
 ## **UX Planes**
 ------------
 - ### **Strategy**
@@ -481,14 +486,96 @@ Results
     ![Results][def32]
     ![Results][def45]
 
-            
-- ## Bugs and Fixes
-------------
-* Could not connect to MongoDB in the begining this took some time to fix as the string provided by MOngoDB website lacked database name and it was not very obvious at first. With Help from Code Institute tutors Rebecca and Alan thi was then resolved.
-[Error Screen Shot]![def34]
-* Another error came up on debug ERR_TOO_MANY_REDIRECTS
-This was resolved by checking which line on debug in app.py and removed un-necessary retun statement.
-*
+---
+
+## **Bugs and Fixes**
+
+**1. Issue with Dynamic Dropdown Behavior in "Select Part of India"**
+Bug Encountered: The dropdown for "Select Part of India" required users to manually click "Apply Filters" once to load options dynamically. This behavior was unintuitive, and users often did not understand why the dropdown was empty.
+
+Root Cause: The dropdown relied on backend data fetched asynchronously but lacked an automated trigger or preloading mechanism.
+
+Resolution: A dedicated /get_part_names route was created to fetch the dropdown data dynamically. JavaScript AJAX was used to trigger this call on page load, ensuring the dropdown was populated seamlessly without user intervention.
+
+**2. Continuous Triggering of Filters on Page Load**
+Bug Encountered: Auto-triggering the "Apply Filters" button caused continuous loops of the action, leading to poor performance and usability.
+
+Root Cause: The JavaScript lacked proper state management, resulting in infinite event triggering.
+
+Resolution: A triggered flag was introduced to ensure the button auto-triggered only once. This resolved the infinite loop issue and ensured the button remained functional for manual usage.
+
+**3. Case Sensitivity and Limited Flexibility in Deity Filtering**
+Bug Encountered: The "Select Deity" dropdown restricted users to predefined options, which did not support partial or case-insensitive searches. This made it difficult for users to filter based on personalized inputs.
+
+Root Cause: The backend query relied on exact matches, which excluded valid results with slight variations in spelling or case (e.g., "Shiva" vs. "shiva").
+
+Resolution: The dropdown was replaced with a free-text input field. Validation was added to ensure clean inputs (pattern="^[a-zA-Z0-9 ]{2,90}$"). The backend was enhanced to use MongoDB's $regex operator with case-insensitive matching, allowing more flexible filtering.
+
+**4. Delete Functionality Did Not Work Consistently**
+Bug Encountered: The delete functionality for both sites and journey insights did not always remove the correct entries. This led to confusion and created data inconsistencies.
+
+Root Cause: Improper usage of ObjectId during deletion attempts caused invalid MongoDB queries, resulting in no action being taken.
+
+Resolution: Validation was added to ensure that valid ObjectId values were passed to the delete queries. Error handling was also improved to provide clear feedback when deletions failed due to invalid or missing IDs.
+
+**5. Edit Functionality Validation**
+Bug Encountered: Users could submit incomplete or invalid data when editing entries, leading to malformed or broken records in the database.
+
+Root Cause: Validation for required fields was either absent or improperly implemented in the frontend forms and backend routes.
+
+Resolution: Comprehensive validation logic was added to both the frontend and backend to ensure all fields were filled out before submission. Backend logic was adjusted to reject invalid updates and provide informative error messages.
+
+**6. Usability Enhancements: Adding Links to Home Page**
+Bug Encountered: The homepage did not include intuitive navigation links to key sections like "Browse Sites" and "Journey Insights," forcing users to navigate through the top menu.
+
+Root Cause: A lack of design foresight during the initial UI implementation.
+
+Resolution: Hyperlinks were added to the "Browse Sites" and "Journey Insights" cards on the homepage. These links guide users directly to the respective sections, improving the overall navigation experience.
+
+**7. Visual Enhancements: Color and Typography**
+Bug Encountered: The application had inconsistent typography and color schemes across pages, leading to a lack of visual coherence. Important messages and elements lacked sufficient contrast, reducing readability.
+
+Root Cause: Colors and typography were not aligned with a consistent design system during the initial implementation.
+
+Resolution: The color scheme was standardized across the application, using contrasting tones for text and backgrounds to improve readability. Typography was adjusted for consistency and emphasis, with clear headings and appropriate font sizes for different sections.
+
+**8. Cluttered "Read Insights" Page**
+Bug Encountered: The "Read Insights" page displayed all journey details at once, overwhelming users and making it difficult to scan through entries.
+
+Root Cause: The UI lacked an expandable or collapsible design, forcing users to scroll through unnecessary details for each entry.
+
+Resolution: A collapsible structure was implemented, showing only the title, visit date, and rating by default. Additional details can be revealed by clicking on a specific entry. This improvement streamlined the layout and made it easier to navigate.
+
+**9. Missing Validation for Materialize Select**
+Bug Encountered: The select elements on the filter and form pages failed validation when users interacted with them improperly or skipped them entirely, even for optional fields.
+
+Root Cause: Materialize select elements required additional logic to handle focus, blur, and selection states.
+
+Resolution: Custom validation logic was implemented using JavaScript to dynamically mark select elements as valid or invalid based on user interaction. This ensured smoother form submission and reduced user frustration.
+
+**10. Reset Button Behavior on Filters**
+Bug Encountered: Clicking the "Reset" button did not fully clear the form fields or reload the page state. This caused filters to behave unpredictably after being reset.
+
+Root Cause: The reset button was not programmed to reinitialize the dropdowns or clear backend queries.
+
+Resolution: The "Reset" button was configured to reload the page entirely, ensuring that all filters were cleared and dropdowns were reset to their default states.
+
+---
+
+## **Database Structure**
+- **Collections:**
+    - `locations`: Stores site details like `site_name`, `deity`, and `part_name`.
+    - `reviews`: Stores user insights with fields like `rating`, `purpose`, and `description`.
+
+---
+
+## **Technologies Used**
+### Languages:
+- Python, JavaScript (JQuery), HTML5, CSS3.
+### Frameworks and Tools:
+- Flask, MongoDB, Materialize CSS, Git, Heroku.
+
+---
 
 - ## Browser Compatibility
 ------------
