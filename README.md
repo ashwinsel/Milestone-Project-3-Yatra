@@ -378,41 +378,243 @@ The Yatra app is designed to empower spiritual travelers, providing an inclusive
    - **Register Button:** 
      - Submits the registration request.
 
-------------            
-- ### Traceability Matrix
-    ![Table][def74]
 ------------
 - ## **Logic**
     * The initial flowchart designed to base the app routes is as follows:
     ![Flowchart][def25]
+    * The final Flowchart prepared using Draw.io based on all app routes
+    ![Flowchart2][def35]
+
+    * Deatiled step by step logic in English. Detailed flow aligns with the logic implemented in app.py and provides a comprehensive overview of how the Yatra app functions end-to-end.
+      #### Steps in Yatra App Functionality
+
+        ###### **User Visits Homepage (/)**
+
+        The app loads the homepage, displaying site information and navigation options based on the user's login status.
+
+        **Features:**
+        - **If logged out:** Options to log in or register.
+        - **If logged in:** Personalized options such as profile management, browsing, or adding content.
+
+        ---
+
+        ###### **User Registration (/register)**
+
+        - Users can register by providing a unique username and a password.
+        - Validation ensures no duplicate usernames and confirms the password.
+        - **On successful registration:**
+          - A user session is created.
+          - Redirects to the user's profile page.
+
+        ---
+
+        ###### **User Login (/login)**
+
+        - Users provide their credentials to log in.
+        - Validates the username and password against the database.
+        - **On success:**
+          - A user session is created.
+          - Redirects to the user's profile page.
+        - **On failure:**
+          - Displays a flash error message.
+
+        ---
+
+        ###### **User Logout (/logout)**
+
+        - Clears the user's session.
+        - Redirects back to the login page with a flash message confirming the logout.
+
+        ---
+
+        ###### **Browse Spiritual Sites (/browse_sites)**
+
+        Displays a list of spiritual sites from the database.
+
+        **Features:**
+        - **Filter options:**
+          - Filter by geographical regions or associated deities.
+        - **Search functionality:**
+          - Supports case-insensitive and partial matches.
+        - **For logged-in users:**
+          - Add, edit, or delete site entries based on ownership.
+
+        ---
+
+        ###### **Add a New Site (/add_site)**
+
+        - Accessible only to logged-in users.
+        - Users fill out a form to provide:
+          - Site name, associated deity, geographical region, description, and accessibility features.
+        - Validates all fields before submission.
+        - **On success:**
+          - Adds the new site to the database.
+          - Redirects to the browse sites page with a success message.
+
+        ---
+
+        ###### **Edit an Existing Site (/edit_site/<locations_id>)**
+
+        - Accessible only to the site's creator.
+        - Allows the user to update:
+          - Site name, associated deity, region, description, and accessibility status.
+        - Validates all input fields.
+        - **On success:**
+          - Updates the database.
+          - Redirects to the browse sites page.
+
+        ---
+
+        ###### **Delete a Site (/delete_site/<locations_id>)**
+
+        - Accessible only to the site's creator.
+        - Deletes the specified site from the database.
+        - Redirects to the browse sites page with a confirmation message.
+
+        ---
+
+        ###### **Read Insights (/read_insights)**
+
+        Displays user reviews or journey insights.
+
+        **Features:**
+        - Organized in a grid format, showing:
+          - Site name, date of visit, rating, purpose, and detailed review.
+        - Logged-in users can edit or delete their own reviews.
+
+        ---
+
+        ###### **Add a New Insight (/add_insights)**
+
+        - Accessible only to logged-in users.
+        - Users provide:
+          - Site visited, rating, visit date, purpose, and review description.
+        - All fields are required, and validation ensures proper formatting.
+        - **On success:**
+          - Adds the new review to the database.
+          - Redirects to the read insights page.
+
+        ---
+
+        ###### **Edit an Existing Insight (/edit_insights/<review_id>)**
+
+        - Accessible only to the review's creator.
+        - Allows users to update their review details.
+        - Validates all fields.
+        - **On success:**
+          - Updates the database.
+          - Redirects to the read insights page.
+
+        ---
+
+        ###### **Delete an Insight (/delete_insights/<review_id>)**
+
+        - Accessible only to the review's creator.
+        - Deletes the specified review from the database.
+        - Redirects to the read insights page with a confirmation message.
+
+        ---
+
+        ###### **Search and Filter Functionality**
+
+        - Available on the browse sites and read insights pages.
+        - **Supports case-insensitive partial matches for:**
+          - Deity names.
+          - Geographical regions.
+        - Returns dynamically updated results.
+
+        ---
+
+        ###### **Dynamic Dropdowns (/get_part_names)**
+
+        - Fetches distinct geographical regions dynamically for dropdown filters.
+        - Enhances user experience by providing only relevant options.
+
+        ---
+
+        ###### **Error Handling**
+
+        - All routes implement error handling for:
+          - Invalid IDs for editing or deleting entries.
+          - Missing or empty form fields.
+          - Unauthorized access attempts.
+
+        ---
+
+        ###### **Session Management**
+
+        - Sessions are used to manage user authentication.
+        - Restricts features like adding, editing, or deleting entries to logged-in users.
+
 ------------ 
-- ## **Database Structure**
-    * Database Structure and Collections
-Collections:
-locations: Stores information about various sites. The documents in this collection include fields like site_name, deity, part_name, description, access, and created_by.
-user: Contains user credentials for authentication. Documents in this collection have fields such as username and password.
-part: Likely used to store distinct part names for dropdowns in forms. It includes at least the field part_name.
-reviews: Stores user-generated reviews for sites. Documents include fields such as where, rating, visit_date, purpose, review_des, and created_by.
-Database Operations
-User Authentication and Management:
+## **Database Structure**
 
-Registration: Users can register with a unique username and password. Passwords are hashed before being stored.
-Login: Users can log in using their username and password. Passwords are verified against stored hashes.
-Logout: Logs out the current user by removing the username from the session.
-Site Management:
+The Yatra application uses a non-relational database (MongoDB) to manage its data. The data is structured into collections, each serving a specific purpose for the application functionality. Below is a detailed explanation of the collections, their fields, and relationships.
 
-Adding Sites: New sites can be added to the locations collection with details like site_name, deity, part_name, description, and access. The site is also tagged with the username of the creator.
-Editing Sites: Existing site information can be updated. The document in the locations collection is modified based on its _id.
-Deleting Sites: Sites can be removed from the locations collection based on their _id.
-Insights/Reviews Management:
+---
 
-Adding Reviews: Users can submit reviews, which are stored in the reviews collection. Reviews include fields for the review's location, rating, visit date, purpose, and description.
-Editing Reviews: Reviews can be edited by updating the corresponding document in the reviews collection.
-Deleting Reviews: Reviews can be deleted based on their _id.
-Filtering and Browsing:
+### **Collections and Schema**
 
-Filter Sites: Allows users to filter sites based on part_name and deity.
-Browse Sites: Displays all sites or those filtered by user criteria.
+#### 1. **`locations` Collection**
+Stores information about various spiritual sites listed on the platform.
+
+- **Fields:**
+  - `site_name` (String): The name of the spiritual site.
+  - `deity` (String): The deity associated with the site.
+  - `part_name` (String): The geographical region of the site (e.g., North India, South India).
+  - `description` (String): Detailed description of the site, its significance, and features.
+  - `access` (Boolean): Indicates whether the site is wheelchair accessible.
+  - `created_by` (String): Username of the user who added the site.
+
+- **Relationships:**
+  - Linked to the `user` collection via the `created_by` field, which matches the `username` of the user who created the entry.
+  - Reviews for a site are stored in the `reviews` collection, related by the `site_name` field.
+
+---
+
+#### 2. **`user` Collection**
+Contains user credentials and manages authentication.
+
+- **Fields:**
+  - `username` (String): Unique username of the user.
+  - `password` (String): Hashed password for secure storage.
+
+- **Relationships:**
+  - Users are linked to the `locations` collection (via `created_by`) and the `reviews` collection (via `created_by`) to track ownership of sites and reviews.
+
+---
+
+#### 3. **`part` Collection**
+Stores distinct region names for dropdown filtering in forms.
+
+- **Fields:**
+  - `part_name` (String): Name of the geographical region.
+
+- **Relationships:**
+  - Used in the `locations` collection as a filter criterion via the `part_name` field.
+
+---
+
+#### 4. **`reviews` Collection**
+Holds user-generated reviews or journey insights about the sites.
+
+- **Fields:**
+  - `where` (String): Name of the site reviewed.
+  - `rating` (Number): User rating of the experience (e.g., 1-5).
+  - `visit_date` (Date): Date of the visit.
+  - `purpose` (String): Purpose of the visit (e.g., pilgrimage, meditation).
+  - `review_des` (String): Detailed review description.
+  - `created_by` (String): Username of the user who created the review.
+
+- **Relationships:**
+  - Linked to the `locations` collection via the `where` field, which matches the `site_name`.
+  - Linked to the `user` collection via the `created_by` field.
+
+---
+
+### **Schema ER Diagram**
+![erdiagram][def36]
+
 ------------    
 - ## **Technologies Used**
 ------------
@@ -438,7 +640,112 @@ Browse Sites: Displays all sites or those filtered by user criteria.
     
 - ## **Testing**
 ------------
-+ ### Manual Testing (Feature Testing)
+
+### **Test Cases Used for Testing Features**
+
+#### **Home Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_HM_001         | Hero Slider          | Verify the hero slider displays both slides.                    | Both slides appear with correct content and buttons.       |
+| TC_HM_002         | Login/Register Button| Check if the login/register buttons redirect correctly.         | User is redirected to the login or register page.          |
+| TC_HM_003         | Browse Sites Button  | Verify the "Browse Sites" button works for unauthenticated users.| User is redirected to the Browse Sites page.               |
+
+---
+
+#### **Register Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_RG_001         | Username Field       | Validate that the username field accepts only alphanumeric input.| Validation error appears for invalid input.                |
+| TC_RG_002         | Password Matching    | Verify that the password confirmation matches the entered password.| Validation error appears if passwords do not match.        |
+| TC_RG_003         | Registration Process | Test successful registration with valid data.                   | User is redirected to the profile page with a success message.|
+
+---
+
+#### **Login Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_LG_001         | Login Form           | Validate login with correct credentials.                        | User is redirected to the profile page.                    |
+| TC_LG_002         | Invalid Credentials  | Test login with incorrect credentials.                          | Error message appears, and login fails.                    |
+| TC_LG_003         | Empty Fields         | Verify that login fails if fields are left blank.               | Validation error appears, and login fails.                 |
+
+---
+
+#### **Browse Sites Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_BS_001         | Filter by Region     | Test filtering sites by region.                                 | Only sites from the selected region are displayed.          |
+| TC_BS_002         | Filter by Deity      | Test filtering sites by deity.                                  | Only sites associated with the selected deity are displayed.|
+| TC_BS_003         | Add Site Button      | Verify the "Add Site" button redirects correctly for logged-in users.| User is redirected to the Add Site page.                   |
+
+---
+
+#### **Add Site Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_AS_001         | Site Name Validation | Validate that the site name field does not accept special characters.| Validation error appears for invalid input.                |
+| TC_AS_002         | Accessibility Checkbox | Test if the wheelchair accessibility checkbox works.            | The checkbox updates the site's accessibility status.       |
+| TC_AS_003         | Successful Submission| Verify form submission with valid data.                         | Site is added to the database, and user is redirected to the Browse Sites page.|
+
+---
+
+#### **Edit Site Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_ES_001         | Pre-filled Fields    | Verify that fields are pre-filled with existing site details.    | All fields are populated with correct data.                |
+| TC_ES_002         | Validation on Update | Validate input fields when updating site details.                | Validation error appears for invalid input.                |
+| TC_ES_003         | Update Confirmation  | Verify site details are updated successfully.                   | Site is updated, and user is redirected to the Browse Sites page.|
+
+---
+
+#### **Read Insights Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_RI_001         | Insights Grid Display| Test that insights are displayed in a grid format.              | Insights appear as grid items with appropriate fields.      |
+| TC_RI_002         | Edit/Delete Buttons  | Verify that edit/delete buttons appear only for the insight creator.| Buttons are visible only for the creator of the insight.   |
+
+---
+
+#### **Add Insight Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_AI_001         | Required Fields      | Verify that all fields are marked as required.                  | Validation error appears if any required field is empty.    |
+| TC_AI_002         | Successful Submission| Verify form submission with valid data.                         | Insight is added to the database, and user is redirected to the Read Insights page.|
+
+---
+
+#### **Edit Insight Page**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_EI_001         | Pre-filled Fields    | Verify that fields are pre-filled with existing insight details. | All fields are populated with correct data.                |
+| TC_EI_002         | Validation on Update | Validate input fields when updating insight details.             | Validation error appears for invalid input.                |
+| TC_EI_003         | Update Confirmation  | Verify insight details are updated successfully.                | Insight is updated, and user is redirected to the Read Insights page.|
+
+---
+
+#### **Delete Functionality**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_DEL_001        | Delete Site          | Verify that a site can be deleted only by its creator.           | Site is deleted, and user is redirected to the Browse Sites page.|
+| TC_DEL_002        | Delete Insight       | Verify that an insight can be deleted only by its creator.       | Insight is deleted, and user is redirected to the Read Insights page.|
+
+---
+
+#### **Search and Filter**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_SF_001         | Search by Deity      | Test search functionality for deities (case-insensitive).        | Relevant results are displayed dynamically.                |
+| TC_SF_002         | Search by Region     | Test search functionality for regions (case-insensitive).        | Relevant results are displayed dynamically.                |
+
+---
+
+#### **Dynamic Dropdowns**
+| **Test Case ID** | **Feature**           | **Test Description**                                            | **Expected Result**                                         |
+|-------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------|
+| TC_DD_001         | Fetch Regions        | Verify that dropdown dynamically fetches distinct regions.       | Dropdown updates with only relevant options.               |
+
+---
+
+### Manual Testing (Feature Testing)
 
 #### Authentication
 
@@ -719,6 +1026,8 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def32]: ./documentation/ss-readinsight.png
 [def33]: https://www.visa-indian-online.org/the-full-guide-to-spiritual-tourism-in-india
 [def34]: ./documentation/error1.png 
+[def35]: ./documentation/flowchart.png
+[def36]: ./documentation/erdiagram.png
 [def42]: https://yatra1-4cc0076860db.herokuapp.com/ 
 [def45]: ./documentation/lt-addsite.png
 [def46]: ./documentation/main-img.png

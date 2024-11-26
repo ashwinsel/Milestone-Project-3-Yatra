@@ -40,14 +40,17 @@
                     <div class="input-field col s12">
                         <i class="fa-solid fa-lock prefix teal-text"></i>
                         <input id="password" name="password" type="password" 
-                               minlength="5" maxlength="8" pattern="^[a-zA-Z0-9]{5,8}$" 
-                               class="validate" required aria-label="Enter your password (5-8 alphanumeric characters)">
+                               minlength="8" maxlength="16" 
+                               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,16}$" 
+                               class="validate" required 
+                               aria-label="Enter your password (8-16 characters, including uppercase, lowercase, number, and special character)">
                         <label for="password" class="teal-text">Password</label>
                         <span class="helper-text" data-error="Invalid password" data-success="Valid password">
-                            Must be 5-8 characters long and contain only letters or numbers.
+                            Must be 8-16 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.
                         </span>
                     </div>
                 </div>
+                
                 
                 <!-- Login Button -->
                 <div class="row">
