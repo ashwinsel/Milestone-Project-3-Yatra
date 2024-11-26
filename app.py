@@ -67,7 +67,8 @@ def register():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if "user" in session:
-        username = mongo.db.user.find_one({"username": session["user"]})["username"]
+        username = mongo.db.user.find_one(
+            {"username": session["user"]})["username"]
         return render_template("home.html", username=username)
     return redirect(url_for("login"))
 
@@ -81,7 +82,9 @@ def login():
         if existing_user and check_password_hash(
                 existing_user["password"], request.form.get("password")):
             session["user"] = request.form.get("username").lower()
-            flash(f"You are successfully logged in as {session['user']}", "success")
+            flash(
+                f"You are successfully logged in as {session['user']}",
+                "success")
             return redirect(url_for("profile", username=session["user"]))
         else:
             flash("Incorrect Username and/or Password", "error")
@@ -147,13 +150,15 @@ def edit_site(locations_id):
             "access": disabled_access,
             "created_by": session["user"]
         }
-        mongo.db.locations.update_one({"_id": ObjectId(locations_id)}, {"$set": site_data})
+        mongo.db.locations.update_one(
+            {"_id": ObjectId(locations_id)}, {"$set": site_data})
         flash("Site Information Successfully Updated!", "success")
         return redirect(url_for("browse_sites"))
 
     locations = mongo.db.locations.find_one({"_id": ObjectId(locations_id)})
     part_names = mongo.db.part.distinct("part_name")
-    return render_template("edit_site.html", locations=locations, part=part_names)
+    return render_template(
+        "edit_site.html", locations=locations, part=part_names)
 
 
 @app.route("/delete_site/<locations_id>")
@@ -174,7 +179,8 @@ def delete_site(locations_id):
 @app.route('/get_part_names', methods=['GET'])
 def get_part_names():
     """Return a JSON list of distinct 'Part of India' values."""
-    part_names = mongo.db.locations.distinct('part_name')  # Fetch unique parts of India
+    part_names = mongo.db.locations.distinct(
+        'part_name')  # Fetch unique parts of India
     return jsonify(part_names)
 
 
@@ -224,7 +230,9 @@ def add_insights():
             # Retrieve and validate form inputs
             where = request.form.get("where")
             rating = request.form.get("rating")
-            visit_date = request.form.get("visit_date")  # Expect 'YYYY-MM-DD' format from the date picker
+            visit_date = request.form.get(
+                "visit_date"
+                )  # Expect 'YYYY-MM-DD' format from the date picker
             purpose = request.form.get("purpose")
             review_des = request.form.get("review_des")
 
@@ -253,7 +261,9 @@ def add_insights():
 
         except Exception as e:
             # Handle unexpected errors
-            flash(f"An error occurred while adding the review: {str(e)}", "error")
+            flash(
+                f"An error occurred while adding the review: {str(e)}",
+                "error")
             return redirect(url_for("add_insights"))
 
     # Render the add insights form for GET request
@@ -266,7 +276,8 @@ def edit_insights(review_id):
         # Retrieve form data
         where = request.form.get("where")
         rating = request.form.get("rating")
-        visit_date = request.form.get("visit_date")  # Expect 'YYYY-MM-DD' format
+        visit_date = request.form.get(
+            "visit_date")  # Expect 'YYYY-MM-DD' format
         purpose = request.form.get("purpose")
         review_des = request.form.get("review_des")
 
@@ -288,7 +299,9 @@ def edit_insights(review_id):
                 "review_des": review_des,
                 "created_by": session["user"]
             }
-            mongo.db.reviews.update_one({"_id": ObjectId(review_id)}, {"$set": review_data})
+            mongo.db.reviews.update_one(
+                {"_id": ObjectId(review_id)}, {"$set": review_data}
+            )
             flash("Review successfully updated!", "success")
             return redirect(url_for("read_insights"))
 
@@ -320,9 +333,14 @@ def delete_insights(review_id):
             flash("Review Successfully Deleted!", "success")
     except Exception as e:
         # Handle invalid ID or other unexpected errors
-        flash(f"An error occurred while deleting the review: {str(e)}", "error")
+        flash(
+            f"An error occurred while deleting the review: {str(e)}", "error")
     return redirect(url_for("read_insights"))
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")), debug=True
+    )
+    
