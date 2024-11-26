@@ -829,10 +829,24 @@ This stack of technologies ensures a seamless development process and delivers a
     JSHint highlighted some undefined variables and unused functions. These were due to them being used/accessed from within the HTML pages rather than within the script itself.
 
     * Css was validated using https://jigsaw.w3.org/css-validator/#validate_by_input+with_options
-    No issues found
+      The CSS validation report confirms that no major errors were found in the stylesheet; the document successfully validates as CSS Level 3 + SVG. However, the following warnings were noted:
 
-    * My code did not pass the Code Institute Linter for Python.
-    I was unable to fix some errors such as line length as it was interfering with my code. I will read up more regarding Pep8 compliance and how to code accordingly. In future projects I intend to validate as i go along. Or perhaps even install one of the formatter packages.
+      Vendor Extensions: Properties such as -webkit-box, -ms-flexbox, and related attributes are flagged as vendor-specific extensions. These are included to ensure cross-browser compatibility for flexbox layouts and other advanced CSS features.
+
+      Imported Stylesheets: Imported fonts from external sources (Lord Spirit and Lumanosimo) were not validated in the direct input mode. This is standard behavior as external files are excluded from the validation process.
+
+      Grid and Flex Properties: Some CSS grid and flex properties, such as -ms-grid and -webkit-box-flex, are marked as vendor-specific warnings.
+
+      Resolution:
+      The vendor-specific warnings are expected and necessary for ensuring cross-browser compatibility. They do not impact the functionality or appearance of the website and are therefore ignored.
+
+    ![cssvalidateresult][def39]
+
+    * app.py python code passed the Code Institute Linter for Python.
+        The Python validation results for the Yatra app's python code showed no errors or warnings. This indicates that the python code is syntactically correct and compliant with Pep8 standards.
+
+    ![pythonvalidateresult][def38]
+    
 
 [Back to Index - Table of Contents](#index---table-of-contents)
 
@@ -1066,6 +1080,9 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def35]: ./documentation/flowchart.png
 [def36]: ./documentation/erdiagram.png
 [def37]: ./documentation/whomepage.png
+[def38]: ./documentation/py-validate-result.png
+[def39]: ./documentation/cssvalidate-ss.png
+[def40]: ./documentation/W3C-CSS-Validator-results.pdf
 [def42]: https://yatra1-4cc0076860db.herokuapp.com/ 
 [def45]: ./documentation/lt-addsite.png
 [def46]: ./documentation/main-img.png
