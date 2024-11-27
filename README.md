@@ -825,9 +825,6 @@ This stack of technologies ensures a seamless development process and delivers a
 ---
 
 + ### Validator Testing Results
-    * Javascript was tested using JSHint
-    JSHint highlighted some undefined variables and unused functions. These were due to them being used/accessed from within the HTML pages rather than within the script itself.
-
     * Css was validated using https://jigsaw.w3.org/css-validator/#validate_by_input+with_options
       The CSS validation report confirms that no major errors were found in the stylesheet; the document successfully validates as CSS Level 3 + SVG. However, the following warnings were noted:
 
@@ -840,12 +837,47 @@ This stack of technologies ensures a seamless development process and delivers a
       Resolution:
       The vendor-specific warnings are expected and necessary for ensuring cross-browser compatibility. They do not impact the functionality or appearance of the website and are therefore ignored.
 
-    ![cssvalidateresult][def39]
+      ![cssvalidateresult][def39]
+
+    * HTML Validation Results Using W3C Validator
+      Validation Outcome:
+
+      The document passed the validation with no errors or warnings for all pages but for Login and Register page.
+
+      This confirms that the HTML code adheres to the standards set by the W3C, ensuring proper semantic structure and compliance.
+
+      As seen below the Logina nd Register page showed 2 errors which are explained as follows:
+      1. Error: No Digits After ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*@$!%*?.
+          Cause:
+          This error occurs because the pattern attribute for password validation contains special characters like @$!%*?&# directly within the regex without proper escaping. The validator expects a stricter syntax or escape sequences.
+          Impact:
+          The regex validation may still work in most browsers, but it is flagged by validators as it doesn't strictly conform to HTML5's expected encoding of special characters in regex patterns.
+      2. Error: No Digits After &#])[A-Za-z\d@$!%*?.
+          Cause:
+          Similar to the first error, this issue arises due to the unescaped inclusion of &# in the regex, which is misinterpreted as an incomplete HTML entity instead of part of the regex pattern.
+          Impact:
+          Like the first issue, the functionality is not impacted in modern browsers, but it fails validation standards.
+      
+      ![homepagevalidatorresult][def43]
+      ![browsesitesvalidatorresult][def44]
+      ![readinsightsvalidatorresult][def48]
+      ![loginvalidatorresult][def51]
+      ![registervalidatorresult][def52]
+    
+    * Javascript was tested using JSHint
+      The JSHint validation of the script.js file highlights the following metrics and findings:
+
+      The file contains 9 functions, with the largest function having 13 statements and the most complex function having a cyclomatic complexity of 3, which is within acceptable limits for maintainable code based on results in Stack Overflow entries.
+      One unused variable (jQuery) was identified on line 2. This likely results from declaring jQuery as a global variable but not directly referencing it within the script.
+      Action Taken:
+      The unused jQuery variable does not affect functionality since $ (the alias for jQuery) is actively used throughout the code. The declaration was included to satisfy the JSHint validation for $ (based on a response on Stack Overflow), so this warning can be safely ignored.
+
+      ![jsvalidateresult][def41]
 
     * app.py python code passed the Code Institute Linter for Python.
         The Python validation results for the Yatra app's python code showed no errors or warnings. This indicates that the python code is syntactically correct and compliant with Pep8 standards.
 
-    ![pythonvalidateresult][def38]
+      ![pythonvalidateresult][def38]
     
 
 [Back to Index - Table of Contents](#index---table-of-contents)
@@ -1083,12 +1115,18 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def38]: ./documentation/py-validate-result.png
 [def39]: ./documentation/cssvalidate-ss.png
 [def40]: ./documentation/W3C-CSS-Validator-results.pdf
+[def41]: ./documentation/jsvalidate-ss.png
 [def42]: https://yatra1-4cc0076860db.herokuapp.com/ 
+[def43]: ./documentation/valsshome.png
+[def44]: ./documentation/valssbrowsesites.png
 [def45]: ./documentation/lt-addsite.png
 [def46]: ./documentation/main-img.png
 [def47]: ./documentation/lt-addsite.png
+[def48]: ./documentation/valssreadinsights.png
 [def49]: ./static/img/chakra.png
 [def50]: ./documentation/lt-home.png
+[def51]: ./documentation/valsslogin.png
+[def52]: ./documentation/valssregister.png
 [def64]: ./documentation/lt-browsesites.png
 [def65]: ./documentation/lt-readinsight.png
 [def66]: ./documentation/lt-register.png

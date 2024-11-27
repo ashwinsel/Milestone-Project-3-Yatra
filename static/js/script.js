@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global $, jQuery */
+
 $(document).ready(function () {
     
     $('.sidenav').sidenav({ edge: "right" });
