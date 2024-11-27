@@ -5,7 +5,7 @@
 As a part of Milestone Project 3, this project demonstrates the use of non-relational databases with Flask and Python. The website serves as a platform where visitors can create and manage reviews about spiritual sites in India. It aims to foster a community of spiritual travelers, providing valuable insights and recommendations for future visitors.
 
 ### Purpose and Target Audience
-The primary purpose of this platform is to connect spiritual travelers, tour operators, and cultural enthusiasts, offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual and religious travel, the platform aims to stand out from other travel review websites.
+The primary purpose of this platform is to connect spiritual travelers and cultural enthusiasts, offering a space to share and discover detailed reviews of spiritual journeys. By focusing on the unique aspects of spiritual and religious travel, the platform aims to stand out from other travel review websites.
 
 ![Screenshot][def24]
 
@@ -119,11 +119,10 @@ The strategy focuses on creating a seamless platform to assist spiritual travele
 ### **Scope**
 The scope of the Yatra app ensures a comprehensive user experience with these core functionalities:
 
-- **Profile Management:** Registered users can create, edit, and delete profiles securely.
 - **Review Insights:** Users can write, browse, and manage detailed journey reviews.
 - **Site Information:** A vast list of spiritual sites is available, along with features to add, update, or delete information.
 - **Filtering System:** Filters based on geographical regions and associated deities enhance navigation.
-- **Navigation Bar:** A well-structured navigation bar ensures easy access to all features, including home, reviews, sites, and user profiles.
+- **Navigation Bar:** A well-structured navigation bar ensures easy access to all features, including home, reviews and sites.
 - **Interactive UI:** Features collapsible lists, modals, and sliders to present information in an engaging and accessible way.
 
 ---
@@ -135,7 +134,7 @@ The structure organizes the app logically, focusing on intuitive navigation and 
 - **Home Page:** Welcomes users with a hero slider, navigation links, and introductory information about the app's purpose.
 - **Browse Sites Page:** Lists spiritual sites with collapsible details, filters, and add/edit options (for logged-in users).
 - **Read Insights Page:** Displays user-generated journey reviews in a grid layout, with edit/delete options for contributors.
-- **Forms Section:** Includes forms for registration, login, site addition, and review submission.
+- **Forms Section:** Includes forms for registration, login, site addition, and submit site reviews.
 - **Search and Filter:** Provides a streamlined way to filter sites and reviews based on criteria like location and deity.
 
 ---
@@ -145,9 +144,15 @@ The skeleton ensures a cohesive layout with responsive design principles.
 
 #### **Wireframes**
 1. **Home Page Wireframe:** Features a prominent hero section, call-to-action buttons, and informational cards.
-![whomepage][def37]
+![whomepage][def53]
 2. **Browse Sites Page Wireframe:** Showcases a collapsible list of spiritual sites with filtering options.
+![wbrowsesite][def54]
 3. **Read Insights Page Wireframe:** Displays user insights in a responsive grid layout.
+![wreviews][def55]
+4. **Register Page Wireframe:** Displays a user registration form.
+![wregister][def56]
+5. **Login Page Wireframe:** Displays a user login form.
+![wlogin][def57]
 
 ---
 
@@ -1127,6 +1132,11 @@ Resolution: The "Reset" button was configured to reload the page entirely, ensur
 [def50]: ./documentation/lt-home.png
 [def51]: ./documentation/valsslogin.png
 [def52]: ./documentation/valssregister.png
+[def53]: ./documentation/whome.png
+[def54]: ./documentation/wbrowsesites.png
+[def55]: ./documentation/wreviews.png
+[def56]: ./documentation/wregister.png
+[def57]: ./documentation/wlogin.png
 [def64]: ./documentation/lt-browsesites.png
 [def65]: ./documentation/lt-readinsight.png
 [def66]: ./documentation/lt-register.png
